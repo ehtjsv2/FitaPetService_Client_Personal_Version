@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.postDelayed
-import com.example.fitapet.MainActivity
+import com.example.fitapet.NaviActivity
 import com.example.fitapet.R
 import com.example.fitapet.login.LoginActivity
 

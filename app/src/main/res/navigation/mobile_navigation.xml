@@ -18,8 +18,8 @@
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.fitapet.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_animal_reg_first"
+        android:name="com.example.fitapet.ui.animalReg.AnimalRegFragment"
+        android:label="반려동물등록제목"
+        tools:layout="@layout/fragment_animal_reg" />
 </navigation>
