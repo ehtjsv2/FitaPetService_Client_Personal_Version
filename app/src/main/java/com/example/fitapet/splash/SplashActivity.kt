@@ -10,7 +10,7 @@ import com.example.fitapet.R
 
 class SplashActivity : AppCompatActivity() {
 
-    private val splashDuration = 1500L
+    private val splashDuration = 3000L
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
