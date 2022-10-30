@@ -14,7 +14,6 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.fitapet.MainActivity
 import com.example.fitapet.R
-import com.example.fitapet.databinding.ActivityNaviBinding
 import com.example.fitapet.databinding.FragmentAnimalRegBinding
 
 

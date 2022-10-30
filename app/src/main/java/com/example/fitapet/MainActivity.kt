@@ -8,6 +8,7 @@ import com.example.fitapet.fragment.FriendFragment
 import com.example.fitapet.fragment.HomeFragment
 import com.example.fitapet.fragment.IngFragment
 import com.example.fitapet.fragment.MypageFragment
+import com.example.fitapet.ui.animalReg.AnimalRegFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        loadFragment(HomeFragment())
+        loadFragment(AnimalRegFragment())
         bottomNav = findViewById(R.id.bottomNav) as BottomNavigationView
         bottomNav.setOnItemReselectedListener {
             when (it.itemId) {
