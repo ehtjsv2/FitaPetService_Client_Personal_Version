@@ -5,7 +5,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.fitapet.NaviActivity
 import com.example.fitapet.databinding.ActivityLoginBinding
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
