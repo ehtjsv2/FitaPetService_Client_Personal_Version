@@ -18,23 +18,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         loadFragment(HomeFragment())
         bottomNav = findViewById(R.id.bottomNav) as BottomNavigationView
-        bottomNav.setOnNavigationItemReselectedListener {
+        bottomNav.setOnItemReselectedListener {
             when (it.itemId) {
                 R.id.home -> {
                     loadFragment(HomeFragment())
-                    return@setOnNavigationItemReselectedListener
+                    return@setOnItemReselectedListener
                 }
                 R.id.ing -> {
                     loadFragment(IngFragment())
-                    return@setOnNavigationItemReselectedListener
+                    return@setOnItemReselectedListener
                 }
                 R.id.friend -> {
                     loadFragment(FriendFragment())
-                    return@setOnNavigationItemReselectedListener
+                    return@setOnItemReselectedListener
                 }
                 R.id.mypage -> {
                     loadFragment(MypageFragment())
-                    return@setOnNavigationItemReselectedListener
+                    return@setOnItemReselectedListener
                 }
             }
         }

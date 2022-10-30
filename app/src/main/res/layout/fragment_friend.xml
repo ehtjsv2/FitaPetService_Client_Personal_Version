@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.FriendFragment">
+    tools:context=".fragment.FriendFragment"
+    android:id="@+id/friend">
 
     <TextView
         android:layout_width="match_parent"
