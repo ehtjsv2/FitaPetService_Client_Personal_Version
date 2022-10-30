@@ -218,6 +218,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="4"
                         android:hint="이름을 입력해주세요"
+                        android:inputType="text"
                         android:gravity="right"/>
                 </LinearLayout>
                 <!--견종-->
@@ -241,7 +242,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="4"
-                        android:hint="견종 검색 하기"
+                        android:hint="견종을 입력해주세요"
+                        android:inputType="text"
                         android:gravity="right"/>
                 </LinearLayout>
                 <!--묘종-->
@@ -265,8 +267,91 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="4"
-                        android:hint="묘종 검색 하기"
+                        android:hint="묘종을 입력해주세요"
                         android:gravity="right"/>
+                </LinearLayout>
+                <!--생일-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="생일"
+                        android:textSize="@dimen/pet_reg_main_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="20dp"/>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4">
+                            <Spinner
+                                android:id="@+id/animal_reg_birth_year"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:spinnerMode="dropdown"
+                                />
+                            <Spinner
+                                android:id="@+id/animal_reg_birth_month"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:spinnerMode="dropdown"
+                                />
+                        </LinearLayout>
+                </LinearLayout>
+                <!--                이름-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="무게"
+                        android:textSize="@dimen/pet_reg_main_text_size"
+                        android:textStyle="bold" />
+                    <EditText
+                        android:id="@+id/animal_reg_birth_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:hint="무게입력(kg)"
+                        android:inputType="number"/>
+                </LinearLayout>
+                <!-- 다음버튼 -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/animal_reg_next_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/blue_btn"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:text="다음"
+                    />
+                <!--                이름-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="이름"
+                        android:textSize="@dimen/pet_reg_main_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="20dp"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
