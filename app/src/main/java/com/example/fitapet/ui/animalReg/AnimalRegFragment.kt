@@ -10,7 +10,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import com.example.fitapet.MainActivity
 import com.example.fitapet.R
+import com.example.fitapet.databinding.ActivityNaviBinding
 import com.example.fitapet.databinding.FragmentAnimalRegBinding
 
 
@@ -32,6 +36,7 @@ class AnimalRegFragment : Fragment() {
         var boyOrGrl :Int = 0 // 0->boy 1->girl
         var neu :Int = 0 // 0-> 중성화x , 1->중성화  o
         var chip:Int = 0 // 0-> 외장칩 1->내장칩
+        var weight:Int =0 //0 ->소 1->중 2->대
         _binding = FragmentAnimalRegBinding.inflate(inflater, container, false)
         val root: View = binding.root
         //이미지 클릭 시
@@ -52,6 +57,8 @@ class AnimalRegFragment : Fragment() {
             //견종묘종
             binding.animalRegDogBreedLayout.visibility=View.VISIBLE
             binding.animalRegCatBreedLayout.visibility=View.GONE
+            //크기
+            binding.animalRegWeightLayout.visibility=View.VISIBLE
         }
         //고양이버튼
         binding.animalRegCatBtn.setOnClickListener {
@@ -63,6 +70,8 @@ class AnimalRegFragment : Fragment() {
             //견종묘종
             binding.animalRegDogBreedLayout.visibility=View.GONE
             binding.animalRegCatBreedLayout.visibility=View.VISIBLE
+            //크기
+            binding.animalRegWeightLayout.visibility=View.GONE
         }
         //남아버튼
         binding.animalRegBoy.setOnClickListener {
@@ -100,6 +109,27 @@ class AnimalRegFragment : Fragment() {
             binding.animalRegChipIn.isSelected=binding.animalRegChipIn.isSelected!=true
             binding.animalRegChipOut.isSelected=false
         }
+        //무게 s버튼
+        binding.animalRegSizeS.setOnClickListener {
+            weight = 0
+            binding.animalRegSizeS.isSelected=binding.animalRegSizeS.isSelected!=true
+            binding.animalRegSizeM.isSelected=false
+            binding.animalRegSizeL.isSelected=false
+        }
+        //무게 m버튼
+        binding.animalRegSizeM.setOnClickListener {
+            weight = 1
+            binding.animalRegSizeM.isSelected=binding.animalRegSizeM.isSelected!=true
+            binding.animalRegSizeS.isSelected=false
+            binding.animalRegSizeL.isSelected=false
+        }
+        //무게 L버튼
+        binding.animalRegSizeL.setOnClickListener {
+            weight = 2
+            binding.animalRegSizeL.isSelected=binding.animalRegSizeL.isSelected!=true
+            binding.animalRegSizeM.isSelected=false
+            binding.animalRegSizeS.isSelected=false
+        }
         //year SPINNER
         val year_items: Array<Array<String>> = arrayOf(
             resources.getStringArray(R.array.Year)
@@ -116,12 +146,13 @@ class AnimalRegFragment : Fragment() {
             Log.d("kim","k = ${dogOrCat}, S = ${boyOrGrl}, neu=${neu}, chip =${chip}")
             Log.d("kim", "name = ${binding.animalRegName.text}, breed = ${binding.animalRegDogBreed.text}" +
                     "year = ${binding.animalRegBirthYear.selectedItem.toString()}" +
-                    "month = ${binding.animalRegBirthMonth.selectedItem.toString()}" +
-                    "weight = ${binding.animalRegBirthWeight.text}")
+                    "month = ${binding.animalRegBirthMonth.selectedItem.toString()}")
             if((!binding.animalRegCatBtn.isSelected && !binding.animalRegDogBtn.isSelected) ||
                 (!binding.animalRegBoy.isSelected && !binding.animalRegGirl.isSelected) ||
                 (!binding.animalRegNeuteringY.isSelected && !binding.animalRegNeuteringN.isSelected)||
-                (binding.animalRegDogBtn.isSelected && !binding.animalRegChipIn.isSelected && !binding.animalRegChipOut.isSelected))
+                (binding.animalRegDogBtn.isSelected &&
+                        ((!binding.animalRegChipIn.isSelected && !binding.animalRegChipOut.isSelected) ||
+                                (!binding.animalRegSizeS.isSelected &&!binding.animalRegSizeM.isSelected && !binding.animalRegSizeL.isSelected ))))
                 {
                     Log.d("kim","anything no selected !")
                     Toast.makeText(requireContext(), "모두 선택해주세요.", Toast.LENGTH_SHORT).show()
@@ -129,10 +160,11 @@ class AnimalRegFragment : Fragment() {
 
                 }
             else if((binding.animalRegName.text.isNullOrBlank()) ||
-                ((binding.animalRegCatBreed.text.isNullOrBlank())&&(binding.animalRegDogBreed.text.isNullOrBlank()))||
-                    binding.animalRegBirthWeight.text.isNullOrBlank())
+                ((binding.animalRegCatBreed.text.isNullOrBlank())&&(binding.animalRegDogBreed.text.isNullOrBlank())))
             {
                 Toast.makeText(requireContext(), "모두 입력해주세요.", Toast.LENGTH_SHORT).show()
+            }
+            else{
             }
         }
         return root

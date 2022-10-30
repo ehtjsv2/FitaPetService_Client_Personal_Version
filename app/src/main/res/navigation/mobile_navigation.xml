@@ -20,6 +20,11 @@
     <fragment
         android:id="@+id/navigation_animal_reg_first"
         android:name="com.example.fitapet.ui.animalReg.AnimalRegFragment"
-        android:label="반려동물등록제목"
+        android:label="반려동물등록"
         tools:layout="@layout/fragment_animal_reg" />
+    <fragment
+        android:id="@+id/navigation_animal_reg_second"
+        android:name="com.example.fitapet.ui.animalReg.AnimalRegFragment02"
+        android:label="반려동물등록"
+        tools:layout="@layout/fragment_animal_reg02"/>
 </navigation>
