@@ -9,12 +9,14 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.fitapet.MainActivity
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentAnimalRegBinding
+import com.example.fitapet.fragment.HomeFragment
 
 
 class AnimalRegFragment : Fragment() {
@@ -30,13 +32,14 @@ class AnimalRegFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         var dogOrCat :Int = 0 // 0->dog 1->cat
         var boyOrGrl :Int = 0 // 0->boy 1->girl
         var neu :Int = 0 // 0-> 중성화x , 1->중성화  o
         var chip:Int = 0 // 0-> 외장칩 1->내장칩
         var weight:Int =0 //0 ->소 1->중 2->대
+        var weight2:Int = 0 // 0-> 소/중 1-> 대
         _binding = FragmentAnimalRegBinding.inflate(inflater, container, false)
+
         val root: View = binding.root
         //이미지 클릭 시
         binding.animalRegImgBtn01.setOnClickListener {
@@ -58,6 +61,7 @@ class AnimalRegFragment : Fragment() {
             binding.animalRegCatBreedLayout.visibility=View.GONE
             //크기
             binding.animalRegWeightLayout.visibility=View.VISIBLE
+            binding.animalRegWeightLayout2.visibility=View.INVISIBLE
         }
         //고양이버튼
         binding.animalRegCatBtn.setOnClickListener {
@@ -70,6 +74,7 @@ class AnimalRegFragment : Fragment() {
             binding.animalRegDogBreedLayout.visibility=View.GONE
             binding.animalRegCatBreedLayout.visibility=View.VISIBLE
             //크기
+            binding.animalRegWeightLayout2.visibility=View.VISIBLE
             binding.animalRegWeightLayout.visibility=View.GONE
         }
         //남아버튼
@@ -129,10 +134,23 @@ class AnimalRegFragment : Fragment() {
             binding.animalRegSizeM.isSelected=false
             binding.animalRegSizeS.isSelected=false
         }
+        //무게 고양이 s/m
+        binding.animalRegSize2M.setOnClickListener {
+            weight = 0
+            binding.animalRegSize2M.isSelected=binding.animalRegSize2M.isSelected!=true
+            binding.animalRegSize2L.isSelected=false
+        }
+        //무게 고양이 L
+        binding.animalRegSize2L.setOnClickListener {
+            weight = 1
+            binding.animalRegSize2L.isSelected=binding.animalRegSize2L.isSelected!=true
+            binding.animalRegSize2M.isSelected=false
+        }
         //year SPINNER
         val year_items: Array<Array<String>> = arrayOf(
             resources.getStringArray(R.array.Year)
         )
+        binding
         val Adapter_Year = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, year_items.get(0))
         binding.animalRegBirthYear.adapter=Adapter_Year
         val month_items: Array<Array<String>> = arrayOf(
@@ -140,7 +158,7 @@ class AnimalRegFragment : Fragment() {
         )
         val Adapter_month = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, month_items.get(0))
         binding.animalRegBirthMonth.adapter=Adapter_month
-
+        //다음 버튼
         binding.animalRegNextBtn.setOnClickListener {
             Log.d("kim","k = ${dogOrCat}, S = ${boyOrGrl}, neu=${neu}, chip =${chip}")
             Log.d("kim", "name = ${binding.animalRegName.text}, breed = ${binding.animalRegDogBreed.text}" +
@@ -164,11 +182,19 @@ class AnimalRegFragment : Fragment() {
                 Toast.makeText(requireContext(), "모두 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
             else{
+                val fragment = AnimalRegFragment02()
+
+                fragmentManager?.commit {
+                    val frag =  AnimalRegFragment02()
+                    add(R.id.fragment_container,frag)
+                    setReorderingAllowed(true)
+                }
             }
+
         }
+
         return root
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
