@@ -60,9 +60,13 @@ class Reservation01Fragment : Fragment(){
             timedlg.getWindow()?.setBackgroundDrawableResource(android.R.color.transparent);
             timedlg.show()
         }
-
+        binding.reservation01SelectTimeBtn02.setOnClickListener {
+            val dialog = CustomMinDialog(requireContext())
+            dialog.showDialog()
+        }
 
         return binding.root
     }
+
 
 }
