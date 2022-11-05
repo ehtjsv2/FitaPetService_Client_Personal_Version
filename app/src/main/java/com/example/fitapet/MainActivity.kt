@@ -2,12 +2,14 @@ package com.example.fitapet
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageButton
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.fragment.app.Fragment
-import com.example.fitapet.fragment.FriendFragment
-import com.example.fitapet.fragment.HomeFragment
-import com.example.fitapet.fragment.IngFragment
-import com.example.fitapet.fragment.MypageFragment
+import com.example.fitapet.navfragment.FriendFragment
+import com.example.fitapet.navfragment.HomeFragment
+import com.example.fitapet.navfragment.IngFragment
+import com.example.fitapet.navfragment.MypageFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,25 +21,26 @@ class MainActivity : AppCompatActivity() {
 
         loadFragment(HomeFragment())
         bottomNav = findViewById(R.id.bottomNav) as BottomNavigationView
-        bottomNav.setOnItemReselectedListener {
+        bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
                     loadFragment(HomeFragment())
-                    return@setOnItemReselectedListener
+                    return@setOnItemSelectedListener true
                 }
                 R.id.ing -> {
                     loadFragment(IngFragment())
-                    return@setOnItemReselectedListener
+                    return@setOnItemSelectedListener true
                 }
                 R.id.friend -> {
                     loadFragment(FriendFragment())
-                    return@setOnItemReselectedListener
+                    return@setOnItemSelectedListener true
                 }
                 R.id.mypage -> {
                     loadFragment(MypageFragment())
-                    return@setOnItemReselectedListener
+                    return@setOnItemSelectedListener true
                 }
             }
+            false
         }
     }
     private fun loadFragment(fragment: Fragment){

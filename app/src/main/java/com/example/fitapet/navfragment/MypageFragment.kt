@@ -1,4 +1,4 @@
-package com.example.fitapet.fragment
+package com.example.fitapet.navfragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
