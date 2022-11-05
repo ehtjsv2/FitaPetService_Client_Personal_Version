@@ -3,6 +3,7 @@ package com.example.fitapet.ui.reservation
 import android.app.Dialog
 import android.content.Context
 import android.view.WindowManager
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -22,6 +23,7 @@ class CustomMinDialog(context: Context) {
         dialog.setContentView(R.layout.minute_dialog)
         dialog.window!!.setLayout(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT)
         dialog.setCanceledOnTouchOutside(true)
+        dialog.getWindow()?.setBackgroundDrawableResource(android.R.color.transparent);
         dialog.setCancelable(true)
         dialog.setTitle("시작시간으로부터");
         //dialog.getWindow()?.setBackgroundDrawableResource(android.R.color.transparent);
@@ -29,6 +31,7 @@ class CustomMinDialog(context: Context) {
         val plusbtn:ImageView=dialog.findViewById(R.id.plus_btn)
         val minusbtn:ImageView=dialog.findViewById(R.id.minus_btn)
         val minute:TextView=dialog.findViewById(R.id.minutes)
+        val finishBtn:Button=dialog.findViewById(R.id.finish_btn)
 //        val edit_name = dialog.findViewById<EditText>(R.id.name_edit)
 
 //        dialog.cancel_button.setOnClickListener {
@@ -44,11 +47,12 @@ class CustomMinDialog(context: Context) {
             if(preMin!=0)
                 minute.text=(preMin-30).toString()
         }
+        finishBtn.setOnClickListener {
+            onClickListener.onClicked(minute.text.toString())
+            dialog.dismiss()
+        }
 
-//        dialog.finish_button.setOnClickListener {
-//            onClickListener.onClicked(edit_name.text.toString())
-//            dialog.dismiss()
-//        }
+
 
     }
 

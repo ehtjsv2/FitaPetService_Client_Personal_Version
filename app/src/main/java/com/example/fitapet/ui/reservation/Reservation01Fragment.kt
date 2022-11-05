@@ -2,6 +2,8 @@ package com.example.fitapet.ui.reservation
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -63,6 +65,14 @@ class Reservation01Fragment : Fragment(){
         binding.reservation01SelectTimeBtn02.setOnClickListener {
             val dialog = CustomMinDialog(requireContext())
             dialog.showDialog()
+
+            dialog.setOnClickListener(object : CustomMinDialog.OnDialogClickListener {
+                override fun onClicked(str: String)
+                {
+                    binding.reservation01SelectTimeBtn02.text = "시작시간으로부터 ${str}분"
+                }
+
+            })
         }
 
         return binding.root
