@@ -2,18 +2,20 @@ package com.example.fitapet.ui.reservation
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnTouchListener
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.DatePicker
 import android.widget.TimePicker
 import androidx.fragment.app.Fragment
 import com.example.fitapet.databinding.FragmentReservation01Binding
 import java.util.*
+
 
 class Reservation01Fragment : Fragment(){
     //onCreate
@@ -62,6 +64,7 @@ class Reservation01Fragment : Fragment(){
             timedlg.getWindow()?.setBackgroundDrawableResource(android.R.color.transparent);
             timedlg.show()
         }
+        //몇분할건지 받기
         binding.reservation01SelectTimeBtn02.setOnClickListener {
             val dialog = CustomMinDialog(requireContext())
             dialog.showDialog()
@@ -74,9 +77,33 @@ class Reservation01Fragment : Fragment(){
 
             })
         }
-
+        //픽업여부받기
+        binding.reservation01PickupBtnY.setOnClickListener {
+            binding.reservation01PickupBtnY.isSelected=binding.reservation01PickupBtnY.isSelected!=true
+            binding.reservation01PickupBtnN.isSelected=false
+        }
+        binding.reservation01PickupBtnN.setOnClickListener {
+            binding.reservation01PickupBtnN.isSelected=binding.reservation01PickupBtnN.isSelected!=true
+            binding.reservation01PickupBtnY.isSelected=false
+        }
+        //edit text focus풀기
+        binding.reservation01ParentLayout.setOnTouchListener(OnTouchListener { v, event ->
+            hideKeyboard()
+            binding.reservation01RequestEditText.clearFocus()
+            false
+        })
         return binding.root
     }
-
+    private fun hideKeyboard() {
+        if (requireActivity() != null && requireActivity().currentFocus != null) {
+            // 프래그먼트기 때문에 getActivity() 사용
+            val inputManager: InputMethodManager =
+                requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputManager.hideSoftInputFromWindow(
+                requireActivity().currentFocus!!.windowToken,
+                InputMethodManager.HIDE_NOT_ALWAYS
+            )
+        }
+    }
 
 }
