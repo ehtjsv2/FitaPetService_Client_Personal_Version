@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.fitapet.MainActivity
 import com.example.fitapet.PetsitterList.FriendListAdapter
 import com.example.fitapet.PetsitterList.PetsitterCard
 import com.example.fitapet.PetsitterList.PetsitterListAdapter
@@ -26,6 +27,10 @@ class FriendFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFriendBinding.inflate(inflater,container,false)
+        var actionBar = (activity as MainActivity?)!!.supportActionBar
+        actionBar?.setTitle("친구 목록")
+        //actionBar?.setCustomView(R.id.menu_friend)
+
 //        binding.petListRecyclerView.layoutManager=LinearLayoutManager(requireContext())
 //        binding.petListRecyclerView.adapter= PetListAdapter(pets)
 
