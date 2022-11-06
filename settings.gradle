@@ -10,8 +10,14 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        jcenter()
 // 카카오로그인 api 이용
-        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/'
+        }
+        maven{
+            url 'https://naver.jfrog.io/artifactory/maven/' //네이버주소 확인
+        }
+        maven { url "https://icl.jfrog.io/artifactory/kakaoenterprise" } // 카카오엔터프라이즈
     }
 }
 rootProject.name = "FItaPet"

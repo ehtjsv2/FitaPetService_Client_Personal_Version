@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.postDelayed
 import com.example.fitapet.MainActivity
 import com.example.fitapet.R
+import com.example.fitapet.wonjune.MyPgActivity
 
 class SplashActivity : AppCompatActivity() {
 

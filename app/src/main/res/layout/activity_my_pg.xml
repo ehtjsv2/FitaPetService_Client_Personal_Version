@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".wonjune.MyPgActivity"
+    android:gravity="center|top">
+
+    <TextView
+        android:id="@+id/txtView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OOO 펫시터에게 돌봄 서비스"
+        android:textSize="30dp"
+        android:padding="7dp"
+        android:layout_marginTop="12dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/txtView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시작"
+            android:textSize="30dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="17.5dp"
+            android:paddingHorizontal="18dp" />
+
+        <TextView
+            android:id="@+id/txtView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="OOOO-OO-OO-OO"
+            android:textSize="30dp"
+            android:paddingHorizontal="12dp"
+            android:layout_marginStart="30dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp">
+
+        <TextView
+            android:id="@+id/txtView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="마지막"
+            android:textSize="30dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="17.5dp"
+            android:paddingHorizontal="4dp" />
+
+        <TextView
+            android:id="@+id/txtView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="OOOO-OO-OO-OO"
+            android:textSize="30dp"
+            android:paddingHorizontal="12dp"
+            android:layout_marginStart="30dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="요청사항"
+        android:textSize="20dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="17.5dp"
+        android:layout_marginTop="10dp"
+        android:paddingVertical="2dp"
+        android:paddingHorizontal="15dp" />
+
+    <EditText
+        android:id="@+id/editRequest"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="17.5dp"
+         />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        android:layout_marginHorizontal="17.5dp"
+        android:layout_marginTop="5dp">
+
+        <TableRow>
+
+            <android.widget.Button
+                android:id="@+id/getLoc"
+                android:text="실시간 위치" />
+            <android.widget.Button
+                android:id="@+id/getVideo"
+                android:text="영상 확인" />
+
+        </TableRow>
+    </TableLayout>
+
+    <android.widget.Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이용 종료"
+        android:paddingHorizontal="50dp" />
+
+
+
+</LinearLayout>
