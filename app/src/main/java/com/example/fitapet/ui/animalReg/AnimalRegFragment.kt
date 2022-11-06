@@ -16,7 +16,6 @@ import androidx.navigation.Navigation
 import com.example.fitapet.MainActivity
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentAnimalRegBinding
-import com.example.fitapet.fragment.HomeFragment
 
 
 class AnimalRegFragment : Fragment() {
