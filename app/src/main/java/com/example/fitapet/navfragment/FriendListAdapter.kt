@@ -10,17 +10,19 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitapet.R
 import com.example.fitapet.databinding.PetItemMainBinding
-import com.example.fitapet.databinding.DogServiceListBinding
-import com.example.fitapet.ui.reservation.petList.PetListAdapter
+import com.example.fitapet.databinding.FragmentFriendBinding
+import com.example.fitapet.databinding.FriendListBinding
+import com.example.fitapet.navfragment.FriendCard
+import com.example.fitapet.navfragment.FriendFragment
 
-class PetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    class MyViewHolder(val binding: DogServiceListBinding) : RecyclerView.ViewHolder(binding.root){
+class FriendListAdapter(val friendcard:MutableList<FriendCard>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    class MyViewHolder(val binding: FriendListBinding) : RecyclerView.ViewHolder(binding.root){
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return PetsitterListAdapter.MyViewHolder(
-            DogServiceListBinding.inflate(
+        return FriendListAdapter.MyViewHolder(
+            FriendListBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent, false
             )
@@ -28,15 +30,11 @@ class PetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): Recycl
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val binding = (holder as PetsitterListAdapter.MyViewHolder).binding
-        binding.petsitterImage.setImageResource(R.drawable.ic_launcher_foreground)
-        binding.petsitterImage.setBackgroundResource(R.drawable.ic_launcher_background)
-        binding.petsitterName.text=petsittercard[position].name
-        binding.petsitterCareer.text=petsittercard[position].career
-        binding.petsitterHavePet.text=petsittercard[position].havepet
-        binding.petsitterGender.text=petsittercard[position].gender
-        binding.petsitterAge.text=petsittercard[position].age
-        binding.PetsitterText.text=petsittercard[position].petsitterText
+        val binding = (holder as FriendListAdapter.MyViewHolder).binding
+        binding.FriendImage.setImageResource(R.drawable.ic_launcher_foreground)
+        binding.FriendImage.setBackgroundResource(R.drawable.ic_launcher_background)
+        binding.FriendName.text=friendcard[position].friendName
+        binding.FriendEmail.text=friendcard[position].firendEmail
         holder.itemView.setOnClickListener {
             itemClickListener.onClick(it, position)
         }
@@ -50,6 +48,6 @@ class PetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): Recycl
     private lateinit var itemClickListener : OnItemClickListener
 
     override fun getItemCount(): Int {
-        return petsittercard.size
+        return friendcard.size
     }
 }
