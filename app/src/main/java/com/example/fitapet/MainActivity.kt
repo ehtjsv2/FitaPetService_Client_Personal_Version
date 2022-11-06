@@ -5,6 +5,11 @@ import android.os.Bundle
 import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import com.example.fitapet.PetsitterList.CatServiceFragment
+import com.example.fitapet.PetsitterList.DogServiceFragment
+import com.example.fitapet.databinding.ActivityMainBinding
 import com.example.fitapet.navfragment.FriendFragment
 import com.example.fitapet.navfragment.HomeFragment
 import com.example.fitapet.navfragment.IngFragment
@@ -17,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
         Log.d("LifeCycleTest","onCreate")
         loadFragment(PetListRecyclerFragment())
@@ -45,6 +51,7 @@ class MainActivity : AppCompatActivity() {
             }
             false
         }
+
     }
     private fun loadFragment(fragment: Fragment){
         Log.d("clickTest","click!->"+fragment.tag)

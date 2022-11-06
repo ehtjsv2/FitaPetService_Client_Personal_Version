@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/dogServiceList">
 
-    <androidx.cardview.widget.CardView
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    android:padding="10dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="10dp"
+    android:id="@+id/petsitterCard">
+
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <GridLayout
             android:layout_width="wrap_content"
@@ -18,7 +24,7 @@
             android:layout_marginTop="10dp">
 
             <ImageView
-                android:id="@+id/visit"
+                android:id="@+id/petsitterImage"
                 android:layout_width="180dp"
                 android:layout_height="100dp"
                 android:src="@drawable/example1"
@@ -28,11 +34,6 @@
                 <LinearLayout
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="펫시터 이름"
-                        android:textSize="16dp" />
                     <GridLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -43,98 +44,129 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="펫시터 이름"
+                            android:textSize="16dp"
+                            android:id="@+id/petsitterName"/>
+
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_baseline_star_24"
+                            android:background="@color/white"
+                            android:layout_marginStart="75dp"
+                            android:id="@+id/bookmark"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="펫시터 경력"
-                            android:textSize="16dp" />
+                            android:textSize="16dp"
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/petsitterCareer"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="반려동물 유무"
                             android:textSize="16dp"
-                            android:layout_marginStart="15dp"/>
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="5dp"
+                            android:id="@+id/petsitterHavePet"/>
 
                     </GridLayout>
 
                 </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="성별"
-                android:textSize="16dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"/>
+            <LinearLayout
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="나이"
-                android:textSize="16dp"
-                android:layout_marginTop="10dp"/>
+                <Button
+                    android:id="@+id/gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/option_choice_button"
+                    android:text="성별"
+                    android:textSize="20dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp" />
+
+                <Button
+                    android:id="@+id/age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/option_choice_button"
+                    android:text="나이"
+                    android:textSize="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
 
         </GridLayout>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="monospace"
-        android:lines="2"
-        android:text="helloword"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:background="@color/light_gray"
-        android:textSize="36sp"
-        android:layout_marginBottom="10dp"/>
+        <TextView
+            android:id="@+id/PetsitterText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:lines="2"
+            android:text="펫시터 한마디"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@color/light_gray"
+            android:textSize="36dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
 
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:columnCount="2"
-        android:layout_gravity="center"
-        android:gravity="center" >
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:layout_gravity="center"
+            android:gravity="center" >
 
-        <Button
-            android:id="@+id/camera"
-            android:layout_width="180dp"
-            android:layout_height="80dp"
-            android:background="@drawable/solid_button"
-            android:text="촬영 동의 여부"
-            android:textSize="24dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"/>
+            <Button
+                android:id="@+id/camera"
+                android:layout_width="180dp"
+                android:layout_height="80dp"
+                android:background="@drawable/solid_button"
+                android:text="촬영 동의"
+                android:textSize="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="10dp" />
 
-        <Button
-            android:id="@+id/takeawalk"
-            android:layout_width="180dp"
-            android:layout_height="80dp"
-            android:background="@drawable/solid_button"
-            android:text="촬영 동의 여부"
-            android:textSize="24dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"/>
+            <Button
+                android:id="@+id/takeawalk"
+                android:layout_width="180dp"
+                android:layout_height="80dp"
+                android:background="@drawable/solid_button"
+                android:text="산책 가능"
+                android:textSize="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="10dp"/>
 
-        <Button
-            android:id="@+id/location"
-            android:layout_width="180dp"
-            android:layout_height="80dp"
-            android:background="@drawable/solid_button"
-            android:text="촬영 동의 여부"
-            android:textSize="24dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"/>
+            <Button
+                android:id="@+id/location"
+                android:layout_width="180dp"
+                android:layout_height="80dp"
+                android:background="@drawable/solid_button"
+                android:text="위치 공유 동의"
+                android:textSize="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="10dp" />
 
-        <Button
-            android:id="@+id/olddog"
-            android:layout_width="180dp"
-            android:layout_height="80dp"
-            android:background="@drawable/solid_button"
-            android:text="촬영 동의 여부"
-            android:textSize="24dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"/>
+            <Button
+                android:id="@+id/olddog"
+                android:layout_width="180dp"
+                android:layout_height="80dp"
+                android:background="@drawable/solid_button"
+                android:text="노견 케어 가능"
+                android:textSize="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="10dp"/>
 
-    </GridLayout>
+        </GridLayout>
 
-</LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
