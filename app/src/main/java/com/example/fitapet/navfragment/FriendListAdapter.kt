@@ -35,9 +35,9 @@ class FriendListAdapter(val friendcard:MutableList<FriendCard>): RecyclerView.Ad
         binding.FriendImage.setBackgroundResource(R.drawable.ic_launcher_background)
         binding.FriendName.text=friendcard[position].friendName
         binding.FriendEmail.text=friendcard[position].firendEmail
-        holder.itemView.setOnClickListener {
-            itemClickListener.onClick(it, position)
-        }
+//        holder.itemView.setOnClickListener {
+//            itemClickListener.onClick(it, position)
+//        }
     }
     interface OnItemClickListener {
         fun onClick(v: View, position: Int)
