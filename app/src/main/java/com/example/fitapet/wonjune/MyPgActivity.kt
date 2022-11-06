@@ -29,6 +29,10 @@ class MyPgActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true) // 액션바 왼쪽에 버튼 만들기(defalut:뒤로가기버튼)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_home_black_24dp)
+        supportActionBar?.setTitle("진행중인 서비스")
+        //supportRequestWindowFeature(Window.FEATURE_NO_TITLE) //타이틀바 없애기
         val responseGetCurrentService=apiServer.getCurrentService("4")
 
         val binding = ActivityMyPgBinding.inflate(layoutInflater)
@@ -53,6 +57,7 @@ class MyPgActivity : AppCompatActivity() {
 //                for (pet in targetPets)
 ////                  val petName:String,val petBreed:String, val petBirth:String,val petSize
 //                    pets.add(Pets(pet.petName,pet.petSpecies,pet.petBirth,pet.petSize))
+
 //
 //                binding.petListRecyclerView.layoutManager= LinearLayoutManager(requireContext())
 //                binding.petListRecyclerView.adapter= PetListAdapter(pets)
@@ -77,5 +82,13 @@ class MyPgActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        Log.d("actionbar","onSupportNabigateUp")
+        val intent=Intent(this,MainActivity::class.java)
+        startActivity(intent)
+        finish()
+        return super.onSupportNavigateUp()
     }
 }
