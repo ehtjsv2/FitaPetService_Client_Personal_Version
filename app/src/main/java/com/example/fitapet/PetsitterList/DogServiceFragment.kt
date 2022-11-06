@@ -6,18 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentDogServiceBinding
 
 class DogServiceFragment : Fragment() {
-    private lateinit var binding: FragmentDogServiceBinding
-//    private val petsitterAdapter = PetsitterAdapter()
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val fragmentHomeBidning = FragmentDogServiceBinding.bind(view)
-        binding = fragmentHomeBidning
-//        binding.itemRecyclerView.layoutManager = LinearLayoutManager(context)
-//        binding.itemRecyclerView.adapter = PetsitterAdapter
-    }
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setContentView(R.layout.activity_main)
+//
+//        var recyclerView = recyclerview_main // recyclerview id
+//
+//        var layoutManager = LinearLayoutManager(this)
+//        recyclerView.layoutManager = layoutManager
+//        var adapter = PetsitterAdapter()
+//        recyclerView.adapter = adapter
+//    }
 }
