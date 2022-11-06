@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/dogServiceList">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:columnCount="2"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/visit"
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:src="@drawable/example1"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="15dp"/>
+
+                <LinearLayout
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="펫시터 이름"
+                        android:textSize="16dp" />
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:columnCount="2"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="펫시터 경력"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="반려동물 유무"
+                            android:textSize="16dp"
+                            android:layout_marginStart="15dp"/>
+
+                    </GridLayout>
+
+                </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="성별"
+                android:textSize="16dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="나이"
+                android:textSize="16dp"
+                android:layout_marginTop="10dp"/>
+
+        </GridLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:lines="2"
+        android:text="helloword"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@color/light_gray"
+        android:textSize="36sp"
+        android:layout_marginBottom="10dp"/>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:columnCount="2"
+        android:layout_gravity="center"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/camera"
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:background="@drawable/solid_button"
+            android:text="촬영 동의 여부"
+            android:textSize="24dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <Button
+            android:id="@+id/takeawalk"
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:background="@drawable/solid_button"
+            android:text="촬영 동의 여부"
+            android:textSize="24dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <Button
+            android:id="@+id/location"
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:background="@drawable/solid_button"
+            android:text="촬영 동의 여부"
+            android:textSize="24dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <Button
+            android:id="@+id/olddog"
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:background="@drawable/solid_button"
+            android:text="촬영 동의 여부"
+            android:textSize="24dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"/>
+
+    </GridLayout>
+
+</LinearLayout>

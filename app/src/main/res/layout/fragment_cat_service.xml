@@ -1,14 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PetsitterList.CatServiceFragment">
+    android:orientation="vertical"
+    android:id="@+id/home">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center"
+        android:textSize="22dp"
+        android:text="~~~ 경기도 파주시 어쩌구 저쩌구 ~~~" />
 
-</FrameLayout>
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:columnCount="2"
+        android:layout_gravity="center"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/visit"
+            android:layout_width="180dp"
+            android:layout_height="100dp"
+            android:background="@drawable/solid_button"
+            android:text="방문 돌봄"
+            android:textSize="28dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginRight="15dp"/>
+
+        <Button
+            android:id="@+id/togo"
+            android:layout_width="180dp"
+            android:layout_height="100dp"
+            android:background="@drawable/solid_button"
+            android:text="위탁 돌봄"
+            android:textSize="28dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginRight="15dp"/>
+
+    </GridLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D4D4D3"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:columnCount="4"
+        android:layout_marginStart="15dp">
+
+        <Button
+            android:id="@+id/w_petsitter"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/option_choice_button"
+            android:text="여자 펫시터"
+            android:textSize="12dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <Button
+            android:id="@+id/m_petsitter"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/option_choice_button"
+            android:text="남자 펫시터"
+            android:textSize="12dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <Button
+            android:id="@+id/camera_agree"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/option_choice_button"
+            android:text="촬영 동의"
+            android:textSize="12dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <Button
+            android:id="@+id/location_agree"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/option_choice_button"
+            android:text="위치 공유 동의"
+            android:textSize="12dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <Button
+            android:id="@+id/jogging_available"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/option_choice_button"
+            android:text="산책 가능"
+            android:textSize="12dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <Button
+            android:id="@+id/old_dog_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/option_choice_button"
+            android:text="노견 케어 가능"
+            android:textSize="12dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <Button
+            android:id="@+id/have_pet"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/option_choice_button"
+            android:text="반려동물 있음"
+            android:textSize="12dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"/>
+
+    </GridLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D4D4D3"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="10dp"/>
+
+</LinearLayout>
