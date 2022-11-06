@@ -75,24 +75,28 @@
 
                 </LinearLayout>
 
-            <Button
-                android:id="@+id/gender"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="@drawable/option_choice_button"
-                android:text="성별"
-                android:textSize="20dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp" />
+            <LinearLayout
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/option_choice_button"
+                    android:text="성별"
+                    android:textSize="20dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp" />
 
-            <Button
-                android:id="@+id/age"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="@drawable/option_choice_button"
-                android:text="나이"
-                android:textSize="20dp"
-                android:layout_marginTop="10dp"/>
+                <Button
+                    android:id="@+id/age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/option_choice_button"
+                    android:text="나이"
+                    android:textSize="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
 
         </GridLayout>
 
