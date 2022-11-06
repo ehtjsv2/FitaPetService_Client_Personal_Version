@@ -1,10 +1,12 @@
 package com.example.fitapet.wonjune
 
 import android.app.AlertDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.annotation.UiThread
+import com.example.fitapet.MainActivity
 import com.example.fitapet.R
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
@@ -26,7 +28,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
-
+        supportActionBar?.setDisplayHomeAsUpEnabled(true) // 액션바 왼쪽에 버튼 만들기(defalut:뒤로가기버튼)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_home_black_24dp)
+        supportActionBar?.setTitle("펫시터 위치 확인")
         val fm = supportFragmentManager
         //초기옵션 설정
         val options = NaverMapOptions()
@@ -88,7 +92,13 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
     }
-
+    override fun onSupportNavigateUp(): Boolean {
+        Log.d("actionbar","onSupportNabigateUp")
+        val intent= Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+        return super.onSupportNavigateUp()
+    }
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1000
     }
