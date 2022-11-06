@@ -15,11 +15,7 @@ import com.example.fitapet.databinding.FragmentPetListRecyclerBinding
 import com.example.fitapet.databinding.FragmentReservation01Binding
 import com.example.fitapet.ui.reservation.Reservation01Fragment
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PetListRecyclerFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class PetListRecyclerFragment : Fragment() {
     private var _binding: FragmentPetListRecyclerBinding? = null
     private val binding get() = _binding!!

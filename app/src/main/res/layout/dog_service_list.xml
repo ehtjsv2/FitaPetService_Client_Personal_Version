@@ -3,13 +3,15 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
     android:padding="10dp"
     app:cardElevation="10dp"
     app:cardCornerRadius="10dp"
-    android:id="@+id/petsitterCard">
+    android:id="@+id/petsitter_card"
+    android:clickable="true">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -118,54 +120,64 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"/>
 
-        <GridLayout
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:layout_gravity="center"
-            android:gravity="center" >
+            >
 
             <Button
                 android:id="@+id/camera"
-                android:layout_width="180dp"
+                android:layout_width="150dp"
                 android:layout_height="80dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/solid_button"
                 android:text="촬영 동의"
                 android:textSize="20dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="10dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/takeawalk"
-                android:layout_width="180dp"
+                android:layout_width="150dp"
                 android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
                 android:background="@drawable/solid_button"
                 android:text="산책 가능"
                 android:textSize="20dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginStart="10dp"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/location"
-                android:layout_width="180dp"
+                android:layout_width="150dp"
                 android:layout_height="80dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/solid_button"
                 android:text="위치 공유 동의"
                 android:textSize="20dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="10dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/camera" />
 
             <Button
                 android:id="@+id/olddog"
-                android:layout_width="180dp"
+                android:layout_width="150dp"
                 android:layout_height="80dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/solid_button"
                 android:text="노견 케어 가능"
                 android:textSize="20dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginStart="10dp"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/takeawalk" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </GridLayout>
 
     </LinearLayout>
 

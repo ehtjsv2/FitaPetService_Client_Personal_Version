@@ -9,4 +9,6 @@
     <dimen name="text_size_reg02">16sp</dimen>
     <dimen name="btn_width_size_reg02">200dp</dimen>
     <dimen name="part_width_size_reg02">100dp</dimen>
+    <dimen name="petsiiter_btn_padding_ver">25dp</dimen>
+    <dimen name="petsiiter_btn_padding_hor">40dp</dimen>
 </resources>

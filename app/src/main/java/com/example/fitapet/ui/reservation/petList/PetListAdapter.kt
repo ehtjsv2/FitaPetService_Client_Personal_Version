@@ -7,6 +7,7 @@ import com.example.fitapet.databinding.PetItemMainBinding
 
 class PetListAdapter(val pets: MutableList<Pets>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     class MyViewHolder(val binding: PetItemMainBinding): RecyclerView.ViewHolder(binding.root)
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return MyViewHolder(PetItemMainBinding.inflate(LayoutInflater.from(parent.context),
         parent,false))
