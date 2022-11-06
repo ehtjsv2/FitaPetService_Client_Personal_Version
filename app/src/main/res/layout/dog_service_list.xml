@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
         android:lines="2"
-        android:text="helloword"
+        android:text="펫시터 한마디"
         android:layout_gravity="center"
         android:gravity="center"
         android:background="@color/light_gray"
