@@ -31,8 +31,7 @@ class FriendListAdapter(val friendcard:MutableList<FriendCard>): RecyclerView.Ad
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as FriendListAdapter.MyViewHolder).binding
-        binding.FriendImage.setImageResource(R.drawable.ic_launcher_foreground)
-        binding.FriendImage.setBackgroundResource(R.drawable.ic_launcher_background)
+        binding.FriendImage.setImageResource(R.drawable.example1)
         binding.FriendName.text=friendcard[position].friendName
         binding.FriendEmail.text=friendcard[position].firendEmail
 //        holder.itemView.setOnClickListener {
