@@ -27,21 +27,21 @@ class FriendFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFriendBinding.inflate(inflater,container,false)
-        var actionBar = (activity as MainActivity?)!!.supportActionBar
-        actionBar?.setTitle("친구 목록")
+//        var actionBar = (activity as MainActivity?)!!.supportActionBar
+//        actionBar?.setTitle("친구 목록")
         //actionBar?.setCustomView(R.id.menu_friend)
 
 //        binding.petListRecyclerView.layoutManager=LinearLayoutManager(requireContext())
 //        binding.petListRecyclerView.adapter= PetListAdapter(pets)
 
-        friendcards.add(FriendCard(0,0,"김도선","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard(0,0,"정민욱","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard(0,0,"김도선","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard(0,0,"정민욱","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard(0,0,"김도선","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard(0,0,"정민욱","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard(0,0,"김도선","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard(0,0,"정민욱","이메일@knu.ac.kr",))
+        friendcards.add(FriendCard("R.drawable.example1","김도선","이메일@knu.ac.kr",))
+        friendcards.add(FriendCard("R.drawable.example1","정민욱","이메일@knu.ac.kr",))
+        friendcards.add(FriendCard("R.drawable.example1","김도선","이메일@knu.ac.kr",))
+        friendcards.add(FriendCard("R.drawable.example1","정민욱","이메일@knu.ac.kr",))
+        friendcards.add(FriendCard("R.drawable.example1","김도선","이메일@knu.ac.kr",))
+        friendcards.add(FriendCard("R.drawable.example1","정민욱","이메일@knu.ac.kr",))
+        friendcards.add(FriendCard("R.drawable.example1","김도선","이메일@knu.ac.kr",))
+        friendcards.add(FriendCard("R.drawable.example1","정민욱","이메일@knu.ac.kr",))
 
         binding.friendRecyclerview.layoutManager= LinearLayoutManager(requireContext())
         binding.friendRecyclerview.adapter=friendListAdapter

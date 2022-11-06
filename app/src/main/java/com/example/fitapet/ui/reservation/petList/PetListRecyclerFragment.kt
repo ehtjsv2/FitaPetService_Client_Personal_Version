@@ -27,8 +27,9 @@ class PetListRecyclerFragment : Fragment() {
     private val binding get() = _binding!!
     val pets = mutableListOf<Pets>()
     lateinit var parentActivity:Activity
-
-
+    //    val petsittercards= mutableListOf<PetsitterCard>()
+//    val petsitterListAdapter=PetsitterListAdapter(petsittercards)
+    val petListAdapter=PetListAdapter(pets)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -63,7 +64,18 @@ class PetListRecyclerFragment : Fragment() {
             }
         })
 
+        //        petsitterListAdapter.setItemClickListener(object : PetsitterListAdapter.OnItemClickListener{
+//            override fun onClick(v: View, position: Int) {
+//                loadFragment(PetListRecyclerFragment())
+//            }
+//
+//        })
+        petListAdapter.setItemClickListener(object :PetListAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int) {
 
+            }
+
+        })
         binding.reservation00NextBtn.setOnClickListener{
             loadFragment(Reservation01Fragment())
         }

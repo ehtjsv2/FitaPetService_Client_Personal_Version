@@ -1,6 +1,5 @@
 package com.example.fitapet.navfragment
 
-data class FriendCard(var imageRes: Int,
-                         var backgroundRes: Int,
+data class FriendCard(var friendImg: String,
                          var friendName: String,
                          var firendEmail: String)
