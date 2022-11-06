@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitapet.R
 
@@ -34,7 +35,7 @@ class PetsitterRecyclerview(items: ArrayList<PetsitterCard>) : RecyclerView.Adap
             tvpetsittertext.text = items[position].petsitterText
         }
     }
-
+    
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val context = parent.context
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater

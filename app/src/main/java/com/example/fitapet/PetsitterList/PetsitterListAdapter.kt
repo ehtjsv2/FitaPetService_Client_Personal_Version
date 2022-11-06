@@ -1,6 +1,7 @@
 package com.example.fitapet.PetsitterList
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,9 @@ import com.example.fitapet.databinding.DogServiceListBinding
 import com.example.fitapet.ui.reservation.petList.PetListAdapter
 
 class PetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    class MyViewHolder(val binding: DogServiceListBinding) : RecyclerView.ViewHolder(binding.root)
+    class MyViewHolder(val binding: DogServiceListBinding) : RecyclerView.ViewHolder(binding.root){
+
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return PetsitterListAdapter.MyViewHolder(
@@ -34,7 +37,17 @@ class PetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): Recycl
         binding.petsitterGender.text=petsittercard[position].gender
         binding.petsitterAge.text=petsittercard[position].age
         binding.PetsitterText.text=petsittercard[position].petsitterText
+        holder.itemView.setOnClickListener {
+            itemClickListener.onClick(it, position)
+        }
     }
+    interface OnItemClickListener {
+        fun onClick(v: View, position: Int)
+    }
+    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.itemClickListener = onItemClickListener
+    }
+    private lateinit var itemClickListener : OnItemClickListener
 
     override fun getItemCount(): Int {
         return petsittercard.size
