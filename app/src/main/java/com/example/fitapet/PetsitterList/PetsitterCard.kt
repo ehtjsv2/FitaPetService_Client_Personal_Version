@@ -1,7 +1,6 @@
 package com.example.fitapet.PetsitterList
 
-data class PetsitterCard(var imageRes: Int,
-                         var backgroundRes: Int,
+data class PetsitterCard(var img: String,
                          var name: String,
                          var career: String,
                          var havepet: String,
