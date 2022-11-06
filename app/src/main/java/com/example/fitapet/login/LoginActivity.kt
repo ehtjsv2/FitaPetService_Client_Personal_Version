@@ -33,6 +33,17 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
             } else {
+                UserApiClient.instance.loginWithKakaoAccount(this) { token, error ->
+                    if (error != null) {
+                        Log.e(ContentValues.TAG, "로그인 실패", error)
+                    }
+                    else if (token != null) {
+                        Log.i(ContentValues.TAG, "로그인 성공 ${token.accessToken}")
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
                 Log.e("로그", "카카오 로그인이 불가합니다.")
             }
         }

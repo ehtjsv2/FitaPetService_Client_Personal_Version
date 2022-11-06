@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.postDelayed
 import com.example.fitapet.MainActivity
 import com.example.fitapet.R
+import com.example.fitapet.login.LoginActivity
 import com.example.fitapet.wonjune.MyPgActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -22,7 +23,7 @@ class SplashActivity : AppCompatActivity() {
         //      {딜레이 이후 동작}을 통해 딜레이 시간 이후, 동작을 정의해준다.
         Handler().postDelayed(splashDuration){
             //val intent = Intent(this, MainActivity::class.java)
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
