@@ -185,7 +185,7 @@ class AnimalRegFragment : Fragment() {
 
                 fragmentManager?.commit {
                     val frag =  AnimalRegFragment02()
-                    add(R.id.fragment_container,frag)
+                    replace(R.id.fragment_container,frag)
                     setReorderingAllowed(true)
                 }
             }
