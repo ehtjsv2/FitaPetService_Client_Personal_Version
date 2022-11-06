@@ -48,9 +48,4 @@ class PetsitterRecyclerview(items: ArrayList<PetsitterCard>) : RecyclerView.Adap
     }
 
     override fun getItemCount(): Int = items.size
-
-    fun addPetsitter(item: PetsitterCard) {
-        items.add(item)
-    }
-
 }

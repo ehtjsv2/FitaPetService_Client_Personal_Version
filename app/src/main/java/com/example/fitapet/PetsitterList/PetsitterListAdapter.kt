@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitapet.R
 
-class PetsitterAdapter(): RecyclerView.Adapter<PetsitterAdapter.MyViewHolder>(){
+class PetsitterListAdapter(): RecyclerView.Adapter<PetsitterListAdapter.MyViewHolder>(){
 
     var titles = arrayOf("one", "two", "three", "four", "five")
     var details = arrayOf("Item one", "Item two", "Item three", "Item four", "Itme five")
@@ -22,7 +22,7 @@ class PetsitterAdapter(): RecyclerView.Adapter<PetsitterAdapter.MyViewHolder>(){
 
 
     class MyViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
-//        public var itemimage: ImageView = itemview.item_image
+//        public var itemimage: ImageView = itemview.petsitterImage
 //        public var itemtitle: TextView = itemview.item_title
 //        public var itemdetail: TextView = itemview.item_detail
     }

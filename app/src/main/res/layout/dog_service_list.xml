@@ -8,7 +8,8 @@
     android:layout_margin="15dp"
     android:padding="10dp"
     app:cardElevation="10dp"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="10dp"
+    android:id="@+id/petsitterCard">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -33,19 +34,27 @@
                 <LinearLayout
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="펫시터 이름"
-                        android:textSize="16dp"
-                        android:id="@+id/petsitterName"/>
-
                     <GridLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:columnCount="2"
                         android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="펫시터 이름"
+                            android:textSize="16dp"
+                            android:id="@+id/petsitterName"/>
+
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_baseline_star_24"
+                            android:background="@color/white"
+                            android:layout_marginStart="70dp"
+                            android:id="@+id/bookmark"/>
 
                         <TextView
                             android:layout_width="wrap_content"
