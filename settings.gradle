@@ -10,7 +10,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        jcenter()
+        jcenter()//
 // 카카오로그인 api 이용
         maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/'
         }
