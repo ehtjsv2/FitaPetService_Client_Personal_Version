@@ -61,6 +61,7 @@
                             android:layout_height="wrap_content"
                             android:text="펫시터 경력"
                             android:textSize="16dp"
+                            android:layout_marginTop="10dp"
                             android:id="@+id/petsitterCareer"/>
 
                         <TextView
@@ -68,6 +69,7 @@
                             android:layout_height="wrap_content"
                             android:text="반려동물 유무"
                             android:textSize="16dp"
+                            android:layout_marginTop="10dp"
                             android:layout_marginStart="5dp"
                             android:id="@+id/petsitterHavePet"/>
 
@@ -77,6 +79,7 @@
 
             <LinearLayout
                 android:orientation="horizontal">
+
                 <Button
                     android:id="@+id/gender"
                     android:layout_width="wrap_content"
@@ -96,6 +99,7 @@
                     android:textSize="20dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"/>
+
             </LinearLayout>
 
         </GridLayout>
