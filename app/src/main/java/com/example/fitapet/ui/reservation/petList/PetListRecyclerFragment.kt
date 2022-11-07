@@ -13,6 +13,7 @@ import com.example.fitapet.MainActivity
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentPetListRecyclerBinding
 import com.example.fitapet.databinding.FragmentReservation01Binding
+import com.example.fitapet.retrofit.dto.getPetsDTO
 import com.example.fitapet.ui.reservation.Reservation01Fragment
 
 /**
@@ -30,6 +31,8 @@ class PetListRecyclerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val getPetsResponse=apiServer.retrieveUserAddress("4")
+
         _binding = FragmentPetListRecyclerBinding.inflate(inflater,container,false)
         val pets = mutableListOf<Pets>()
         pets.add(Pets("토토","말티즈","2012년10월","대"))
