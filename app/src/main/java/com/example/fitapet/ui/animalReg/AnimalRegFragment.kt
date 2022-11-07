@@ -60,7 +60,7 @@ class AnimalRegFragment : Fragment() {
             binding.animalRegCatBreedLayout.visibility=View.GONE
             //크기
             binding.animalRegWeightLayout.visibility=View.VISIBLE
-            binding.animalRegWeightLayout2.visibility=View.INVISIBLE
+            //binding.animalRegWeightLayout2.visibility=View.INVISIBLE
         }
         //고양이버튼
         binding.animalRegCatBtn.setOnClickListener {
@@ -73,7 +73,7 @@ class AnimalRegFragment : Fragment() {
             binding.animalRegDogBreedLayout.visibility=View.GONE
             binding.animalRegCatBreedLayout.visibility=View.VISIBLE
             //크기
-            binding.animalRegWeightLayout2.visibility=View.VISIBLE
+            //binding.animalRegWeightLayout2.visibility=View.VISIBLE
             binding.animalRegWeightLayout.visibility=View.GONE
         }
         //남아버튼
@@ -116,35 +116,35 @@ class AnimalRegFragment : Fragment() {
         binding.animalRegSizeS.setOnClickListener {
             weight = 0
             binding.animalRegSizeS.isSelected=binding.animalRegSizeS.isSelected!=true
-            binding.animalRegSizeM.isSelected=false
+            //binding.animalRegSizeM.isSelected=false
             binding.animalRegSizeL.isSelected=false
         }
         //무게 m버튼
-        binding.animalRegSizeM.setOnClickListener {
-            weight = 1
-            binding.animalRegSizeM.isSelected=binding.animalRegSizeM.isSelected!=true
-            binding.animalRegSizeS.isSelected=false
-            binding.animalRegSizeL.isSelected=false
-        }
+//        binding.animalRegSizeM.setOnClickListener {
+//            weight = 1
+//            binding.animalRegSizeM.isSelected=binding.animalRegSizeM.isSelected!=true
+//            binding.animalRegSizeS.isSelected=false
+//            binding.animalRegSizeL.isSelected=false
+//        }
         //무게 L버튼
         binding.animalRegSizeL.setOnClickListener {
             weight = 2
             binding.animalRegSizeL.isSelected=binding.animalRegSizeL.isSelected!=true
-            binding.animalRegSizeM.isSelected=false
+            //binding.animalRegSizeM.isSelected=false
             binding.animalRegSizeS.isSelected=false
         }
-        //무게 고양이 s/m
-        binding.animalRegSize2M.setOnClickListener {
-            weight = 0
-            binding.animalRegSize2M.isSelected=binding.animalRegSize2M.isSelected!=true
-            binding.animalRegSize2L.isSelected=false
-        }
-        //무게 고양이 L
-        binding.animalRegSize2L.setOnClickListener {
-            weight = 1
-            binding.animalRegSize2L.isSelected=binding.animalRegSize2L.isSelected!=true
-            binding.animalRegSize2M.isSelected=false
-        }
+//        //무게 고양이 s/m
+//        binding.animalRegSize2M.setOnClickListener {
+//            weight = 0
+//            binding.animalRegSize2M.isSelected=binding.animalRegSize2M.isSelected!=true
+//            binding.animalRegSize2L.isSelected=false
+//        }
+//        //무게 고양이 L
+//        binding.animalRegSize2L.setOnClickListener {
+//            weight = 1
+//            binding.animalRegSize2L.isSelected=binding.animalRegSize2L.isSelected!=true
+//            binding.animalRegSize2M.isSelected=false
+//        }
         //year SPINNER
         val year_items: Array<Array<String>> = arrayOf(
             resources.getStringArray(R.array.Year)
@@ -168,7 +168,7 @@ class AnimalRegFragment : Fragment() {
                 (!binding.animalRegNeuteringY.isSelected && !binding.animalRegNeuteringN.isSelected)||
                 (binding.animalRegDogBtn.isSelected &&
                         ((!binding.animalRegChipIn.isSelected && !binding.animalRegChipOut.isSelected) ||
-                                (!binding.animalRegSizeS.isSelected &&!binding.animalRegSizeM.isSelected && !binding.animalRegSizeL.isSelected ))))
+                                (!binding.animalRegSizeS.isSelected && !binding.animalRegSizeL.isSelected ))))
                 {
                     Log.d("kim","anything no selected !")
                     Toast.makeText(requireContext(), "모두 선택해주세요.", Toast.LENGTH_SHORT).show()
@@ -189,9 +189,7 @@ class AnimalRegFragment : Fragment() {
                     setReorderingAllowed(true)
                 }
             }
-
         }
-
         return root
     }
     override fun onDestroyView() {

@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
 //                    loadFragment(IngFragment())
                     val intent = Intent(this, MyPgActivity::class.java)
                     startActivity(intent)
+                    finish()
                     return@setOnItemSelectedListener true
 //                    val intent = Intent(this, MainActivity::class.java)
 //                    startActivity(intent)

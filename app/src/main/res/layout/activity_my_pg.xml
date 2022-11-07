@@ -7,28 +7,37 @@
     android:orientation="vertical"
     tools:context=".wonjune.MyPgActivity"
     android:gravity="center|top">
-
-    <TextView
-        android:id="@+id/txtView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="wrap_content"
-        android:text="펫시터에게 돌봄 서비스"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:paddingLeft="7dp"
-        android:paddingRight="7dp"
-        android:layout_marginTop="12dp" />
+        android:orientation="vertical"
+        android:background="@color/main">
+        <TextView
+            android:id="@+id/txtView"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="펫시터에게 돌봄 서비스"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:layout_marginTop="12dp" />
 
-    <TextView
-        android:id="@+id/txtView1"
+        <TextView
+            android:id="@+id/txtView1"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="OOO 펫시터"
+            android:textSize="25dp"
+            android:layout_marginTop="5dp" />
+    </LinearLayout>
+
+    <View
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:text="OOO 펫시터"
-        android:textSize="25dp"
-        android:layout_marginTop="5dp" />
-
+        android:layout_height="20px"
+        android:background="@color/light_gray"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,7 +92,12 @@
             android:layout_marginStart="30dp" />
 
     </LinearLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10px"
+        android:layout_marginLeft="@dimen/main_padding"
+        android:layout_marginRight="@dimen/main_padding"
+        android:background="@color/light_gray"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,13 +110,20 @@
         android:paddingHorizontal="15dp" />
 
     <TextView
+        android:background="@drawable/text_rectangel_box"
         android:id="@+id/editRequest"
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_marginTop="10dp"
         android:layout_marginHorizontal="17.5dp"
          />
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10px"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="@dimen/main_padding"
+        android:layout_marginRight="@dimen/main_padding"
+        android:background="@color/light_gray"/>
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
