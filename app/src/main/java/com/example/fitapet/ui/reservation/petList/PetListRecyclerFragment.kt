@@ -56,7 +56,7 @@ class PetListRecyclerFragment : Fragment() {
 
                 binding.petListRecyclerView.layoutManager=LinearLayoutManager(requireContext())
                 binding.petListRecyclerView.adapter=PetListAdapter(pets)
-
+               // binding.petListRecyclerView.addItemDecoration(MyDecoration(requireContext()))
             }
 
             override fun onFailure(call: Call<getPetsDTO>, t: Throwable) {

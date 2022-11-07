@@ -1,6 +1,6 @@
 package com.example.fitapet.retrofit
 
-import com.example.fitapet.retrofit.`interface`.RetrofitService
+import com.example.fitapet.retrofit.service.RetrofitService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

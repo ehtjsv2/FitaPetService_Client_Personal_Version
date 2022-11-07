@@ -6,6 +6,11 @@ data class getCurrentServiceDTO (
     val message:String,
     val result:currentDTO
     )
+data class getCurrentServiceDtoNoResult(
+    val isSuccess:String,
+    val code:Int,
+    val message:String,
+)
 
 data class currentDTO(
     val petSitterName: String,
