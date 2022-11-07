@@ -52,7 +52,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:scaleType="centerCrop"
-                android:background="@drawable/solid_button"
+                android:background="@drawable/main_button"
                 android:src="@drawable/dogservice" />
 
             <ImageButton
@@ -64,7 +64,7 @@
                 android:elevation="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/solid_button"
+                android:background="@drawable/main_button"
                 android:src="@drawable/catservice"
                 android:layout_marginBottom="15dp"
                 android:layout_marginStart="15dp"/>
@@ -78,7 +78,7 @@
                 android:layout_marginLeft="10dp"
                 android:scaleType="centerInside"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/solid_button"
+                android:background="@drawable/main_button"
                 android:src="@drawable/together" />
 
             <ImageButton
@@ -90,7 +90,7 @@
                 android:elevation="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/solid_button"
+                android:background="@drawable/main_button"
                 android:src="@drawable/reviews"
                 android:layout_marginStart="15dp"/>
 
