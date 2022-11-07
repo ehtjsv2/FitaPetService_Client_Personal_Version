@@ -19,7 +19,7 @@ import com.example.fitapet.databinding.FragmentAnimalRegBinding
 
 
 class AnimalRegFragment : Fragment() {
-
+    val bundle = Bundle()
     private var _binding: FragmentAnimalRegBinding? = null
 
     // This property is only valid between onCreateView and
@@ -183,6 +183,10 @@ class AnimalRegFragment : Fragment() {
             else{
                 val fragment = AnimalRegFragment02()
 
+                bundle.putInt("DorC",0)
+                val passBundleBFragment = AnimalRegFragment02()
+
+
                 fragmentManager?.commit {
                     val frag =  AnimalRegFragment02()
                     replace(R.id.fragment_container,frag)
@@ -195,5 +199,13 @@ class AnimalRegFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    private fun loadFragment(fragment: Fragment){
+        Log.d("clickTest","click!->"+fragment.tag)
+        fragment.arguments=bundle
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container,fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 }
