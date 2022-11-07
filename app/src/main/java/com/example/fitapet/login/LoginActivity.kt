@@ -77,6 +77,7 @@ class LoginActivity : AppCompatActivity() {
                                                 ) {
                                                     if (response.body()?.code == 1000) {
                                                         Log.d("TAG11", "회원가입성공")
+                                                        val responseHasId2 = apiServer.getHasId(kakaoUser.userId)
                                                     } else {
                                                         Log.d(
                                                             "TAG11",
@@ -165,6 +166,8 @@ class LoginActivity : AppCompatActivity() {
                                                 ) {
                                                     if (response.body()?.code == 1000) {
                                                         Log.d("TAG11", "회원가입성공")
+                                                        val responseHasId2 = apiServer.getHasId(kakaoUser.userId)
+
                                                     } else {
                                                         Log.d(
                                                             "TAG11",
