@@ -23,7 +23,7 @@ class PetListAdapter(val pets: MutableList<Pets>): RecyclerView.Adapter<Recycler
         binding.petListSize.text=pets[position].petSize
         holder.itemView.setOnClickListener {
             itemClickListener.onClick(it, position)
-            binding.petListLayout.isSelected=true
+            binding.petListLayout.isSelected=binding.petListLayout.isSelected!=true
         }
     }
 
