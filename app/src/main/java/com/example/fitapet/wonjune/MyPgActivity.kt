@@ -9,6 +9,7 @@ import android.view.Window
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.fitapet.Cookie
 import com.example.fitapet.MainActivity
 import com.example.fitapet.R
 import com.example.fitapet.databinding.ActivityLoginBinding.inflate
@@ -33,7 +34,7 @@ class MyPgActivity : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_home_black_24dp)
         supportActionBar?.setTitle("진행중인 서비스")
         //supportRequestWindowFeature(Window.FEATURE_NO_TITLE) //타이틀바 없애기
-        val responseGetCurrentService=apiServer.getCurrentService("4")
+        val responseGetCurrentService=apiServer.getCurrentService(Cookie.cookie.toString())
 
         val binding = ActivityMyPgBinding.inflate(layoutInflater)
 
