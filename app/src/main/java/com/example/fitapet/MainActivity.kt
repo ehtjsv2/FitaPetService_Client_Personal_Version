@@ -1,5 +1,6 @@
 package com.example.fitapet
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -14,7 +15,9 @@ import com.example.fitapet.navfragment.FriendFragment
 import com.example.fitapet.navfragment.HomeFragment
 import com.example.fitapet.navfragment.IngFragment
 import com.example.fitapet.navfragment.MypageFragment
+import com.example.fitapet.ui.animalReg.AnimalRegFragment
 import com.example.fitapet.ui.reservation.petList.PetListRecyclerFragment
+import com.example.fitapet.wonjune.MyPgActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
         Log.d("LifeCycleTest","onCreate")
-        loadFragment(PetListRecyclerFragment())
+        loadFragment(HomeFragment())
         bottomNav = findViewById(R.id.bottomNav) as BottomNavigationView
         bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
@@ -35,8 +38,12 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
                 R.id.ing -> {
-                    loadFragment(IngFragment())
+//                    loadFragment(IngFragment())
+                    val intent = Intent(this, MyPgActivity::class.java)
+                    startActivity(intent)
                     return@setOnItemSelectedListener true
+//                    val intent = Intent(this, MainActivity::class.java)
+//                    startActivity(intent)
                 }
                 R.id.friend -> {
                     Log.d("clickTest","friendclick!")
@@ -45,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.mypage -> {
                     Log.d("clickTest","mypagelick!")
-                    loadFragment(MypageFragment())
+                    loadFragment(AnimalRegFragment())
                     return@setOnItemSelectedListener true
                 }
             }

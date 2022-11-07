@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fitapet.MainActivity
 import com.example.fitapet.R
 import com.example.fitapet.databinding.ActivityMaiBinding
 import retrofit2.Call
@@ -33,7 +34,7 @@ class MaiActivity : AppCompatActivity() {
     var varray = mutableListOf<OrderedDict>()
     var filename: String = ""
     var retrofit = Retrofit.Builder()
-        .baseUrl("http://172.17.162.13:8000")
+        .baseUrl("http://118.45.212.21:8000")
         //"http://192.168.0.195:8000" 우리집
         //"http://223.39.249.247:8000" 핸드폰 핫스팟
         //"http://118.45.212.21:8000" 자취방 공용IP
@@ -43,6 +44,9 @@ class MaiActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMaiBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true) // 액션바 왼쪽에 버튼 만들기(defalut:뒤로가기버튼)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_home_black_24dp)
+        supportActionBar?.setTitle("영상보기")
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), MODE_PRIVATE)
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO), MODE_PRIVATE)
 
@@ -150,5 +154,13 @@ class MaiActivity : AppCompatActivity() {
 //        override fun getItemCount(): Int {
 //            return varray.size
 //        }
+
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        Log.d("actionbar","onSupportNabigateUp")
+        val intent=Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+        return super.onSupportNavigateUp()
     }
 }

@@ -1,6 +1,7 @@
 package com.example.fitapet.ui.reservation.petList
 
 import android.app.Activity
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -13,39 +14,75 @@ import com.example.fitapet.MainActivity
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentPetListRecyclerBinding
 import com.example.fitapet.databinding.FragmentReservation01Binding
+import com.example.fitapet.retrofit.RetrofitClient.apiServer
 import com.example.fitapet.retrofit.dto.getPetsDTO
 import com.example.fitapet.ui.reservation.Reservation01Fragment
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PetListRecyclerFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class PetListRecyclerFragment : Fragment() {
     private var _binding: FragmentPetListRecyclerBinding? = null
     private val binding get() = _binding!!
+    val pets = mutableListOf<Pets>()
     lateinit var parentActivity:Activity
-
-
+    //    val petsittercards= mutableListOf<PetsitterCard>()
+//    val petsitterListAdapter=PetsitterListAdapter(petsittercards)
+    val petListAdapter=PetListAdapter(pets)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val getPetsResponse=apiServer.retrieveUserAddress("4")
 
+        val responseGetPets: Call<getPetsDTO> =apiServer.getPets("4")
         _binding = FragmentPetListRecyclerBinding.inflate(inflater,container,false)
-        val pets = mutableListOf<Pets>()
-        pets.add(Pets("토토","말티즈","2012년10월","대"))
-        pets.add(Pets("까망이","도베르만","2011년07월","대"))
-        binding.petListRecyclerView.layoutManager=LinearLayoutManager(requireContext())
-        binding.petListRecyclerView.adapter=PetListAdapter(pets)
 
+        responseGetPets.enqueue(object : Callback<getPetsDTO> {
+            override fun onResponse(
+                call: Call<getPetsDTO>,
+                response: Response<getPetsDTO>
+            ) {
+                Log.d(TAG, "성공 : ${response.raw()}")
+                Log.d("testGetPets", response.body()!!.isSuccess)
+                Log.d("testGetPets", response.body()!!.code.toString())
+                Log.d("testGetPets", response.body()!!.result.toString())
+
+
+                val targetPets=response.body()!!.result
+                for (pet in targetPets)
+//                  val petName:String,val petBreed:String, val petBirth:String,val petSize
+                    pets.add(Pets(pet.petName,pet.petSpecies,pet.petBirth,pet.petSize))
+
+                binding.petListRecyclerView.layoutManager=LinearLayoutManager(requireContext())
+                binding.petListRecyclerView.adapter=PetListAdapter(pets)
+
+            }
+
+            override fun onFailure(call: Call<getPetsDTO>, t: Throwable) {
+                Log.d(TAG, "실패 : $t")
+            }
+        })
+
+        //        petsitterListAdapter.setItemClickListener(object : PetsitterListAdapter.OnItemClickListener{
+//            override fun onClick(v: View, position: Int) {
+//                loadFragment(PetListRecyclerFragment())
+//            }
+//
+//        })
+        petListAdapter.setItemClickListener(object :PetListAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int) {
+
+            }
+
+        })
         binding.reservation00NextBtn.setOnClickListener{
             loadFragment(Reservation01Fragment())
         }
+        Log.d("testcode","??")
+
+
         return binding.root
-
-
     }
     private fun loadFragment(fragment: Fragment){
         Log.d("clickTest","click!->"+fragment.tag)
