@@ -69,16 +69,19 @@ class LoginActivity : AppCompatActivity() {
                                         } else if (response.body()?.code == 1001) {
                                             Log.d("TAG11", "아이디 없음")
                                             val responseSignUp = apiServer.signUp(kakaoUser)
-                                            responseSignUp.enqueue(object :Callback<getCurrentServiceDtoNoResult>{
+                                            responseSignUp.enqueue(object :
+                                                Callback<getCurrentServiceDtoNoResult> {
                                                 override fun onResponse(
                                                     call: Call<getCurrentServiceDtoNoResult>,
                                                     response: Response<getCurrentServiceDtoNoResult>
                                                 ) {
-                                                    if(response.body()?.code==1000){
+                                                    if (response.body()?.code == 1000) {
                                                         Log.d("TAG11", "회원가입성공")
-                                                    }
-                                                    else{
-                                                        Log.d("TAG11", "이유불문: "+response.body()?.code+"  "+response.code())
+                                                    } else {
+                                                        Log.d(
+                                                            "TAG11",
+                                                            "이유불문: " + response.body()?.code + "  " + response.code()
+                                                        )
                                                     }
                                                 }
 
@@ -90,8 +93,8 @@ class LoginActivity : AppCompatActivity() {
                                                 }
 
                                             })
-                                        }else{
-                                            Log.d("TAG11","이유불문"+response.body()?.code)
+                                        } else {
+                                            Log.d("TAG11", "이유불문" + response.body()?.code)
                                         }
 
 
@@ -119,12 +122,90 @@ class LoginActivity : AppCompatActivity() {
                         Log.e(ContentValues.TAG, "로그인 실패", error)
                     } else if (token != null) {
                         Log.i(ContentValues.TAG, "로그인 성공 ${token.accessToken}")
+
+                        Log.i(ContentValues.TAG, "로그인 성공 ${token.accessToken} ")
+                        //카카오 response 테스트
+                        // 사용자 정보 요청 (기본)
+                        UserApiClient.instance.me { user, error ->
+                            if (error != null) {
+                                Log.e("TAG11", "사용자 정보 요청 실패", error)
+                            } else if (user != null) {
+                                Log.i(
+                                    "TAG11", "사용자 정보 요청 성공" +
+                                            "\n유저: ${user}" +
+                                            "\n회원번호: ${user.id}" +
+                                            "\n이메일: ${user.kakaoAccount?.email}" +
+                                            "\n닉네임: ${user.kakaoAccount?.profile?.nickname}" +
+                                            "\n프로필사진: ${user.kakaoAccount?.profile?.thumbnailImageUrl}" +
+                                            "\n성별: ${user.kakaoAccount?.gender}"
+                                )
+                                val kakaoUser = KakaoUser(
+                                    user.id,
+                                    user.kakaoAccount?.profile?.nickname,
+                                    user.kakaoAccount?.profile?.thumbnailImageUrl,
+                                    user.kakaoAccount?.email,
+                                    user.kakaoAccount?.gender.toString()
+                                )
+                                val responseHasId = apiServer.getHasId(kakaoUser.userId)
+                                responseHasId.enqueue(object : Callback<getCurrentServiceDTO> {
+                                    override fun onResponse(
+                                        call: Call<getCurrentServiceDTO>,
+                                        response: Response<getCurrentServiceDTO>
+                                    ) {
+                                        if (response.body()?.code == 1000) {
+                                            Log.d("TAG11", "아이디 존재")
+                                        } else if (response.body()?.code == 1001) {
+                                            Log.d("TAG11", "아이디 없음")
+                                            val responseSignUp = apiServer.signUp(kakaoUser)
+                                            responseSignUp.enqueue(object :
+                                                Callback<getCurrentServiceDtoNoResult> {
+                                                override fun onResponse(
+                                                    call: Call<getCurrentServiceDtoNoResult>,
+                                                    response: Response<getCurrentServiceDtoNoResult>
+                                                ) {
+                                                    if (response.body()?.code == 1000) {
+                                                        Log.d("TAG11", "회원가입성공")
+                                                    } else {
+                                                        Log.d(
+                                                            "TAG11",
+                                                            "이유불문: " + response.body()?.code + "  " + response.code()
+                                                        )
+                                                    }
+                                                }
+
+                                                override fun onFailure(
+                                                    call: Call<getCurrentServiceDtoNoResult>,
+                                                    t: Throwable
+                                                ) {
+                                                    Log.d("TAG11", "회원가입api실패")
+                                                }
+
+                                            })
+                                        } else {
+                                            Log.d("TAG11", "이유불문" + response.body()?.code)
+                                        }
+
+
+                                    }
+
+                                    override fun onFailure(
+                                        call: Call<getCurrentServiceDTO>,
+                                        t: Throwable
+                                    ) {
+                                        Log.d("TAG11", "연결실패")
+                                    }
+                                })
+
+                            }
+                        }
+
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                         finish()
+                    } else {
+                        Log.e("로그", "카카오 로그인이 불가합니다.")
                     }
                 }
-                Log.e("로그", "카카오 로그인이 불가합니다.")
             }
         }
     }
