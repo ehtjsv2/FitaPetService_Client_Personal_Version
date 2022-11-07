@@ -2,6 +2,7 @@ package com.example.fitapet.navfragment
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +32,7 @@ class ReviewListAdapter(val reviewCard:MutableList<ReviewCard>): RecyclerView.Ad
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        Log.d("LOGTest",""+itemCount+"---"+position)
         val binding = (holder as ReviewListAdapter.MyViewHolder).binding
         binding.parentImage.setImageResource(R.drawable.example1)
         binding.parentName.text=reviewCard[position].parentName
