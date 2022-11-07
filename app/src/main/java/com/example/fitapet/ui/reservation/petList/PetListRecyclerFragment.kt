@@ -58,12 +58,7 @@ class PetListRecyclerFragment : Fragment() {
                 binding.petListRecyclerView.layoutManager=LinearLayoutManager(requireContext())
                 binding.petListRecyclerView.adapter=petListAdapter
                // binding.petListRecyclerView.addItemDecoration(MyDecoration(requireContext()))
-                petListAdapter.setItemClickListener(object : PetListAdapter.OnItemClickListener {
-                    override fun onClick(v: View, position: Int) {
-                        loadFragment(Reservation01Fragment())
-                    }
 
-                })
             }
 
             override fun onFailure(call: Call<getPetsDTO>, t: Throwable) {
@@ -79,7 +74,6 @@ class PetListRecyclerFragment : Fragment() {
 //        })
         petListAdapter.setItemClickListener(object :PetListAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
-
             }
 
         })
