@@ -34,8 +34,8 @@ class PetListRecyclerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val responseGetPets: Call<getPetsDTO> =apiServer.getPets("4")
-//        print(responseGetPets)
         _binding = FragmentPetListRecyclerBinding.inflate(inflater,container,false)
 
         responseGetPets.enqueue(object : Callback<getPetsDTO> {
