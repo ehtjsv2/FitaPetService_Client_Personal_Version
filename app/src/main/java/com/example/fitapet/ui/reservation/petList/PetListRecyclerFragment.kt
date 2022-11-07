@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitapet.MainActivity
+import com.example.fitapet.PetsitterList.PetsitterListAdapter
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentPetListRecyclerBinding
 import com.example.fitapet.databinding.FragmentReservation01Binding
@@ -55,8 +56,14 @@ class PetListRecyclerFragment : Fragment() {
                     pets.add(Pets(pet.petName,pet.petSpecies,pet.petBirth,pet.petSize))
 
                 binding.petListRecyclerView.layoutManager=LinearLayoutManager(requireContext())
-                binding.petListRecyclerView.adapter=PetListAdapter(pets)
+                binding.petListRecyclerView.adapter=petListAdapter
                // binding.petListRecyclerView.addItemDecoration(MyDecoration(requireContext()))
+                petListAdapter.setItemClickListener(object : PetListAdapter.OnItemClickListener {
+                    override fun onClick(v: View, position: Int) {
+                        loadFragment(Reservation01Fragment())
+                    }
+
+                })
             }
 
             override fun onFailure(call: Call<getPetsDTO>, t: Throwable) {

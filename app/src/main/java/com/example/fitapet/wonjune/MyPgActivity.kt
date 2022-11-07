@@ -84,6 +84,12 @@ class MyPgActivity : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+        val intent=Intent(this,MainActivity::class.java)
+        startActivity(intent)
+        finish()
+        super.onBackPressed()
+    }
     override fun onSupportNavigateUp(): Boolean {
         Log.d("actionbar","onSupportNabigateUp")
         val intent=Intent(this,MainActivity::class.java)
