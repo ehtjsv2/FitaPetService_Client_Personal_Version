@@ -29,8 +29,7 @@ class PetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): Recycl
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as PetsitterListAdapter.MyViewHolder).binding
-        binding.petsitterImage.setImageResource(R.drawable.ic_launcher_foreground)
-        binding.petsitterImage.setBackgroundResource(R.drawable.ic_launcher_background)
+        binding.petsitterImage.setImageResource(R.drawable.example1)
         binding.petsitterName.text=petsittercard[position].name
         binding.petsitterCareer.text=petsittercard[position].career
         binding.petsitterHavePet.text=petsittercard[position].havepet
