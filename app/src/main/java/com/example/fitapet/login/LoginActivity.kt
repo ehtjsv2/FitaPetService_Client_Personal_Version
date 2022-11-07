@@ -66,6 +66,7 @@ class LoginActivity : AppCompatActivity() {
                                     ) {
                                         if (response.body()?.code == 1000) {
                                             Log.d("TAG11", "아이디 존재")
+                                            Log.d("TAG11",response.headers().toString())
                                         } else if (response.body()?.code == 1001) {
                                             Log.d("TAG11", "아이디 없음")
                                             val responseSignUp = apiServer.signUp(kakaoUser)
