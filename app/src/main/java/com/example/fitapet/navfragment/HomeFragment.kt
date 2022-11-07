@@ -41,12 +41,12 @@ class HomeFragment : Fragment() {
         binding.reviewRecylcerView.layoutManager= LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
 
         binding.reviewRecylcerView.adapter=reviewListAdapter
-//        reviewListAdapter.setItemClickListener(object : ReviewListAdapter.OnItemClickListener{
-//            override fun onClick(v: View, position: Int) {
-//                loadFragment(PetListRecyclerFragment())
-//            }
-//
-//        })
+        reviewListAdapter.setItemClickListener(object : ReviewListAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int) {
+                //loadFragment(PetListRecyclerFragment())
+            }
+
+        })
 
         binding.dogServices.setOnClickListener {
             loadFragment(DogServiceFragment())
