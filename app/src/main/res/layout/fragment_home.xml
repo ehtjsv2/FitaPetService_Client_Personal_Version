@@ -2,7 +2,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,8 +32,7 @@
             android:layout_height="25dp"
             android:layout_marginLeft="20dp"
             android:text="카테고리"
-            android:textSize="14dp"
-            android:layout_marginBottom="10dp"/>
+            android:textSize="14dp" />
 
         <GridLayout
             android:layout_width="wrap_content"
@@ -46,7 +47,10 @@
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:adjustViewBounds="true"
-                android:padding="20sp"
+                android:padding="25sp"
+                android:elevation="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:scaleType="centerCrop"
                 android:background="@drawable/solid_button"
                 android:src="@drawable/dogservice" />
@@ -56,7 +60,10 @@
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:scaleType="centerCrop"
-                android:padding="20sp"
+                android:padding="25sp"
+                android:elevation="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/solid_button"
                 android:src="@drawable/catservice"
                 android:layout_marginBottom="15dp"
@@ -66,8 +73,11 @@
                 android:id="@+id/together_services"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:padding="20sp"
+                android:padding="25sp"
+                android:elevation="10dp"
+                android:layout_marginLeft="10dp"
                 android:scaleType="centerInside"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/solid_button"
                 android:src="@drawable/together" />
 
@@ -75,8 +85,11 @@
                 android:id="@+id/reviews"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:padding="20sp"
+                android:padding="25sp"
                 android:scaleType="centerInside"
+                android:elevation="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/solid_button"
                 android:src="@drawable/reviews"
                 android:layout_marginStart="15dp"/>
