@@ -58,6 +58,10 @@ class HomeFragment : Fragment() {
             loadFragment(ReviewPageFragment())
         }
 
+        binding.togetherServices.setOnClickListener {
+            loadFragment(TogetherServiceFragment())
+        }
+
         return binding.root
     }
     private fun loadFragment(fragment: Fragment){
