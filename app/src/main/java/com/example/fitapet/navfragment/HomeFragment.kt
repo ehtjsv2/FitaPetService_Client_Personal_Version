@@ -8,10 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fitapet.PetsitterList.CatServiceFragment
-import com.example.fitapet.PetsitterList.DogServiceFragment
-import com.example.fitapet.PetsitterList.PetsitterCard
-import com.example.fitapet.PetsitterList.PetsitterListAdapter
+import com.example.fitapet.PetsitterList.*
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentHomeBinding
 import com.example.fitapet.databinding.FragmentPetListRecyclerBinding
@@ -44,7 +41,7 @@ class HomeFragment : Fragment() {
         binding.reviewRecylcerView.adapter=reviewListAdapter
         reviewListAdapter.setItemClickListener(object : ReviewListAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
-                //loadFragment(PetListRecyclerFragment())
+                loadFragment(ReviewPageFragment())
             }
 
         })
@@ -55,6 +52,10 @@ class HomeFragment : Fragment() {
 
         binding.catServices.setOnClickListener {
             loadFragment(CatServiceFragment())
+        }
+
+        binding.reviews.setOnClickListener {
+            loadFragment(ReviewPageFragment())
         }
 
         return binding.root

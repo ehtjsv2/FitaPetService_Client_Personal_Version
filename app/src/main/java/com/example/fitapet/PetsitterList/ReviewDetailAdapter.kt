@@ -9,22 +9,24 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fitapet.PetsitterList.ReviewDetailCard
 import com.example.fitapet.R
 import com.example.fitapet.databinding.PetItemMainBinding
 import com.example.fitapet.databinding.FragmentFriendBinding
 import com.example.fitapet.databinding.FriendListBinding
+import com.example.fitapet.databinding.ReviewDetailBinding
 import com.example.fitapet.databinding.ReviewHomeBinding
-import com.example.fitapet.navfragment.FriendCard
+import com.example.fitapet.PetsitterList.ReviewPageFragment
 import com.example.fitapet.navfragment.FriendFragment
 
-class ReviewListAdapter(val reviewCard:MutableList<ReviewCard>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    class MyViewHolder(val binding: ReviewHomeBinding) : RecyclerView.ViewHolder(binding.root){
+class ReviewDetailAdapter(val reviewdetailcard:MutableList<ReviewDetailCard>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    class MyViewHolder(val binding: ReviewDetailBinding) : RecyclerView.ViewHolder(binding.root){
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return ReviewListAdapter.MyViewHolder(
-            ReviewHomeBinding.inflate(
+        return ReviewDetailAdapter.MyViewHolder(
+            ReviewDetailBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent, false
             )
@@ -33,16 +35,17 @@ class ReviewListAdapter(val reviewCard:MutableList<ReviewCard>): RecyclerView.Ad
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         Log.d("LOGTest",""+itemCount+"---"+position)
-        val binding = (holder as ReviewListAdapter.MyViewHolder).binding
+        val binding = (holder as ReviewDetailAdapter.MyViewHolder).binding
         binding.parentImage.setImageResource(R.drawable.example1)
-        binding.parentName.text=reviewCard[position].parentName
-        binding.reviewText.text=reviewCard[position].reviewText
+        binding.parentName.text=reviewdetailcard[position].parentName
+        binding.reviewImage.setImageResource(R.drawable.example1)
+        binding.reviewText.text=reviewdetailcard[position].reviewText
         binding.petsitterImg.setImageResource(R.drawable.example1)
-        binding.whatService.text=reviewCard[position].serviceList
-        binding.petsittername.text=reviewCard[position].petsitterName
-        holder.itemView.setOnClickListener {
-            itemClickListener.onClick(it, position)
-        }
+        binding.whatService.text=reviewdetailcard[position].serviceList
+        binding.petsittername.text=reviewdetailcard[position].petsitterName
+//        holder.itemView.setOnClickListener {
+//            itemClickListener.onClick(it, position)
+//        }
     }
     interface OnItemClickListener {
         fun onClick(v: View, position: Int)
@@ -53,6 +56,6 @@ class ReviewListAdapter(val reviewCard:MutableList<ReviewCard>): RecyclerView.Ad
     private lateinit var itemClickListener : OnItemClickListener
 
     override fun getItemCount(): Int {
-        return reviewCard.size
+        return reviewdetailcard.size
     }
 }
