@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.fitapet.Cookie
 import com.example.fitapet.MainActivity
 import com.example.fitapet.PetsitterList.PetsitterListAdapter
 import com.example.fitapet.R
@@ -36,7 +37,10 @@ class PetListRecyclerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val responseGetPets: Call<getPetsDTO> =apiServer.getPets("4")
+        //유저 '4'펫리스트 불러오기
+        val responseGetPets: Call<getPetsDTO> =apiServer.getPets(4)
+        //유저 Cookie.userId 펫리스트불러오기
+        //val responseGetPets: Call<getPetsDTO> = apiServer.getPets(Cookie.userId)
         _binding = FragmentPetListRecyclerBinding.inflate(inflater,container,false)
 
         responseGetPets.enqueue(object : Callback<getPetsDTO> {

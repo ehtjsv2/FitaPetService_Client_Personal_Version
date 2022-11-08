@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.fitapet.Cookie
 import com.example.fitapet.MainActivity
 import com.example.fitapet.databinding.ActivityLoginBinding
 import com.example.fitapet.retrofit.RetrofitClient.apiServer
@@ -58,6 +59,8 @@ class LoginActivity : AppCompatActivity() {
                                     user.kakaoAccount?.email,
                                     user.kakaoAccount?.gender.toString()
                                 )
+                                //쿠키에 회원ID담기
+                                Cookie.userId=user.id
                                 val responseHasId = apiServer.getHasId(kakaoUser.userId)
                                 responseHasId.enqueue(object : Callback<getCurrentServiceDTO> {
                                     override fun onResponse(
@@ -148,6 +151,8 @@ class LoginActivity : AppCompatActivity() {
                                     user.kakaoAccount?.email,
                                     user.kakaoAccount?.gender.toString()
                                 )
+                                //쿠키에 회원ID담기
+                                Cookie.userId=user.id
                                 val responseHasId = apiServer.getHasId(kakaoUser.userId)
                                 responseHasId.enqueue(object : Callback<getCurrentServiceDTO> {
                                     override fun onResponse(

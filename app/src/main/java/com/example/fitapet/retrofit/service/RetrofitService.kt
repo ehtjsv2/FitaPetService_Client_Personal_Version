@@ -19,10 +19,10 @@ interface RetrofitService {
 //    fun getUserPage(@Path("page") page: String): Call<User>
 
     @GET("customer/{customerId}/pets")
-    fun getPets(@Path("customerId") customerId:String):Call<getPetsDTO>
+    fun getPets(@Path("customerId") customerId:Long?):Call<getPetsDTO>
 
     @GET("users/{userId}/current-service")
-    fun getCurrentService(@Path("userId") userId:String):Call<getCurrentServiceDTO>
+    fun getCurrentService(@Path("userId") userId:Long?):Call<getCurrentServiceDTO>
 
     @GET("customers/{customerId}/hasid")
     fun getHasId(@Path("customerId") kakaoUserId:Long?): Call<getCurrentServiceDTO>

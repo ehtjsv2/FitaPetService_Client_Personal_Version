@@ -34,7 +34,7 @@ class MyPgActivity : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_home_black_24dp)
         supportActionBar?.setTitle("진행중인 서비스")
         //supportRequestWindowFeature(Window.FEATURE_NO_TITLE) //타이틀바 없애기
-        val responseGetCurrentService=apiServer.getCurrentService(Cookie.cookie.toString())
+        val responseGetCurrentService=apiServer.getCurrentService(Cookie.userId)
 
         val binding = ActivityMyPgBinding.inflate(layoutInflater)
 

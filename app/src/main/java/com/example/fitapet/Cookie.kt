@@ -5,7 +5,7 @@ import android.app.Application
 class Cookie : Application() {
 
     companion object{
-        var cookie:Int=3
+        var userId:Long?=0
     }
 
 }

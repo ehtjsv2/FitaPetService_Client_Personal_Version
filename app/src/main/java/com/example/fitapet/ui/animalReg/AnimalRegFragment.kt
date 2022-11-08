@@ -1,6 +1,7 @@
 package com.example.fitapet.ui.animalReg
 
 import android.os.Bundle
+import android.text.TextUtils.replace
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -25,6 +27,7 @@ class AnimalRegFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private val animalRegViewModel:AnimalRegViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -181,12 +184,6 @@ class AnimalRegFragment : Fragment() {
                 Toast.makeText(requireContext(), "모두 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
             else{
-                val fragment = AnimalRegFragment02()
-
-                bundle.putInt("DorC",0)
-                val passBundleBFragment = AnimalRegFragment02()
-
-
                 fragmentManager?.commit {
                     val frag =  AnimalRegFragment02()
                     replace(R.id.fragment_container,frag)
