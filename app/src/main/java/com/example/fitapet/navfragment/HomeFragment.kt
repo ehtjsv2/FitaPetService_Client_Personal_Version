@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fitapet.PetsitterList.CatServiceFragment
 import com.example.fitapet.PetsitterList.DogServiceFragment
 import com.example.fitapet.PetsitterList.PetsitterCard
 import com.example.fitapet.PetsitterList.PetsitterListAdapter
@@ -50,6 +51,10 @@ class HomeFragment : Fragment() {
 
         binding.dogServices.setOnClickListener {
             loadFragment(DogServiceFragment())
+        }
+
+        binding.catServices.setOnClickListener {
+            loadFragment(CatServiceFragment())
         }
 
         return binding.root
