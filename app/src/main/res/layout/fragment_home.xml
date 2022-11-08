@@ -23,7 +23,7 @@
             android:gravity="center"
             android:textSize="18dp"
             android:background="@drawable/solid_button"
-            android:text="~~~ 경기도 파주시 어쩌구 저쩌구 ~~~" />
+            android:text="대구광역시 북구 대현동 21길61-3" />
 
         <Button
             android:id="@+id/research"

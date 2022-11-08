@@ -34,7 +34,14 @@ class ReviewListAdapter(val reviewCard:MutableList<ReviewCard>): RecyclerView.Ad
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         Log.d("LOGTest",""+itemCount+"---"+position)
         val binding = (holder as ReviewListAdapter.MyViewHolder).binding
-        binding.parentImage.setImageResource(R.drawable.example1)
+        if(position==0){
+            binding.parentImage.setImageResource(R.drawable.uk)
+        }
+        else if(position==1){
+            binding.parentImage.setImageResource(R.drawable.doseon_kim02)
+        }else{
+            binding.parentImage.setImageResource(R.drawable.example1)
+        }
         binding.parentName.text=reviewCard[position].parentName
         binding.reviewText.text=reviewCard[position].reviewText
         binding.petsitterImg.setImageResource(R.drawable.example1)
