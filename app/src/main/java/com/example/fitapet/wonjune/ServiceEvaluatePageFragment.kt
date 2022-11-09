@@ -8,34 +8,34 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitapet.R
-import com.example.fitapet.databinding.FragmentCatServiceBinding
 import com.example.fitapet.databinding.FragmentDogServiceBinding
+import com.example.fitapet.databinding.FragmentServiceEvaluatePageBinding
 import com.example.fitapet.ui.reservation.petList.PetListRecyclerFragment
 
-class CatServiceFragment  : Fragment() {
-    private var _binding: FragmentCatServiceBinding? = null
+class ServiceEvaluatePageFragment : Fragment() {
+    private var _binding: FragmentServiceEvaluatePageBinding? = null
     private val binding get() = _binding!!
-    val petsittercards= mutableListOf<PetsitterCard>()
-    val CatPetsitterListAdapter=CatPetsitterListAdapter(petsittercards)
+    val evaluateCards= mutableListOf<EvaluateCard>()
+//    val petsitterListAdapter=PetsitterListAdapter(petsittercards)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentCatServiceBinding.inflate(inflater,container,false)
+        _binding = FragmentServiceEvaluatePageBinding.inflate(inflater,container,false)
 //        binding.petListRecyclerView.layoutManager=LinearLayoutManager(requireContext())
 //        binding.petListRecyclerView.adapter= PetListAdapter(pets)
 
-        petsittercards.add(PetsitterCard("R.drawable.example1","김도선","10년이상","반려동물 있음","남","25","안녕하세요"))
-        petsittercards.add(PetsitterCard("R.drawable.example1","정민욱","10년이상","반려동물 있음","남","25","안녕하세요"))
-        binding.recylcerView.layoutManager=LinearLayoutManager(requireContext())
-        binding.recylcerView.adapter=CatPetsitterListAdapter
-        CatPetsitterListAdapter.setItemClickListener(object : CatPetsitterListAdapter.OnItemClickListener{
-            override fun onClick(v: View, position: Int) {
-                loadFragment(PetListRecyclerFragment())
-            }
-
-        })
+    evaluateCards.add(EvaluateCard("R.drawable.example1","안녕하세요"))
+    evaluateCards.add(EvaluateCard("R.drawable.example1","안녕하세요"))
+//        binding.recylcerView.layoutManager=LinearLayoutManager(requireContext())
+//        binding.recylcerView.adapter=petsitterListAdapter
+//        petsitterListAdapter.setItemClickListener(object : PetsitterListAdapter.OnItemClickListener{
+//            override fun onClick(v: View, position: Int) {
+//                loadFragment(PetListRecyclerFragment())
+//            }
+//
+//        })
 
         return binding.root
     }

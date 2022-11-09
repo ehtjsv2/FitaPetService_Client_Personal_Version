@@ -1,4 +1,4 @@
-package com.example.fitapet.navfragment
+package com.example.fitapet.PetsitterList.TogetherServiceDetail
 
 import android.os.Bundle
 import android.util.Log
@@ -7,21 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.fitapet.PetsitterList.TogetherServiceDetail.ChooseFriendAdapter
 import com.example.fitapet.R
-import com.example.fitapet.databinding.FragmentFriendBinding
-import com.example.fitapet.ui.reservation.petList.PetListRecyclerFragment
+import com.example.fitapet.databinding.FragmentChooseFriendBinding
+import com.example.fitapet.navfragment.FriendCard
 
-class FriendFragment : Fragment() {
-    private var _binding: FragmentFriendBinding? = null
+class ChooseFriendFragment : Fragment() {
+    private var _binding: FragmentChooseFriendBinding? = null
     private val binding get() = _binding!!
     val friendcards= mutableListOf<FriendCard>()
-    val friendListAdapter= FriendListAdapter(friendcards)
+    val chooseFriendAdapter= ChooseFriendAdapter(friendcards)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentFriendBinding.inflate(inflater,container,false)
+        _binding = FragmentChooseFriendBinding.inflate(inflater,container,false)
 //        var actionBar = (activity as MainActivity?)!!.supportActionBar
 //        actionBar?.setTitle("친구 목록")
         //actionBar?.setCustomView(R.id.menu_friend)
@@ -33,19 +34,20 @@ class FriendFragment : Fragment() {
         friendcards.add(FriendCard("R.drawable.example1","정민욱","이메일@knu.ac.kr",))
         friendcards.add(FriendCard("R.drawable.example1","김도선","이메일@knu.ac.kr",))
         friendcards.add(FriendCard("R.drawable.example1","정민욱","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard("R.drawable.example1","김도선","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard("R.drawable.example1","정민욱","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard("R.drawable.example1","김도선","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard("R.drawable.example1","정민욱","이메일@knu.ac.kr",))
 
-        binding.friendRecyclerview.layoutManager= LinearLayoutManager(requireContext())
-        binding.friendRecyclerview.adapter=friendListAdapter
-        friendListAdapter.setItemClickListener(object : FriendListAdapter.OnItemClickListener{
+
+        binding.friendChooseRecyclerview.layoutManager= LinearLayoutManager(requireContext())
+        binding.friendChooseRecyclerview.adapter=chooseFriendAdapter
+        chooseFriendAdapter.setItemClickListener(object : ChooseFriendAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
-                loadFragment(PetListRecyclerFragment())
+//             loadFragment(PetListRecyclerFragment())
             }
 
         })
+
+        binding.goNextPage.setOnClickListener {
+//            loadFragment(TogetherServiceFragment())
+        }
 
         return binding.root
     }

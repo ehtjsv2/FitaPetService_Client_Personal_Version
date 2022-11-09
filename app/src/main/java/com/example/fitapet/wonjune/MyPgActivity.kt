@@ -2,27 +2,23 @@ package com.example.fitapet.wonjune
 
 import android.content.ContentValues
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Window
+import android.view.View
 import android.widget.Button
-import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.fitapet.Cookie
 import com.example.fitapet.MainActivity
+import com.example.fitapet.PetsitterList.ServiceEvaluatePageFragment
 import com.example.fitapet.R
-import com.example.fitapet.databinding.ActivityLoginBinding.inflate
 import com.example.fitapet.databinding.ActivityMyPgBinding
-import com.example.fitapet.databinding.FragmentPetListRecyclerBinding
 import com.example.fitapet.retrofit.RetrofitClient.apiServer
 import com.example.fitapet.retrofit.dto.getCurrentServiceDTO
-import com.example.fitapet.retrofit.dto.getPetsDTO
-import com.example.fitapet.ui.reservation.petList.PetListAdapter
-import com.example.fitapet.ui.reservation.petList.Pets
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 class MyPgActivity : AppCompatActivity() {
 //    lateinit var btnLoc : Button
@@ -83,6 +79,10 @@ class MyPgActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+//        val button = findViewById<Button>(R.id.go_evalutate);
+//        button.setOnClickListener{
+//
+//        }
     }
 
     override fun onBackPressed() {

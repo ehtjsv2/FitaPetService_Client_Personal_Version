@@ -8,14 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fitapet.PetsitterList.DogServiceFragment
-import com.example.fitapet.PetsitterList.PetsitterCard
-import com.example.fitapet.PetsitterList.PetsitterListAdapter
+import com.example.fitapet.PetsitterList.*
+import com.example.fitapet.PetsitterList.TogetherServiceDetail.TogetherServiceFragment
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentHomeBinding
-import com.example.fitapet.databinding.FragmentPetListRecyclerBinding
-import com.example.fitapet.databinding.ReviewHomeBinding
-import com.example.fitapet.ui.reservation.petList.PetListRecyclerFragment
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -43,13 +39,25 @@ class HomeFragment : Fragment() {
         binding.reviewRecylcerView.adapter=reviewListAdapter
         reviewListAdapter.setItemClickListener(object : ReviewListAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
-                //loadFragment(PetListRecyclerFragment())
+                loadFragment(ReviewPageFragment())
             }
 
         })
 
         binding.dogServices.setOnClickListener {
             loadFragment(DogServiceFragment())
+        }
+
+        binding.catServices.setOnClickListener {
+            loadFragment(CatServiceFragment())
+        }
+
+        binding.reviews.setOnClickListener {
+            loadFragment(ReviewPageFragment())
+        }
+
+        binding.togetherServices.setOnClickListener {
+            loadFragment(TogetherServiceFragment())
         }
 
         return binding.root

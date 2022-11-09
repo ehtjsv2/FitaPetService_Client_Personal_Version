@@ -1,20 +1,21 @@
-package com.example.fitapet.navfragment
+package com.example.fitapet.PetsitterList.TogetherServiceDetail
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitapet.R
-import com.example.fitapet.databinding.FriendListBinding
+import com.example.fitapet.databinding.ChooseFriendListBinding
+import com.example.fitapet.navfragment.FriendCard
 
-class FriendListAdapter(val friendcard:MutableList<FriendCard>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    class MyViewHolder(val binding: FriendListBinding) : RecyclerView.ViewHolder(binding.root){
+class ChooseFriendAdapter(val friendcard:MutableList<FriendCard>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    class MyViewHolder(val binding: ChooseFriendListBinding) : RecyclerView.ViewHolder(binding.root){
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return MyViewHolder(
-            FriendListBinding.inflate(
+            ChooseFriendListBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent, false
             )
