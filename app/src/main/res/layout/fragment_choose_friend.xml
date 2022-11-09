@@ -33,8 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#D4D4D3"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginTop="10dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/friend_choose_recyclerview"
