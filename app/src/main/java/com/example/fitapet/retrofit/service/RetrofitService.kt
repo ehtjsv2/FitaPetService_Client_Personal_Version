@@ -1,9 +1,6 @@
 package com.example.fitapet.retrofit.service
 
-import com.example.fitapet.retrofit.dto.KakaoUser
-import com.example.fitapet.retrofit.dto.getCurrentServiceDTO
-import com.example.fitapet.retrofit.dto.getCurrentServiceDtoNoResult
-import com.example.fitapet.retrofit.dto.getPetsDTO
+import com.example.fitapet.retrofit.dto.*
 import retrofit2.http.*
 import retrofit2.Call
 
@@ -19,7 +16,7 @@ interface RetrofitService {
 //    fun getUserPage(@Path("page") page: String): Call<User>
 
     @GET("customer/{customerId}/pets")
-    fun getPets(@Path("customerId") customerId:Long?):Call<getPetsDTO>
+    fun getPets(@Path("customerId") customerId:Long?):Call<getPets>
 
     @GET("users/{userId}/current-service")
     fun getCurrentService(@Path("userId") userId:Long?):Call<getCurrentServiceDTO>
@@ -31,6 +28,9 @@ interface RetrofitService {
     fun signUp(
         @Body kakaoUser:KakaoUser
     ): Call<getCurrentServiceDtoNoResult>
+
+//    @GET("customer/{customerId}/pets")
+//    fun getPets(@Path("customerId")customerId: Long?):Call<getPets>
 
     //    @POST("consumer/user")
 //    fun test1(

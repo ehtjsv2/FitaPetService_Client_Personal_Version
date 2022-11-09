@@ -1,12 +1,13 @@
 package com.example.fitapet.retrofit.dto
 
-data class getPetsDTO(
+//parameter
+
+//response
+data class getPets(
     val isSuccess:String,
     val code:Int,
     val message:String,
     val result:List<Pets>
-
-
 )
 
 data class Pets(

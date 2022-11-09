@@ -17,7 +17,7 @@ import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentPetListRecyclerBinding
 import com.example.fitapet.databinding.FragmentReservation01Binding
 import com.example.fitapet.retrofit.RetrofitClient.apiServer
-import com.example.fitapet.retrofit.dto.getPetsDTO
+import com.example.fitapet.retrofit.dto.getPets
 import com.example.fitapet.ui.reservation.Reservation01Fragment
 import retrofit2.Call
 import retrofit2.Callback
@@ -38,15 +38,15 @@ class PetListRecyclerFragment : Fragment() {
     ): View? {
 
         //유저 '4'펫리스트 불러오기
-        val responseGetPets: Call<getPetsDTO> =apiServer.getPets(4)
+        val responseGetPets: Call<getPets> =apiServer.getPets(4)
         //유저 Cookie.userId 펫리스트불러오기
         //val responseGetPets: Call<getPetsDTO> = apiServer.getPets(Cookie.userId)
         _binding = FragmentPetListRecyclerBinding.inflate(inflater,container,false)
 
-        responseGetPets.enqueue(object : Callback<getPetsDTO> {
+        responseGetPets.enqueue(object : Callback<getPets> {
             override fun onResponse(
-                call: Call<getPetsDTO>,
-                response: Response<getPetsDTO>
+                call: Call<getPets>,
+                response: Response<getPets>
             ) {
                 Log.d(TAG, "성공 : ${response.raw()}")
                 Log.d("testGetPets", response.body()!!.isSuccess)
@@ -65,7 +65,7 @@ class PetListRecyclerFragment : Fragment() {
 
             }
 
-            override fun onFailure(call: Call<getPetsDTO>, t: Throwable) {
+            override fun onFailure(call: Call<getPets>, t: Throwable) {
                 Log.d(TAG, "실패 : $t")
             }
         })
