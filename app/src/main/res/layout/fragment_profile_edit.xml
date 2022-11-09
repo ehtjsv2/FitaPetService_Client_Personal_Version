@@ -13,7 +13,6 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
-        android:layout_marginRight="15dp"
         android:layout_marginBottom="10dp"
         android:src="@drawable/example1" />
 
@@ -64,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="01012345678"
-                android:inputType="textPassword" />
+                android:inputType="text" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -79,7 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="경기도 파주시 00로 000 000-000"
-                android:inputType="textPassword" />
+                android:inputType="textEmailAddress" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -110,7 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="24"
-                android:inputType="textPassword" />
+                android:inputType="textCapCharacters" />
 
         </GridLayout>
 
@@ -130,7 +129,7 @@
             android:id="@+id/done"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="180dp"
+            android:layout_marginTop="10dp"
             android:background="@color/light_gray"
             android:padding="10dp"
             android:text="완료"

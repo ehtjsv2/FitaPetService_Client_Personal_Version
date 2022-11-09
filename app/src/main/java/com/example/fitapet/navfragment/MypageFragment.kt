@@ -1,6 +1,7 @@
 package com.example.fitapet.navfragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fitapet.PetsitterList.ProfileEditFragment
+import com.example.fitapet.PetsitterList.TogetherServiceDetail.TogetherServiceFragment
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentMypageBinding
 import de.hdodenhof.circleimageview.CircleImageView
@@ -36,6 +39,12 @@ class MypageFragment : Fragment() {
         linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
         petList.layoutManager = linearLayoutManager
         petList.adapter = RecyclerviewAdapter()
+
+        _binding = FragmentMypageBinding.inflate(inflater,container,false)
+
+        binding.editProf.setOnClickListener {
+            loadFragment(ProfileEditFragment())
+        }
 
         return binding.root
     }
@@ -92,6 +101,14 @@ class MypageFragment : Fragment() {
             val itemSex = view.findViewById<TextView>(R.id.textSex2)
             val itemAge = view.findViewById<TextView>(R.id.textAge2)
         }
+    }
+
+    private fun loadFragment(fragment: Fragment){
+        Log.d("clickTest","click!->"+fragment.tag)
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container,fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
 }
