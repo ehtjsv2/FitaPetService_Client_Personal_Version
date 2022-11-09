@@ -40,7 +40,7 @@ class ChooseFriendFragment : Fragment() {
         binding.friendChooseRecyclerview.adapter=chooseFriendAdapter
         chooseFriendAdapter.setItemClickListener(object : ChooseFriendAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
-//             loadFragment(PetListRecyclerFragment())
+
             }
 
         })

@@ -1,5 +1,6 @@
 package com.example.fitapet.PetsitterList.TogetherServiceDetail
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,9 +28,13 @@ class ChooseFriendAdapter(val friendcard:MutableList<FriendCard>): RecyclerView.
         binding.FriendImage.setImageResource(R.drawable.example1)
         binding.FriendName.text=friendcard[position].friendName
         binding.FriendEmail.text=friendcard[position].firendEmail
-//        holder.itemView.setOnClickListener {
-//            itemClickListener.onClick(it, position)
-//        }
+        holder.itemView.setOnClickListener {
+            Log.d("Check","clickb!")
+            itemClickListener.onClick(it, position)
+            Log.d("Check","clickc!")
+            binding.chooseFriendGrid.isSelected=binding.chooseFriendGrid.isSelected!=true
+            Log.d("Check","clickd!")
+        }
     }
     interface OnItemClickListener {
         fun onClick(v: View, position: Int)

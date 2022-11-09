@@ -3,6 +3,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
@@ -13,49 +14,49 @@
     app:cardCornerRadius="10dp"
     android:background="@drawable/friend_button"
     android:id="@+id/choose_friend"
-    android:clickable="true">
+    >
 
-    <GridLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/choose_friend_grid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:columnCount="2"
         android:padding="10dp"
         android:background="@drawable/friend_button"
-        android:clickable="true">
+        >
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/FriendImage"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:layout_gravity="center"
             android:src="@drawable/example1"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_gravity="center"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_gravity="center">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="친구 이름"
-                android:textSize="20dp"
-                android:layout_marginBottom="5dp"
-                android:id="@+id/FriendName"/>
+        <TextView
+            android:id="@+id/FriendName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="95dp"
+            android:text="친구 이름"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@+id/FriendImage"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="phwon7@knu.ac.kr"
-                android:textSize="16dp"
-                android:id="@+id/FriendEmail"/>
+        <TextView
+            android:id="@+id/FriendEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="phwon7@knu.ac.kr"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/FriendName" />
 
-        </LinearLayout>
 
-    </GridLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
