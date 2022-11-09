@@ -32,7 +32,7 @@ class TogetherServiceFragment : Fragment() {
         binding.recylcerView.adapter=togetherServiceAdapter
         togetherServiceAdapter.setItemClickListener(object : TogetherServiceAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
-//                loadFragment(PetListRecyclerFragment())
+                loadFragment(ChooseFriendFragment())
             }
 
         })
