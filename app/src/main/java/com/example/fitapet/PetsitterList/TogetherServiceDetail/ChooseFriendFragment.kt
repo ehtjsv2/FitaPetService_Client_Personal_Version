@@ -1,4 +1,4 @@
-package com.example.fitapet.PetsitterList
+package com.example.fitapet.PetsitterList.TogetherServiceDetail
 
 import android.os.Bundle
 import android.util.Log
@@ -7,12 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.fitapet.navfragment.FriendListAdapter
+import com.example.fitapet.PetsitterList.TogetherServiceDetail.ChooseFriendAdapter
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentChooseFriendBinding
-import com.example.fitapet.databinding.FragmentFriendBinding
 import com.example.fitapet.navfragment.FriendCard
-import com.example.fitapet.ui.reservation.petList.PetListRecyclerFragment
 
 class ChooseFriendFragment : Fragment() {
     private var _binding: FragmentChooseFriendBinding? = null

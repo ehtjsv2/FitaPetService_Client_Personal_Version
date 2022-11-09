@@ -1,4 +1,4 @@
-package com.example.fitapet.PetsitterList
+package com.example.fitapet.PetsitterList.TogetherServiceDetail
 
 import android.os.Bundle
 import android.util.Log
@@ -7,16 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.fitapet.PetsitterList.PetsitterCard
+import com.example.fitapet.PetsitterList.TogetherServiceAdapter
 import com.example.fitapet.R
-import com.example.fitapet.databinding.FragmentDogServiceBinding
 import com.example.fitapet.databinding.FragmentTogetherServiceBinding
-import com.example.fitapet.ui.reservation.petList.PetListRecyclerFragment
 
 class TogetherServiceFragment : Fragment() {
     private var _binding: FragmentTogetherServiceBinding? = null
     private val binding get() = _binding!!
     val petsittercards= mutableListOf<PetsitterCard>()
-    val togetherServiceAdapter=TogetherServiceAdapter(petsittercards)
+    val togetherServiceAdapter= TogetherServiceAdapter(petsittercards)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,7 +30,8 @@ class TogetherServiceFragment : Fragment() {
         petsittercards.add(PetsitterCard("R.drawable.example1","정민욱","10년이상","반려동물 있음","남","25","안녕하세요"))
         binding.recylcerView.layoutManager=LinearLayoutManager(requireContext())
         binding.recylcerView.adapter=togetherServiceAdapter
-        togetherServiceAdapter.setItemClickListener(object : TogetherServiceAdapter.OnItemClickListener{
+        togetherServiceAdapter.setItemClickListener(object :
+            TogetherServiceAdapter.OnItemClickListener {
             override fun onClick(v: View, position: Int) {
                 loadFragment(ChooseFriendFragment())
             }

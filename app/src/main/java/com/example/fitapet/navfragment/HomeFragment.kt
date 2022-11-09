@@ -9,11 +9,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitapet.PetsitterList.*
+import com.example.fitapet.PetsitterList.TogetherServiceDetail.TogetherServiceFragment
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentHomeBinding
-import com.example.fitapet.databinding.FragmentPetListRecyclerBinding
-import com.example.fitapet.databinding.ReviewHomeBinding
-import com.example.fitapet.ui.reservation.petList.PetListRecyclerFragment
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
