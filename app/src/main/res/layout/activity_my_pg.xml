@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".wonjune.MyPgActivity"
+    android:id="@+id/ingService"
     android:gravity="center|top">
     <LinearLayout
         android:layout_width="match_parent"
