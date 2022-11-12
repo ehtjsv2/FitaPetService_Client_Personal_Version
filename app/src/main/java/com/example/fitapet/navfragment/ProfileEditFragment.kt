@@ -31,7 +31,14 @@ class ProfileEditFragment : Fragment() {
 
         userProfile.add(UserProfile("R.drawable.example1","김도선","01012345678","대구광역시 북구 대현동 24-9","남자","25"))
 
-//        binding.recylcerView.layoutManager=LinearLayoutManager(requireContext())
+        binding.petsitterImage.setImageResource(R.drawable.dog_service)
+//        binding.myName.text=userProfile[position].userName
+//        binding.myPhoneNum.editableText=userProfile[position].userPhoneNum
+//        binding.myLocation.editableText=userProfile[position].userLoaction
+//        binding.myGender.text=userProfile[position].userGender
+//        binding.myAge.editableText=userProfile[position].userAge
+
+//        binding.profileEdit.layoutManager=LinearLayoutManager(requireContext())
 //        binding.recylcerView.adapter=petsitterListAdapter
 //        petsitterListAdapter.setItemClickListener(object : PetsitterListAdapter.OnItemClickListener{
 //            override fun onClick(v: View, position: Int) {

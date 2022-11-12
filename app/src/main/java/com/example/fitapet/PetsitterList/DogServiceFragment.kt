@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitapet.PetsitterList.TogetherServiceDetail.ChooseFriendAdapter
+import com.example.fitapet.PetsitterList.TogetherServiceDetail.TogetherServiceFragment
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentDogServiceBinding
 import com.example.fitapet.ui.reservation.petList.PetListRecyclerFragment
@@ -38,6 +39,14 @@ class DogServiceFragment : Fragment() {
             }
 
         })
+
+        binding.visit.setOnClickListener {
+            //loadFragment(TogetherServiceFragment())
+        }
+
+        binding.togo.setOnClickListener {
+            //loadFragment(TogetherServiceFragment())
+        }
 
         return binding.root
     }
