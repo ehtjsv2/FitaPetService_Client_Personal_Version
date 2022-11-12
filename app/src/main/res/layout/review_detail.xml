@@ -72,7 +72,8 @@
             android:id="@+id/reviewImage"
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
-            android:layout_height="265dp"
+            android:layout_height="180dp"
+            android:scaleType = "centerCrop"
             android:layout_marginBottom="5dp"
             android:src="@drawable/example1" />
 

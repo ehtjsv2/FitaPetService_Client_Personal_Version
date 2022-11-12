@@ -75,13 +75,13 @@ class MyPgActivity : AppCompatActivity() {
             var intent = Intent(applicationContext, MapActivity::class.java)
             startActivity(intent)
         }
-//        binding.goEvalutate.setOnClickListener {
-//            var intent = Intent(applicationContext, ServiceEvaluatePageFragment::class.java)
-//            startActivity(intent)
-//        }
+//       binding.goEvalutate.setOnClickListener {
+//           var intent = Intent(applicationContext, ServiceEvaluatePageFragment::class.java)
+//           startActivity(intent)
+//       }
 
-//        val button = findViewById<Button>(R.id.go_evalutate);
-//        button.setOnClickListener{
+//       val button = findViewById<Button>(R.id.go_evalutate);
+//           button.setOnClickListener{
 //
 //        }
     }
