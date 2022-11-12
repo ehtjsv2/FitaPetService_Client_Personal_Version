@@ -11,8 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
         <TextView
             android:id="@+id/txtView"
             android:layout_width="match_parent"
@@ -99,6 +98,23 @@
         android:layout_marginLeft="@dimen/main_padding"
         android:layout_marginRight="@dimen/main_padding"
         android:background="@color/light_gray"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ingPet_list"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginHorizontal="12.5dp"/>
+
+    <!--
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10px"
+        android:layout_marginLeft="@dimen/main_padding"
+        android:layout_marginRight="@dimen/main_padding"
+        android:background="@color/light_gray"/>
+    -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -116,8 +132,7 @@
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="17.5dp"
-         />
+        android:layout_marginHorizontal="17.5dp" />
     <View
         android:layout_width="match_parent"
         android:layout_height="10px"

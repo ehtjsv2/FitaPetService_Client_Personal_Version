@@ -18,6 +18,16 @@ data class currentDTO(
     val planStartTime: String,
     val planEndTime: String,
     val customerRequestContent: String,
-    val pets:List<Pets>
+    val pets:List<ingPets>
+)
+
+data class ingPets(
+    val petName:String,
+    //val petType:String,
+    val petSpecies:String,
+    val petSize:String,
+    val petSex:String,
+    val petAge:Int,
+    val profileImg:String
 )
 

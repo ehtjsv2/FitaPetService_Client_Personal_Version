@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fitapet.R
 import com.example.fitapet.databinding.PetItemMainBinding
 import com.example.fitapet.databinding.DogServiceListBinding
+import com.example.fitapet.retrofit.dto.Petsitter
 import com.example.fitapet.ui.reservation.petList.PetListAdapter
 
 class PetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -36,6 +37,29 @@ class PetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): Recycl
         binding.petsitterGender.text=petsittercard[position].gender
         binding.petsitterAge.text=petsittercard[position].age
         binding.PetsitterText.text=petsittercard[position].petsitterText
+        if (petsittercard[position].isAgreeToFilm_YN == "Y"){
+            binding.camera.text = "촬영 동의"
+        }else{
+            binding.camera.text = "촬영 불가"
+        }
+
+        if (petsittercard[position].isWalkable_YN == "Y"){
+            binding.takeawalk.text = "산책 가능"
+        }else{
+            binding.takeawalk.text = "산책 불가능"
+        }
+
+        if (petsittercard[position].isAgreeSharingLocation_YN == "Y"){
+            binding.location.text = "위치 공유 동의"
+        }else{
+            binding.location.text = "위치 공유 불가"
+        }
+
+        if (petsittercard[position].isPossibleCareOldPet_YN == "Y"){
+            binding.olddog.text = "노견 케어 가능"
+        }else{
+            binding.olddog.text = "노견 케어 불가"
+        }
         holder.itemView.setOnClickListener {
             itemClickListener.onClick(it, position)
         }

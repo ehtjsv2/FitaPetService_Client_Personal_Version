@@ -4,14 +4,33 @@ import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+
 import androidx.appcompat.app.AppCompatActivity
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout.HORIZONTAL
+import android.widget.TextView
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+
 import com.example.fitapet.Cookie
 import com.example.fitapet.MainActivity
 import com.example.fitapet.PetsitterList.ServiceEvaluatePageFragment
 import com.example.fitapet.R
 import com.example.fitapet.databinding.ActivityMyPgBinding
+import com.example.fitapet.login.LoginActivity
+import com.example.fitapet.navfragment.MypageFragment
 import com.example.fitapet.retrofit.RetrofitClient.apiServer
 import com.example.fitapet.retrofit.dto.getCurrentServiceDTO
+import com.example.fitapet.retrofit.dto.ingPets
+import de.hdodenhof.circleimageview.CircleImageView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,6 +39,8 @@ import retrofit2.Response
 class MyPgActivity : AppCompatActivity() {
 //    lateinit var btnLoc : Button
 //    lateinit var btnVideo : Button
+    lateinit var petList : RecyclerView
+    var parray = listOf<ingPets>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +48,11 @@ class MyPgActivity : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_home_black_24dp)
         supportActionBar?.setTitle("진행중인 서비스")
         //supportRequestWindowFeature(Window.FEATURE_NO_TITLE) //타이틀바 없애기
-        val responseGetCurrentService=apiServer.getCurrentService(Cookie.userId)
+        val responseGetCurrentService=apiServer.getCurrentService(4)
 
         val binding = ActivityMyPgBinding.inflate(layoutInflater)
+        petList = binding.ingPetList
+
 
         responseGetCurrentService.enqueue(object : Callback<getCurrentServiceDTO> {
             override fun onResponse(
@@ -48,6 +71,8 @@ class MyPgActivity : AppCompatActivity() {
                 binding.txtView3.text=responseResult.planStartTime
                 binding.txtView5.text=responseResult.planStartTime
                 binding.editRequest.text=responseResult.customerRequestContent
+                parray = responseResult.pets as MutableList<ingPets>
+                petList.adapter?.notifyDataSetChanged()
 //                for (pet in targetPets)
 ////                  val petName:String,val petBreed:String, val petBirth:String,val petSize
 //                    pets.add(Pets(pet.petName,pet.petSpecies,pet.petBirth,pet.petSize))
@@ -84,6 +109,55 @@ class MyPgActivity : AppCompatActivity() {
 //           button.setOnClickListener{
 //
 //        }
+        petList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        petList.adapter = RecyclerviewAdapter()
+    }
+    inner class RecyclerviewAdapter : RecyclerView.Adapter<RecyclerviewAdapter.ViewHolder>(){
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerviewAdapter.ViewHolder {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_ingpet, parent, false)
+            return ViewHolder(view)
+        }
+
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            var strimg = "https://dev.uksfirstdomain.shop/%ED%94%84%EC%82%AC3.webp"
+            Glide.with(this@MyPgActivity).load(strimg).into(holder.itemImg)
+            holder.itemImg.setImageResource(R.drawable.petimg)
+            holder.itemGName.text = "정원준"
+            holder.itemPName.text = parray[position].petName
+            holder.itemSpecies.text = parray[position].petSpecies
+
+            if (parray[position].petSize == "SMALL"){
+                holder.itemSize.text = "소형"
+            }else if (parray[position].petSize == "BIG"){
+                holder.itemSize.text = "대형"
+            }else{
+                holder.itemSize.text = "중형"
+            }
+
+            if (parray[position].petSex == "MALE"){
+                holder.itemSex.text = "남"
+            }else{
+                holder.itemSex.text = "여"
+            }
+
+            holder.itemAge.text = parray[position].petAge.toString()+"살"
+        }
+
+        override fun getItemCount(): Int {
+            return parray.size
+        }
+
+        inner class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
+            val itemImg = view.findViewById<CircleImageView>(R.id.circleImageView)
+            val itemGName = view.findViewById<TextView>(R.id.guardianName)
+            val itemPName = view.findViewById<TextView>(R.id.petName)
+            val itemType = view .findViewById<TextView>(R.id.catORdog)
+            val itemSpecies = view.findViewById<TextView>(R.id.textSpecies)
+            val itemSize = view.findViewById<TextView>(R.id.textSize)
+            val itemSex = view.findViewById<TextView>(R.id.textSex)
+            val itemAge = view.findViewById<TextView>(R.id.textAge)
+        }
+
     }
 
     override fun onBackPressed() {
