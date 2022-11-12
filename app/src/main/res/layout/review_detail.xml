@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:lines="5"
             android:text="후기 내용"
-            android:fontFamily="@font/nanum_gothic_bold"
+            android:fontFamily="@font/nanum_gothic"
             android:textColor="#676767"
             android:layout_gravity="center"
             android:gravity="center"
