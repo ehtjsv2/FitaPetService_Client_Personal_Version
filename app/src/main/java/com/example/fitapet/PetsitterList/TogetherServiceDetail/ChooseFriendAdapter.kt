@@ -33,11 +33,14 @@ class ChooseFriendAdapter(val friendcard:MutableList<FriendCard>): RecyclerView.
             itemClickListener.onClick(it, position)
             Log.d("Check","clickc!")
             binding.chooseFriendGrid.isSelected=binding.chooseFriendGrid.isSelected!=true
+
             Log.d("Check","clickd!")
         }
     }
     interface OnItemClickListener {
-        fun onClick(v: View, position: Int)
+        fun onClick(v: View, position: Int){
+
+        }
     }
     fun setItemClickListener(onItemClickListener: OnItemClickListener) {
         this.itemClickListener = onItemClickListener

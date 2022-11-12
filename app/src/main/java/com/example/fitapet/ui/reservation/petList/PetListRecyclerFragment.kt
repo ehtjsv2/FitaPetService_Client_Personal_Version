@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitapet.Cookie
 import com.example.fitapet.MainActivity
 import com.example.fitapet.PetsitterList.PetsitterListAdapter
+import com.example.fitapet.PetsitterList.TogetherServiceDetail.ChooseFriendFragment
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentPetListRecyclerBinding
 import com.example.fitapet.databinding.FragmentReservation01Binding
@@ -29,6 +30,14 @@ class PetListRecyclerFragment : Fragment() {
     private val binding get() = _binding!!
     val pets = mutableListOf<Pets>()
     lateinit var parentActivity:Activity
+    val bundle:Bundle?=arguments
+    val setbundle = Bundle()
+    var mode:Int=0
+    var fsize:Int=0
+    lateinit var responseGetPets: Call<getPets>
+    var friendId= mutableListOf<Long>()
+    val passBlankFragment = BlankFragment()
+    //val passPetListRecyclerFragment=PetListRecyclerFragment()
     //    val petsittercards= mutableListOf<PetsitterCard>()
 //    val petsitterListAdapter=PetsitterListAdapter(petsittercards)
     val petListAdapter=PetListAdapter(pets)
@@ -37,8 +46,13 @@ class PetListRecyclerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        //유저 '4'펫리스트 불러오기
-        val responseGetPets: Call<getPets> =apiServer.getPets(4)
+        Log.d("TAG11",ChooseFriendFragment.Companion.mode.toString())
+        Log.d("TAG11","start PetListRecyclerFrag")
+        //유저 펫리스트 불러오기
+        responseGetPets=apiServer.getPets(Cookie.userId)
+        //responseGetPets=apiServer.getPets(4)
+
+
         //유저 Cookie.userId 펫리스트불러오기
         //val responseGetPets: Call<getPetsDTO> = apiServer.getPets(Cookie.userId)
         _binding = FragmentPetListRecyclerBinding.inflate(inflater,container,false)
@@ -48,25 +62,18 @@ class PetListRecyclerFragment : Fragment() {
                 call: Call<getPets>,
                 response: Response<getPets>
             ) {
-                Log.d(TAG, "성공 : ${response.raw()}")
-                Log.d("testGetPets", response.body()!!.isSuccess)
-                Log.d("testGetPets", response.body()!!.code.toString())
-                Log.d("testGetPets", response.body()!!.result.toString())
-
-
+                Log.d("TAG11","성공")
                 val targetPets=response.body()!!.result
-                for (pet in targetPets)
-//                  val petName:String,val petBreed:String, val petBirth:String,val petSize
-                    pets.add(Pets(pet.petName,pet.petSpecies,pet.petBirth,pet.petSize))
-
+                for (pet in targetPets) {
+                    pets.add(Pets(pet.petName, pet.petSpecies, pet.petBirth, pet.petSize))
+                    Log.d("TAG11","번째")
+                }
                 binding.petListRecyclerView.layoutManager=LinearLayoutManager(requireContext())
                 binding.petListRecyclerView.adapter=petListAdapter
-               // binding.petListRecyclerView.addItemDecoration(MyDecoration(requireContext()))
-
             }
 
             override fun onFailure(call: Call<getPets>, t: Throwable) {
-                Log.d(TAG, "실패 : $t")
+                Log.d("TAG11", "실패 : $t")
             }
         })
 
@@ -82,7 +89,15 @@ class PetListRecyclerFragment : Fragment() {
 
         })
         binding.reservation00NextBtn.setOnClickListener{
-            loadFragment(Reservation01Fragment())
+            if(ChooseFriendFragment.Companion.mode==1) {
+                Log.d("TAG11","fsize = "+fsize)
+                passBlankFragment.arguments = setbundle
+                loadFragment(passBlankFragment)
+            }
+            else{
+                loadFragment(Reservation01Fragment())
+            }
+
         }
         Log.d("testcode","??")
 

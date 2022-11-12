@@ -10,5 +10,8 @@ data class FriendDTO(
 )
 
 data class Friend(
-    val example:String
+    val friendId:Long,
+    val customerName:String,
+    val kakaoEmail:String,
+    val profileImgUrl:String
 )
