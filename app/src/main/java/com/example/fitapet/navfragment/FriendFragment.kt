@@ -7,9 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.fitapet.Cookie
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentFriendBinding
+import com.example.fitapet.retrofit.RetrofitClient
+import com.example.fitapet.retrofit.dto.Friend
+import com.example.fitapet.retrofit.dto.FriendDTO
 import com.example.fitapet.ui.reservation.petList.PetListRecyclerFragment
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class FriendFragment : Fragment() {
     private var _binding: FragmentFriendBinding? = null
@@ -28,18 +35,39 @@ class FriendFragment : Fragment() {
 
 //        binding.petListRecyclerView.layoutManager=LinearLayoutManager(requireContext())
 //        binding.petListRecyclerView.adapter= PetListAdapter(pets)
+        val responseGetFriends= RetrofitClient.apiServer.getFriends(Cookie.userId)
+        responseGetFriends.enqueue(object : Callback<FriendDTO> {
+            override fun onResponse(call: Call<FriendDTO>, response: Response<FriendDTO>) {
+                //bundle.putInt("mode",1)
+                val responseResult=response.body()!!.result
+                for(i:Int in 0..responseResult.size-1){
+                    val friend=responseResult.get(i)
+                    Log.d("TAG11",friend.customerName)
+                    friendcards.add(FriendCard("R.drawable.example1", friendName = friend.customerName, firendEmail = friend.kakaoEmail))
+                    Log.d("TAG11","DONE")
+                    Log.d("TAG11",""+friendcards.size)
 
-        friendcards.add(FriendCard("R.drawable.example1","김도선","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard("R.drawable.example1","정민욱","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard("R.drawable.example1","김도선","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard("R.drawable.example1","정민욱","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard("R.drawable.example1","김도선","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard("R.drawable.example1","정민욱","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard("R.drawable.example1","김도선","이메일@knu.ac.kr",))
-        friendcards.add(FriendCard("R.drawable.example1","정민욱","이메일@knu.ac.kr",))
+                }
+                binding.friendRecyclerview.adapter=friendListAdapter
+               // binding.friendChooseRecyclerview.adapter=chooseFriendAdapter
+               // bundle.putInt("fSize",responseResult.size)
+                //val passPetListFragment = PetListRecyclerFragment()
+               // passPetListFragment.arguments=bundle
+            }
+            override fun onFailure(call: Call<FriendDTO>, t: Throwable) {
+            }
+        })
+//        friendcards.add(FriendCard("R.drawable.example1","김도선","이메일@knu.ac.kr",))
+//        friendcards.add(FriendCard("R.drawable.example1","정민욱","이메일@knu.ac.kr",))
+//        friendcards.add(FriendCard("R.drawable.example1","김도선","이메일@knu.ac.kr",))
+//        friendcards.add(FriendCard("R.drawable.example1","정민욱","이메일@knu.ac.kr",))
+//        friendcards.add(FriendCard("R.drawable.example1","김도선","이메일@knu.ac.kr",))
+//        friendcards.add(FriendCard("R.drawable.example1","정민욱","이메일@knu.ac.kr",))
+//        friendcards.add(FriendCard("R.drawable.example1","김도선","이메일@knu.ac.kr",))
+//        friendcards.add(FriendCard("R.drawable.example1","정민욱","이메일@knu.ac.kr",))
 
         binding.friendRecyclerview.layoutManager= LinearLayoutManager(requireContext())
-        binding.friendRecyclerview.adapter=friendListAdapter
+
         friendListAdapter.setItemClickListener(object : FriendListAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
                 loadFragment(PetListRecyclerFragment())

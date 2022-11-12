@@ -12,6 +12,11 @@ import com.example.fitapet.PetsitterList.*
 import com.example.fitapet.PetsitterList.TogetherServiceDetail.TogetherServiceFragment
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentHomeBinding
+import com.example.fitapet.retrofit.RetrofitClient
+import com.example.fitapet.retrofit.dto.ReviewDTO
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -26,6 +31,24 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater,container,false)
+        val responseGetReviews= RetrofitClient.apiServer.getRevies()
+        responseGetReviews.enqueue(object : Callback<ReviewDTO>{
+            override fun onResponse(call: Call<ReviewDTO>, response: Response<ReviewDTO>) {
+                val responseResult=response.body()!!.result
+                for(i:Int in 0..responseResult.size-1){
+                    val review=responseResult.get(i)
+                    //Log.d("TAG11",friend.customerName)
+//                     reviewscards.add(ReviewCard("R.drawable.uk",review.customerName,review.reviewContent,review.petSitterProfileImg,review.category,review.petSitterName))
+                    Log.d("TAG11","DONE")
+
+                }
+                binding.reviewRecylcerView.adapter=reviewListAdapter
+            }
+
+            override fun onFailure(call: Call<ReviewDTO>, t: Throwable) {
+
+            }
+        })
 
         reviewscards.add(ReviewCard("R.drawable.uk","정민욱","보내주신 영상 보니까 강아지랑 정말 잘 놀아주시더라구요 ㅠㅠ 우리 똘이 표정보면 똘이한테 잘 해주신게 느껴지더라구요 ㅠㅠㅎㅎㅎㅎ","R.drawable.example1","강아지돌봄","이찬수"))
         reviewscards.add(ReviewCard("R.drawable.doseon_kim02","김도선","마음 놓고 밖에 갔다올 수 있었어요","R.drawable.example1","고양이돌봄","김동근"))
@@ -36,7 +59,7 @@ class HomeFragment : Fragment() {
 
         binding.reviewRecylcerView.layoutManager= LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
 
-        binding.reviewRecylcerView.adapter=reviewListAdapter
+
         reviewListAdapter.setItemClickListener(object : ReviewListAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
                 loadFragment(ReviewPageFragment())

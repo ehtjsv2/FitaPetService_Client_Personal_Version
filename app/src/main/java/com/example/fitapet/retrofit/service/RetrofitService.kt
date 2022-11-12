@@ -29,6 +29,14 @@ interface RetrofitService {
         @Body kakaoUser:KakaoUser
     ): Call<getCurrentServiceDtoNoResult>
 
+    @GET("customer/{customerId}/friends")
+    fun getFriends(@Path("customerId")customerId: Long?): Call<FriendDTO>
+
+    @GET("reviews")
+    fun getRevies():Call<ReviewDTO>
+
+    @GET("reviews/detail")
+    fun getReviewDetail():Call<ReviewDetailDTO>
 //    @GET("customer/{customerId}/pets")
 //    fun getPets(@Path("customerId")customerId: Long?):Call<getPets>
 
