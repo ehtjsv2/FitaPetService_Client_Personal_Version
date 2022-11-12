@@ -68,7 +68,6 @@ class MyPgActivity : AppCompatActivity() {
         setContentView(binding.root)
 //        btnLoc = findViewById<Button>(R.id.getLoc)
 //        btnVideo = findViewById<Button>(R.id.getVideo)
-//
 
         binding.getVideo.setOnClickListener {
             var intent = Intent(applicationContext, MaiActivity::class.java)
