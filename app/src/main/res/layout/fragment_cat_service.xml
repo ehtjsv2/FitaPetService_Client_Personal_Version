@@ -9,14 +9,19 @@
     tools:context=".PetsitterList.DogServiceFragment">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_gravity="center"
+        android:gravity="center"
+        android:background="#F7F7F7"
+        android:padding="15dp"
         android:textSize="18dp"
-        android:text="~~~ 경기도 파주시 어쩌구 저쩌구 ~~~" />
+        android:fontFamily="@font/nanum_gothic_bold"
+        android:text="대구광역시 북구 대현동 21 61-3" />
 
     <View
         android:layout_width="match_parent"
@@ -37,6 +42,8 @@
             android:background="@drawable/friend_button"
             android:text="여자 펫시터"
             android:textSize="12dp"
+            android:fontFamily="@font/nanum_gothic"
+            android:textColor="#676767"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,6 +55,8 @@
             android:background="@drawable/friend_button"
             android:text="남자 펫시터"
             android:textSize="12dp"
+            android:fontFamily="@font/nanum_gothic"
+            android:textColor="#676767"
             app:layout_constraintStart_toEndOf="@+id/w_petsitter"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,6 +68,8 @@
             android:background="@drawable/friend_button"
             android:text="촬영 동의"
             android:textSize="12dp"
+            android:fontFamily="@font/nanum_gothic"
+            android:textColor="#676767"
             app:layout_constraintStart_toEndOf="@+id/m_petsitter"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,6 +81,8 @@
             android:background="@drawable/friend_button"
             android:text="위치 공유 동의"
             android:textSize="12dp"
+            android:fontFamily="@font/nanum_gothic"
+            android:textColor="#676767"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/camera_agree"
             app:layout_constraintTop_toTopOf="parent" />
@@ -84,6 +97,8 @@
             android:background="@drawable/friend_button"
             android:text="반려동물 있음"
             android:textSize="12dp"
+            android:fontFamily="@font/nanum_gothic"
+            android:textColor="#676767"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/w_petsitter" />
 
@@ -100,6 +115,7 @@
         android:id="@+id/recylcerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/main"
         android:layout_weight="1"/>
 
 </LinearLayout>

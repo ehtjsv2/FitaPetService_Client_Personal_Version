@@ -9,40 +9,54 @@
     tools:context=".PetsitterList.DogServiceFragment">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:layout_gravity="center"
+        android:gravity="center"
+        android:background="#F7F7F7"
+        android:padding="15dp"
         android:textSize="18dp"
-        android:text="~~~ 경기도 파주시 어쩌구 저쩌구 ~~~" />
+        android:fontFamily="@font/nanum_gothic_bold"
+        android:text="대구광역시 북구 대현동 21 61-3" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
         >
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/visit"
-            android:layout_width="180dp"
+            android:layout_width="160dp"
             android:layout_height="90dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginStart="16dp"
             android:background="@drawable/solid_button"
+            android:fontFamily="@font/nanum_gothic_extra_bold"
+            android:textColor="#676767"
             android:text="방문 돌봄"
             android:textSize="28dp"
+            android:layout_gravity="center"
+            android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/togo"
-            android:layout_width="180dp"
+            android:layout_width="160dp"
             android:layout_height="90dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:layout_marginEnd="16dp"
+            android:fontFamily="@font/nanum_gothic_extra_bold"
+            android:textColor="#676767"
             android:background="@drawable/solid_button"
             android:text="위탁 돌봄"
             android:textSize="28dp"
@@ -70,6 +84,8 @@
             android:layout_height="30dp"
             android:layout_marginStart="8dp"
             android:background="@drawable/friend_button"
+            android:fontFamily="@font/nanum_gothic"
+            android:textColor="#676767"
             android:text="여자 펫시터"
             android:textSize="12dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -82,6 +98,8 @@
             android:layout_marginStart="8dp"
             android:background="@drawable/friend_button"
             android:text="남자 펫시터"
+            android:fontFamily="@font/nanum_gothic"
+            android:textColor="#676767"
             android:textSize="12dp"
             app:layout_constraintStart_toEndOf="@+id/w_petsitter"
             app:layout_constraintTop_toTopOf="parent" />
@@ -93,6 +111,8 @@
             android:layout_marginStart="8dp"
             android:background="@drawable/friend_button"
             android:text="촬영 동의"
+            android:fontFamily="@font/nanum_gothic"
+            android:textColor="#676767"
             android:textSize="12dp"
             app:layout_constraintStart_toEndOf="@+id/m_petsitter"
             app:layout_constraintTop_toTopOf="parent" />
@@ -104,6 +124,8 @@
             android:layout_marginEnd="8dp"
             android:background="@drawable/friend_button"
             android:text="위치 공유 동의"
+            android:fontFamily="@font/nanum_gothic"
+            android:textColor="#676767"
             android:textSize="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/camera_agree"
@@ -115,6 +137,8 @@
             android:layout_height="30dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/nanum_gothic"
+            android:textColor="#676767"
             android:background="@drawable/friend_button"
             android:text="산책 가능"
             android:textSize="12dp"
@@ -128,6 +152,8 @@
             android:layout_marginStart="8dp"
             android:background="@drawable/friend_button"
             android:text="노견 케어 가능"
+            android:fontFamily="@font/nanum_gothic"
+            android:textColor="#676767"
             android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/jogging_available" />
@@ -139,6 +165,8 @@
             android:layout_marginStart="200dp"
             android:background="@drawable/friend_button"
             android:text="반려동물 있음"
+            android:fontFamily="@font/nanum_gothic"
+            android:textColor="#676767"
             android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -155,6 +183,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recylcerView"
         android:layout_width="match_parent"
+        android:background="@color/main"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
 
