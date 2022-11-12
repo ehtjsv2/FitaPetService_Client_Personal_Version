@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.fitapet.PetsitterList.TogetherServiceDetail.ChooseFriendAdapter
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentDogServiceBinding
 import com.example.fitapet.ui.reservation.petList.PetListRecyclerFragment
@@ -27,6 +29,7 @@ class DogServiceFragment : Fragment() {
 
         petsittercards.add(PetsitterCard("R.drawable.example1","김도선","10년이상","반려동물 있음","남","25","안녕하세요"))
         petsittercards.add(PetsitterCard("R.drawable.example1","정민욱","10년이상","반려동물 있음","남","25","안녕하세요"))
+
         binding.recylcerView.layoutManager=LinearLayoutManager(requireContext())
         binding.recylcerView.adapter=petsitterListAdapter
         petsitterListAdapter.setItemClickListener(object : PetsitterListAdapter.OnItemClickListener{
@@ -38,6 +41,7 @@ class DogServiceFragment : Fragment() {
 
         return binding.root
     }
+
     private fun loadFragment(fragment: Fragment){
         Log.d("clickTest","click!->"+fragment.tag)
         val transaction = requireActivity().supportFragmentManager.beginTransaction()

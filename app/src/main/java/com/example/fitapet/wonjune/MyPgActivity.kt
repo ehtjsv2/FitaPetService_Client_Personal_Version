@@ -4,10 +4,7 @@ import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.example.fitapet.Cookie
 import com.example.fitapet.MainActivity
 import com.example.fitapet.PetsitterList.ServiceEvaluatePageFragment
@@ -68,6 +65,7 @@ class MyPgActivity : AppCompatActivity() {
         setContentView(binding.root)
 //        btnLoc = findViewById<Button>(R.id.getLoc)
 //        btnVideo = findViewById<Button>(R.id.getVideo)
+//
 
         binding.getVideo.setOnClickListener {
             var intent = Intent(applicationContext, MaiActivity::class.java)
@@ -77,6 +75,10 @@ class MyPgActivity : AppCompatActivity() {
             var intent = Intent(applicationContext, MapActivity::class.java)
             startActivity(intent)
         }
+//        binding.goEvalutate.setOnClickListener {
+//            var intent = Intent(applicationContext, ServiceEvaluatePageFragment::class.java)
+//            startActivity(intent)
+//        }
 
 //        val button = findViewById<Button>(R.id.go_evalutate);
 //        button.setOnClickListener{
