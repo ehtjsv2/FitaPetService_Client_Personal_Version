@@ -42,7 +42,6 @@
                     android:layout_marginTop="35dp"
                     android:layout_marginBottom="74dp"
                     android:layout_toEndOf="@+id/prof_img"
-                    android:background="@drawable/edge"
                     android:paddingHorizontal="10dp"
                     android:text="보호자 이름" />
 
@@ -54,7 +53,6 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginBottom="35dp"
                     android:layout_toEndOf="@+id/prof_img"
-                    android:background="@drawable/edge"
                     android:text="abcdefg@naver.com"
                     android:paddingHorizontal="8dp"/>
 
@@ -78,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:text="내 반려동물"
                 android:textSize="25dp"
-                android:background="@drawable/edge"
+                android:background="@drawable/color_edge"
                 android:layout_marginTop="20dp"
                 android:paddingVertical="8dp"
                 android:paddingLeft="10dp" />
@@ -95,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:text="내가 북마크한 펫시터"
                 android:textSize="25dp"
-                android:background="@drawable/edge"
+                android:background="@drawable/color_edge"
                 android:layout_marginTop="20dp"
                 android:paddingVertical="8dp"
                 android:paddingLeft="10dp" />

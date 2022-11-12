@@ -36,7 +36,6 @@ class MaiActivity : AppCompatActivity() {
     var retrofit = Retrofit.Builder()
         .baseUrl("http://118.45.212.21:8000")
         //"http://192.168.0.195:8000" 우리집
-        //"http://223.39.249.247:8000" 핸드폰 핫스팟
         //"http://118.45.212.21:8000" 자취방 공용IP
         .addConverterFactory(GsonConverterFactory.create())
         .build()

@@ -26,8 +26,8 @@ class CatServiceFragment  : Fragment() {
 //        binding.petListRecyclerView.layoutManager=LinearLayoutManager(requireContext())
 //        binding.petListRecyclerView.adapter= PetListAdapter(pets)
 
-        petsittercards.add(PetsitterCard("R.drawable.example1","김도선","10년이상","반려동물 있음","남","25","안녕하세요"))
-        petsittercards.add(PetsitterCard("R.drawable.example1","정민욱","10년이상","반려동물 있음","남","25","안녕하세요"))
+        //petsittercards.add(PetsitterCard("R.drawable.example1","김도선","10년이상","반려동물 있음","남","25","안녕하세요"))
+        //petsittercards.add(PetsitterCard("R.drawable.example1","정민욱","10년이상","반려동물 있음","남","25","안녕하세요"))
         binding.recylcerView.layoutManager=LinearLayoutManager(requireContext())
         binding.recylcerView.adapter=CatPetsitterListAdapter
         CatPetsitterListAdapter.setItemClickListener(object : CatPetsitterListAdapter.OnItemClickListener{

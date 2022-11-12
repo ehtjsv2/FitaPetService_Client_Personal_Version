@@ -91,6 +91,7 @@
                 android:textSize="16dp" />
 
             <Button
+                android:id="@+id/userSex"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:text="여자"
