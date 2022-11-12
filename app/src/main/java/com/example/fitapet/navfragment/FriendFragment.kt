@@ -1,5 +1,6 @@
 package com.example.fitapet.navfragment
 
+import android.app.ActionBar
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.fitapet.MainActivity
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentFriendBinding
 import com.example.fitapet.ui.reservation.petList.PetListRecyclerFragment
