@@ -48,7 +48,7 @@ class FriendFragment : Fragment() {
                 for(i:Int in 0..responseResult.size-1){
                     val friend=responseResult.get(i)
                     Log.d("TAG11",friend.customerName)
-                    friendcards.add(FriendCard("R.drawable.example1", friendName = friend.customerName, firendEmail = friend.kakaoEmail))
+                    friendcards.add(FriendCard(friendImg = friend.profileImgUrl, friendName = friend.customerName, firendEmail = friend.kakaoEmail))
                     Log.d("TAG11","DONE")
                     Log.d("TAG11",""+friendcards.size)
 

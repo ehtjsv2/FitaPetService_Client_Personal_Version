@@ -21,7 +21,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     var lat: Double = 0.0
     var long: Double = 0.0
     var retrofit = Retrofit.Builder()
-        .baseUrl("http://172.17.162.13:8000")
+        .baseUrl("http://192.168.0.75:8000")
         //http://118.45.212.21:8000
         .addConverterFactory(GsonConverterFactory.create())
         .build()
