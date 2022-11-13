@@ -15,6 +15,16 @@ interface RetrofitService {
 //    @GET("posts/{page}")
 //    fun getUserPage(@Path("page") page: String): Call<User>
 
+    @GET("customers/{customerId}/status")
+    fun getStatus(
+        @Path("customerId") customerId: Long?
+    ) : Call<getStatus>
+
+    @GET("customer/{customerId}/address")
+    fun getAddr(
+        @Path("customerId") customerId: Long?
+    ) : Call<getAddr>
+
     @GET("customer/{customerId}/pets")
     fun getPets(@Path("customerId") customerId:Long?):Call<getPets>
 

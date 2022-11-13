@@ -10,6 +10,7 @@ import com.example.fitapet.MainActivity
 import com.example.fitapet.R
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
+import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.util.FusedLocationSource
 import retrofit2.*
 import retrofit2.Retrofit
@@ -21,7 +22,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     var lat: Double = 0.0
     var long: Double = 0.0
     var retrofit = Retrofit.Builder()
-        .baseUrl("http://172.17.162.13:8000")
+        .baseUrl("http://192.168.0.75:8000")
         //http://118.45.212.21:8000
         .addConverterFactory(GsonConverterFactory.create())
         .build()
@@ -78,6 +79,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                     var trace = response.body()
                     val cameraUpdate = CameraUpdate.scrollTo(LatLng(trace!!.lat, trace!!.long))
                     naverMap.moveCamera(cameraUpdate)
+                    val marker = Marker()
+                    marker.position = LatLng(trace!!.lat, trace!!.long)
+                    marker.map = naverMap
                 }
 
                 override fun onFailure(call: Call<traceLoc>, t: Throwable) {
