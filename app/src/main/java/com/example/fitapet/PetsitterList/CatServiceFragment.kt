@@ -15,6 +15,7 @@ import com.example.fitapet.ui.reservation.petList.PetListRecyclerFragment
 class CatServiceFragment  : Fragment() {
     private var _binding: FragmentCatServiceBinding? = null
     private val binding get() = _binding!!
+    var map1 = HashMap<String, String>()
     val petsittercards= mutableListOf<PetsitterCard>()
     val CatPetsitterListAdapter=CatPetsitterListAdapter(petsittercards)
     override fun onCreateView(
@@ -28,6 +29,8 @@ class CatServiceFragment  : Fragment() {
 
         //petsittercards.add(PetsitterCard("R.drawable.example1","김도선","10년이상","반려동물 있음","남","25","안녕하세요"))
         //petsittercards.add(PetsitterCard("R.drawable.example1","정민욱","10년이상","반려동물 있음","남","25","안녕하세요"))
+        map1.put("sex", "F")
+        map1.put("isWalkable_YN", "N")
         binding.recylcerView.layoutManager=LinearLayoutManager(requireContext())
         binding.recylcerView.adapter=CatPetsitterListAdapter
         CatPetsitterListAdapter.setItemClickListener(object : CatPetsitterListAdapter.OnItemClickListener{

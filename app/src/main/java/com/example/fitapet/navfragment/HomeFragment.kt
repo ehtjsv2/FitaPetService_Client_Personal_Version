@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitapet.PetsitterList.*
@@ -14,6 +16,8 @@ import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentHomeBinding
 import com.example.fitapet.retrofit.RetrofitClient
 import com.example.fitapet.retrofit.dto.ReviewDTO
+import com.example.fitapet.retrofit.dto.getAddr
+import com.example.fitapet.retrofit.dto.getStatus
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -50,6 +54,22 @@ class HomeFragment : Fragment() {
             }
         })
 
+        RetrofitClient.apiServer.getAddr(4).enqueue(object: Callback<getAddr>{
+            override fun onResponse(call: Call<getAddr>, response: Response<getAddr>) {
+                val txtAddress = response.body()!!.result
+                if (txtAddress.address == null){
+                    binding.myAddr.text = "주소를 입력해주세요"
+                }else{
+                    binding.myAddr.text = txtAddress.address
+                }
+            }
+
+            override fun onFailure(call: Call<getAddr>, t: Throwable) {
+                Toast.makeText(activity, t.message, Toast.LENGTH_SHORT).show()
+            }
+
+        })
+
 //        reviewscards.add(ReviewCard("R.drawable.uk","정민욱","보내주신 영상 보니까 강아지랑 정말 잘 놀아주시더라구요 ㅠㅠ 우리 똘이 표정보면 똘이한테 잘 해주신게 느껴지더라구요 ㅠㅠㅎㅎㅎㅎ","R.drawable.example1","강아지돌봄","이찬수"))
 //        reviewscards.add(ReviewCard("R.drawable.doseon_kim02","김도선","마음 놓고 밖에 갔다올 수 있었어요","R.drawable.example1","고양이돌봄","김동근"))
 //        reviewscards.add(ReviewCard("R.drawable.example1","박희원","기대했던것보다 훨씬 친절","R.drawable.example1","강아지돌봄","이찬혁"))
@@ -68,11 +88,45 @@ class HomeFragment : Fragment() {
         })
 
         binding.dogServices.setOnClickListener {
-            loadFragment(DogServiceFragment())
+            RetrofitClient.apiServer.getStatus(4).enqueue(object: Callback<getStatus>{
+                override fun onResponse(call: Call<getStatus>, response: Response<getStatus>) {
+                    val now = response.body()!!.result
+                    if (now.status == "COMPLETED"){
+                        loadFragment(DogServiceFragment())
+                    }else{
+                        var dialog = AlertDialog.Builder(requireContext())
+                        dialog.setTitle("알림")
+                        dialog.setMessage("돌봄 서비스 진행을 위해서는 펫 등록을 먼저 진행해주세요")
+                        dialog.show()
+                    }
+                }
+
+                override fun onFailure(call: Call<getStatus>, t: Throwable) {
+                    Toast.makeText(activity, t.message, Toast.LENGTH_SHORT).show()
+                }
+
+            })
         }
 
         binding.catServices.setOnClickListener {
-            loadFragment(CatServiceFragment())
+            RetrofitClient.apiServer.getStatus(4).enqueue(object: Callback<getStatus>{
+                override fun onResponse(call: Call<getStatus>, response: Response<getStatus>) {
+                    val now = response.body()!!.result
+                    if (now.status == "COMPLETED"){
+                        loadFragment(CatServiceFragment())
+                    }else{
+                        var dialog = AlertDialog.Builder(requireContext())
+                        dialog.setTitle("알림")
+                        dialog.setMessage("돌봄 서비스 진행을 위해서는 펫 등록을 먼저 진행해주세요")
+                        dialog.show()
+                    }
+                }
+
+                override fun onFailure(call: Call<getStatus>, t: Throwable) {
+                    Toast.makeText(activity, t.message, Toast.LENGTH_SHORT).show()
+                }
+
+            })
         }
 
         binding.reviews.setOnClickListener {
@@ -80,7 +134,24 @@ class HomeFragment : Fragment() {
         }
 
         binding.togetherServices.setOnClickListener {
-            loadFragment(TogetherServiceFragment())
+            RetrofitClient.apiServer.getStatus(4).enqueue(object: Callback<getStatus>{
+                override fun onResponse(call: Call<getStatus>, response: Response<getStatus>) {
+                    val now = response.body()!!.result
+                    if (now.status == "COMPLETED"){
+                        loadFragment(TogetherServiceFragment())
+                    }else{
+                        var dialog = AlertDialog.Builder(requireContext())
+                        dialog.setTitle("알림")
+                        dialog.setMessage("돌봄 서비스 진행을 위해서는 펫 등록을 먼저 진행해주세요")
+                        dialog.show()
+                    }
+                }
+
+                override fun onFailure(call: Call<getStatus>, t: Throwable) {
+                    Toast.makeText(activity, t.message, Toast.LENGTH_SHORT).show()
+                }
+
+            })
         }
 
         return binding.root
