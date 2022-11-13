@@ -46,6 +46,7 @@ class DogServiceFragment : Fragment() {
                 Log.d("iamhere", "여기있다")
                 //petsittercards = response.body()!!.result as MutableList<Petsitter>
                 val responseResult=response.body()!!.result
+                Log.d("iamhere4", responseResult.size.toString())
                 for (petsitter in responseResult){
                     Log.d("iamhere2", "여기있다2")
                     petsittercards.add(PetsitterCard(petsitter.petSitterProfileImg, petsitter.petSitterName, petsitter.career,

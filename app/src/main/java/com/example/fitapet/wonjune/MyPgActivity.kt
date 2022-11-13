@@ -41,6 +41,7 @@ class MyPgActivity : AppCompatActivity() {
 //    lateinit var btnVideo : Button
     lateinit var petList : RecyclerView
     var parray = listOf<ingPets>()
+    lateinit var guardianName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +49,7 @@ class MyPgActivity : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_home_black_24dp)
         supportActionBar?.setTitle("진행중인 서비스")
         //supportRequestWindowFeature(Window.FEATURE_NO_TITLE) //타이틀바 없애기
-        val responseGetCurrentService=apiServer.getCurrentService(4)
+        val responseGetCurrentService=apiServer.getCurrentService(Cookie.userId)
 
         val binding = ActivityMyPgBinding.inflate(layoutInflater)
         petList = binding.ingPetList
@@ -71,6 +72,7 @@ class MyPgActivity : AppCompatActivity() {
                 binding.txtView3.text=responseResult.planStartTime
                 binding.txtView5.text=responseResult.planStartTime
                 binding.editRequest.text=responseResult.customerRequestContent
+                guardianName = responseResult.customerName
                 parray = responseResult.pets as MutableList<ingPets>
                 petList.adapter?.notifyDataSetChanged()
 //                for (pet in targetPets)
@@ -119,20 +121,14 @@ class MyPgActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            var strimg = "https://dev.uksfirstdomain.shop/%ED%94%84%EC%82%AC3.webp"
+            var strimg = parray[position].profileImg //https://붙혀서 보내야함
             Glide.with(this@MyPgActivity).load(strimg).into(holder.itemImg)
-            holder.itemImg.setImageResource(R.drawable.petimg)
-            holder.itemGName.text = "정원준"
+            //holder.itemImg.setImageResource(R.drawable.petimg)
+            holder.itemGName.text = guardianName //보호자 이름을 어디서??
             holder.itemPName.text = parray[position].petName
             holder.itemSpecies.text = parray[position].petSpecies
-
-            if (parray[position].petSize == "SMALL"){
-                holder.itemSize.text = "소형"
-            }else if (parray[position].petSize == "BIG"){
-                holder.itemSize.text = "대형"
-            }else{
-                holder.itemSize.text = "중형"
-            }
+            holder.itemSize.text = parray[position].petSize
+            holder.itemType.text = parray[position].petType
 
             if (parray[position].petSex == "MALE"){
                 holder.itemSex.text = "남"

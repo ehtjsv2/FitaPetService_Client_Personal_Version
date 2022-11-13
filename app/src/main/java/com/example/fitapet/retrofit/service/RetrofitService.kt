@@ -50,8 +50,9 @@ interface RetrofitService {
     @PATCH("customer/{customerId}/userInfo")
     fun editInfo(
         @Path("customerId") customerId: Long?,
-        @Body age: Int,
-        @Body tel: String
+        @Body editCpl: bodyClass,
+        //@Body tel: String, //주소 보내는 Body 더 필요
+        //@Body addr: String
     ) : Call<editInfo>
 
     @POST("customer/user")

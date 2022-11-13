@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 import com.example.fitapet.PetsitterList.ProfileEditFragment
 import com.example.fitapet.PetsitterList.TogetherServiceDetail.TogetherServiceFragment
@@ -41,21 +42,17 @@ class MypageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //var petinfo = MypetList("체리", "치와와", "소형", "암컷", "5")
-        //var petinfo2 = MypetList("샤넬", "말티즈", "소형", "수컷", "2")
-        //var petinfo3 = MypetList("딸기", "푸들", "소형", "암컷", "4")
         _binding = FragmentMypageBinding.inflate(inflater,container,false)
-        //parray.add(petinfo)
-        //parray.add(petinfo2)
-        //parray.add(petinfo3)
         petList = binding.petList
         petSitter = binding.petSitterList
         Log.d("idHERE1", Cookie.userId.toString())
 
-        RetrofitClient.apiServer.getSimple(4).enqueue(object: Callback<getUser>{
+        RetrofitClient.apiServer.getSimple(Cookie.userId).enqueue(object: Callback<getUser>{
             override fun onResponse(call: Call<getUser>, response: Response<getUser>) {
                 val responseResult=response.body()!!.result
                 Log.d("HERE5", responseResult.size.toString())
+                var strimg = responseResult[0].profileImgUrl
+                Glide.with(this@MypageFragment).load(strimg).into(binding.profImg)
                 binding.ownerName.text = responseResult[0].customerName
                 binding.myEmail.text = responseResult[0].kakaoEmail
             }
@@ -68,7 +65,7 @@ class MypageFragment : Fragment() {
         })
 
 
-        RetrofitClient.apiServer.getPets(4).enqueue(object: Callback<getPets>{
+        RetrofitClient.apiServer.getPets(Cookie.userId).enqueue(object: Callback<getPets>{
             override fun onResponse(call: Call<getPets>, response: Response<getPets>) {
                 Log.d("HERE2", "여기2")
                 myPets = response.body()!!.result
@@ -106,7 +103,7 @@ class MypageFragment : Fragment() {
         petList.layoutManager = linearLayoutManager
         petList.adapter = RecyclerviewAdapter()
 
-        _binding = FragmentMypageBinding.inflate(inflater,container,false)
+        //_binding = FragmentMypageBinding.inflate(inflater,container,false)
 
         binding.editProf.setOnClickListener {
             loadFragment(ProfileEditFragment())
@@ -121,7 +118,11 @@ class MypageFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.itemImg.setImageResource(R.drawable.petimg)
+            //var strimg = myPets[position]
+            Log.d("HERE7", "여기는 왔는데")
+            val strimg = myPets[position].profileImg
+            Glide.with(this@MypageFragment).load(strimg).into(holder.itemImg)
+            //holder.itemImg.setImageResource(R.drawable.petimg)
             holder.itemPname.text = myPets[position].petName
             holder.itemSpecies.text = myPets[position].petSpecies
             holder.itemSize.text = myPets[position].petSize
@@ -143,7 +144,7 @@ class MypageFragment : Fragment() {
             val itemSize = view.findViewById<TextView>(R.id.textSize)
             val itemSex = view.findViewById<TextView>(R.id.textSex)
             val itemAge = view.findViewById<TextView>(R.id.textAge)
-            val itemImg = view.findViewById<ImageView>(R.id.pet_img)
+            val itemImg = view.findViewById<ImageView>(R.id.pet_img) //펫이미지 못 가져옴
         }
 
     }

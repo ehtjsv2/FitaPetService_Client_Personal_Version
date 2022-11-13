@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.fitapet.R
 import com.example.fitapet.databinding.PetItemMainBinding
 import com.example.fitapet.databinding.DogServiceListBinding
@@ -30,12 +32,18 @@ class PetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): Recycl
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as PetsitterListAdapter.MyViewHolder).binding
+        var strimg = petsittercard[position].img
+        Glide.with(holder.itemView).load(strimg).into(binding.petsitterImage)
         binding.petsitterImage.setImageResource(R.drawable.example1)
         binding.petsitterName.text=petsittercard[position].name
-        binding.petsitterCareer.text=petsittercard[position].career
+        binding.petsitterCareer.text=petsittercard[position].career+"년"
         binding.petsitterHavePet.text=petsittercard[position].havepet
-        binding.petsitterGender.text=petsittercard[position].gender
-        binding.petsitterAge.text=petsittercard[position].age
+        if (petsittercard[position].gender == "F"){
+            binding.petsitterGender.text = "여"
+        }else{
+            binding.petsitterGender.text = "남"
+        }
+        binding.petsitterAge.text=petsittercard[position].age+"세"
         binding.PetsitterText.text=petsittercard[position].petsitterText
         if (petsittercard[position].isAgreeToFilm_YN == "Y"){
             binding.camera.text = "촬영 동의"

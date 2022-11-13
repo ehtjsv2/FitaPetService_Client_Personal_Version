@@ -11,7 +11,7 @@ data class getPets(
 )
 
 data class Pets(
-    val petId:Int,
+    val petId:Long,
     val petName:String,
     val petType:String,
     val petSpecies:String,
@@ -19,6 +19,7 @@ data class Pets(
     val petSize:String,
     val petSex:String,
     val petAge:Int,
+    val profileImg:String,
     val registrationType:String,
     val isNeutralize:String
 )

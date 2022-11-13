@@ -15,7 +15,7 @@ data class getDetail(
 )
 
 data class UserSimple(
-    val customerId: Int,
+    val customerId: Long,
     val profileImgUrl: String,
     val customerName: String,
     val kakaoEmail: String
