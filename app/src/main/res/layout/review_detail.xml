@@ -58,7 +58,7 @@
                 android:textColor="#676767"
                 android:layout_gravity="center"
                 android:background="@drawable/solid_button"
-                android:layout_marginLeft="125dp"
+                android:layout_marginLeft="110dp"
                 android:id="@+id/whatService" />
 
         </GridLayout>
@@ -88,7 +88,7 @@
             android:layout_gravity="center"
             android:gravity="left"
             android:background="#F7F7F7"
-            android:textSize="16dp"
+            android:textSize="14dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="5dp" />
@@ -123,8 +123,8 @@
                     android:layout_height="50dp"
                     android:src="@drawable/example1"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp" />
 
                 <Button
@@ -143,10 +143,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="에게 서비스를 받았어요"
-                    android:textSize="16dp"
+                    android:textSize="14dp"
                     android:fontFamily="@font/nanum_gothic"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginRight="15dp"/>
 
             </GridLayout>
