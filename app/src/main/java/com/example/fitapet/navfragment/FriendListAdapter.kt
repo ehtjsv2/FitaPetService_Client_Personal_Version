@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FriendListBinding
 
@@ -23,6 +24,7 @@ class FriendListAdapter(val friendcard:MutableList<FriendCard>): RecyclerView.Ad
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as MyViewHolder).binding
+        Glide.with(holder.itemView).load(friendcard[position].friendImg).into(binding.FriendImage)
         binding.FriendImage.setImageResource(R.drawable.example1)
         binding.FriendName.text=friendcard[position].friendName
         binding.FriendEmail.text=friendcard[position].firendEmail
