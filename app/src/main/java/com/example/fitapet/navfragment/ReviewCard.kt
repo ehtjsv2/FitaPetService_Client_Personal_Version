@@ -5,4 +5,5 @@ data class ReviewCard(var profileImg: String,
                       var reviewText: String,
                       var petsitterImg: String,
                       var serviceList: String,
-                      var petsitterName: String, )
+                      var petsitterName: String,
+                      var whatservice:String)

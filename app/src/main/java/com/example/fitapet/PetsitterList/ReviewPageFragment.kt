@@ -40,14 +40,15 @@ class ReviewPageFragment : Fragment() {
                 for(i:Int in 0..responseResult.size-1){
                     val review=responseResult.get(i)
                     //Log.d("TAG11",friend.customerName)
-                    reviewDetailCards.add(ReviewDetailCard("R.drawable.example",review.customerName,"R.drawable.example",review.reviewContent,review.petSitterProfileImg,review.category,review.petSitterName))
+                    reviewDetailCards.add(ReviewDetailCard(review.customerName,review.profileImgOfCustomer
+                        ,review.reviewPicture,review.isLike_YN,review.reviewContent,review.petType,review.petSitterName,review.petSitterProfileImg))
                     Log.d("TAG11","DONE")
                 }
                 binding.reviewPageRecylcerView.adapter=reviewDetailAdapter
             }
 
             override fun onFailure(call: Call<ReviewDetailDTO>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.d("TAG11","fail to call api")
             }
         })
 //        reviewDetailCards.add(ReviewDetailCard("R.drawable.example1","김도선","R.drawable.example1","굿굿굿","R.drawable.example1","강아지돌봄","정민욱"))
