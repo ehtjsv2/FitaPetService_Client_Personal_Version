@@ -86,7 +86,7 @@
             android:fontFamily="@font/nanum_gothic"
             android:textColor="#676767"
             android:layout_gravity="center"
-            android:gravity="center"
+            android:gravity="left"
             android:background="#F7F7F7"
             android:textSize="16dp"
             android:layout_marginLeft="10dp"

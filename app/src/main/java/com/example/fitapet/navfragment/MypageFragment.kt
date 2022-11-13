@@ -106,8 +106,6 @@ class MypageFragment : Fragment() {
         petList.layoutManager = linearLayoutManager
         petList.adapter = RecyclerviewAdapter()
 
-        _binding = FragmentMypageBinding.inflate(inflater,container,false)
-
         binding.editProf.setOnClickListener {
             loadFragment(ProfileEditFragment())
         }
