@@ -13,7 +13,7 @@ data class ReviewDetail(
     val reviewPicture:String,
     val isLike_YN:String,
     val reviewContent:String,
-    val category:String,
+    val petType:String,
     val petSitterName:String,
     val petSitterProfileImg:String
 )

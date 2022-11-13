@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.fitapet.R
 import com.example.fitapet.databinding.PetItemMainBinding
 import com.example.fitapet.databinding.FragmentFriendBinding
@@ -42,10 +43,12 @@ class ReviewListAdapter(val reviewCard:MutableList<ReviewCard>): RecyclerView.Ad
         }else{
             binding.parentImage.setImageResource(R.drawable.example1)
         }
+        Glide.with(holder.itemView).load(reviewCard[position].profileImg).into(binding.parentImage)
         binding.parentName.text=reviewCard[position].parentName
         binding.reviewText.text=reviewCard[position].reviewText
-        binding.petsitterImg.setImageResource(R.drawable.example1)
-        binding.whatService.text=reviewCard[position].serviceList
+        Glide.with(holder.itemView).load(reviewCard[position].petsitterImg).into(binding.petsitterImg)
+//        binding.petsitterImg.setImageResource(R.drawable.example1)
+        binding.whatService.text=reviewCard[position].whatservice
         binding.petsittername.text=reviewCard[position].petsitterName
         holder.itemView.setOnClickListener {
             itemClickListener.onClick(it, position)

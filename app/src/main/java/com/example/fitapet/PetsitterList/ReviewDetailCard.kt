@@ -1,9 +1,11 @@
 package com.example.fitapet.PetsitterList
 
-data class ReviewDetailCard(var profileImg: String,
-                      var parentName: String,
-                      var reviewImage: String,
-                      var reviewText: String,
-                      var petsitterImg: String,
-                      var serviceList: String,
-                      var petsitterName: String, )
+data class ReviewDetailCard(var customerName: String,
+                      var profileImgOfCustomer: String,
+                      var reviewPicture: String,
+                      var isLike_YN: String,
+                      var reviewContent: String,
+                      var petType: String,
+                      var petsitterName: String,
+                      var petSitterProfileImg:String
+)
