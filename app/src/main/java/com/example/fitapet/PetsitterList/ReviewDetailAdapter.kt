@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.fitapet.PetsitterList.ReviewDetailCard
 import com.example.fitapet.R
 import com.example.fitapet.databinding.PetItemMainBinding
@@ -36,12 +37,16 @@ class ReviewDetailAdapter(val reviewdetailcard:MutableList<ReviewDetailCard>): R
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         Log.d("LOGTest",""+itemCount+"---"+position)
         val binding = (holder as ReviewDetailAdapter.MyViewHolder).binding
-        binding.parentImage.setImageResource(R.drawable.example1)
-        binding.parentName.text=reviewdetailcard[position].parentName
-        binding.reviewImage.setImageResource(R.drawable.example1)
-        binding.reviewText.text=reviewdetailcard[position].reviewText
-        binding.petsitterImg.setImageResource(R.drawable.example1)
-        binding.whatService.text=reviewdetailcard[position].serviceList
+        Log.d("TAG11",reviewdetailcard[position].profileImgOfCustomer)
+        Glide.with(holder.itemView).load(reviewdetailcard[position].profileImgOfCustomer).into(binding.parentImage)
+//        binding.parentImage.setImageResource(R.drawable.example1)
+        binding.parentName.text=reviewdetailcard[position].customerName
+        Glide.with(holder.itemView).load(reviewdetailcard[position].reviewPicture).into(binding.reviewImage)
+//        binding.reviewImage.setImageResource(R.drawable.example1)
+        binding.reviewText.text=reviewdetailcard[position].reviewContent
+        Glide.with(holder.itemView).load(reviewdetailcard[position].petSitterProfileImg).into(binding.petsitterImg)
+//        binding.petsitterImg.setImageResource(R.drawable.example1)
+        binding.whatService.text=reviewdetailcard[position].petType
         binding.petsittername.text=reviewdetailcard[position].petsitterName
 //        holder.itemView.setOnClickListener {
 //            itemClickListener.onClick(it, position)

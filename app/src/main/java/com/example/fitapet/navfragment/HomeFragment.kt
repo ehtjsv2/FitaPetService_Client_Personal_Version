@@ -38,7 +38,7 @@ class HomeFragment : Fragment() {
                 for(i:Int in 0..responseResult.size-1){
                     val review=responseResult.get(i)
                     //Log.d("TAG11",friend.customerName)
-//                     reviewscards.add(ReviewCard("R.drawable.uk",review.customerName,review.reviewContent,review.petSitterProfileImg,review.category,review.petSitterName))
+                    reviewscards.add(ReviewCard(review.profileImgOfCustomer,review.customerName,review.reviewContent,review.petSitterProfileImg,review.category,review.petSitterName,review.category))
                     Log.d("TAG11","DONE")
 
                 }
@@ -50,12 +50,12 @@ class HomeFragment : Fragment() {
             }
         })
 
-        reviewscards.add(ReviewCard("R.drawable.uk","정민욱","보내주신 영상 보니까 강아지랑 정말 잘 놀아주시더라구요 ㅠㅠ 우리 똘이 표정보면 똘이한테 잘 해주신게 느껴지더라구요 ㅠㅠㅎㅎㅎㅎ","R.drawable.example1","강아지돌봄","이찬수"))
-        reviewscards.add(ReviewCard("R.drawable.doseon_kim02","김도선","마음 놓고 밖에 갔다올 수 있었어요","R.drawable.example1","고양이돌봄","김동근"))
-        reviewscards.add(ReviewCard("R.drawable.example1","박희원","기대했던것보다 훨씬 친절","R.drawable.example1","강아지돌봄","이찬혁"))
-        reviewscards.add(ReviewCard("R.drawable.example1","정원준","고양이가 좋아하더라구요","R.drawable.example1","고양이돌봄","정민욱"))
-        reviewscards.add(ReviewCard("R.drawable.example1","김도현","가성비 최고에요","R.drawable.example1","강아지돌봄","김도선"))
-        reviewscards.add(ReviewCard("R.drawable.example1","김도원","친구","R.drawable.example1","고양이돌봄","정민욱"))
+//        reviewscards.add(ReviewCard("R.drawable.uk","정민욱","보내주신 영상 보니까 강아지랑 정말 잘 놀아주시더라구요 ㅠㅠ 우리 똘이 표정보면 똘이한테 잘 해주신게 느껴지더라구요 ㅠㅠㅎㅎㅎㅎ","R.drawable.example1","강아지돌봄","이찬수"))
+//        reviewscards.add(ReviewCard("R.drawable.doseon_kim02","김도선","마음 놓고 밖에 갔다올 수 있었어요","R.drawable.example1","고양이돌봄","김동근"))
+//        reviewscards.add(ReviewCard("R.drawable.example1","박희원","기대했던것보다 훨씬 친절","R.drawable.example1","강아지돌봄","이찬혁"))
+//        reviewscards.add(ReviewCard("R.drawable.example1","정원준","고양이가 좋아하더라구요","R.drawable.example1","고양이돌봄","정민욱"))
+//        reviewscards.add(ReviewCard("R.drawable.example1","김도현","가성비 최고에요","R.drawable.example1","강아지돌봄","김도선"))
+//        reviewscards.add(ReviewCard("R.drawable.example1","김도원","친구","R.drawable.example1","고양이돌봄","정민욱"))
 
         binding.reviewRecylcerView.layoutManager= LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
 
