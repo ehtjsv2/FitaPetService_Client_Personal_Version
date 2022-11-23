@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.mypage -> {
                     Log.d("clickTest","mypagelick!")
-                    loadFragment(MypageFragment())
+                    loadFragment(AnimalRegFragment())
                     return@setOnItemSelectedListener true
                 }
             }

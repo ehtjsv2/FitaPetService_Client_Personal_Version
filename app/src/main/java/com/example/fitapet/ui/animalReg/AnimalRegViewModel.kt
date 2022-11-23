@@ -9,31 +9,13 @@ class AnimalRegViewModel: ViewModel() {
     private val _text = MutableLiveData<String>().apply {
         value = "This is AnimalReg Fragment"
     }
-    /*
-    "petName":"청담이",
-            "petType":"CAT",
-            "petSpecies":"경북대 얼굴",
-            "petBirth":"2012-02-28",
-            "petSize":"SMALL",
-            "petSex":"MALE",
-            "petAge":"10",
-            "registrationType":"INTERNAL",
-            "isNeutralize":"Y"
-    * */
-    lateinit var petName:String
-    lateinit var petSpecies:String
-    lateinit var petBirth:String
-    lateinit var petSize:String
-    lateinit var petAge:String
-    lateinit var registrationType:String
-    lateinit var isNeutralize:String
-
-//    fun setPetName(input:String){
-//        petName=input
-//    }
-//    fun getPetName():String{
-//        return petName
-//    }
-
+    var dogOrCat :Int = -1 // 0->dog 1->cat
+    var boyOrGrl :Int = -1 // 0->boy 1->girl
+    var neu :Int = -1 // 0-> 중성화x , 1->중성화  o
+    var chip:Int = -1 // 0-> 외장칩 1->내장칩
+    var weight:Int =-1 //0 ->소 1->중 2->대
+    var weight2:Int = -1 // 0-> 소/중 1-> 대
+    var name: String? =null
+    var breed: String? =null
     val text: LiveData<String> = _text
 }

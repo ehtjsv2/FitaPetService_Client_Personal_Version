@@ -1,10 +1,12 @@
 package com.example.fitapet.ui.animalReg
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentAnimalReg02Binding
 import com.example.fitapet.databinding.FragmentAnimalRegBinding
@@ -13,6 +15,7 @@ import com.example.fitapet.databinding.FragmentAnimalRegBinding
 class AnimalRegFragment02 : Fragment(),View.OnClickListener {
     private var _binding: FragmentAnimalReg02Binding? = null
     private val binding get() = _binding!!
+    private val animalRegViewModel:AnimalRegViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -20,8 +23,6 @@ class AnimalRegFragment02 : Fragment(),View.OnClickListener {
     ): View? {
         _binding = FragmentAnimalReg02Binding.inflate(inflater, container, false)
         val root: View = binding.root
-
-
         //부위
         binding.animalReg2PartBtn01.setOnClickListener(this)
         binding.animalReg2PartBtn02.setOnClickListener(this)

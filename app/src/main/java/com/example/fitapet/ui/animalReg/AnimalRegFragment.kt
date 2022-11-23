@@ -23,23 +23,25 @@ import com.example.fitapet.databinding.FragmentAnimalRegBinding
 class AnimalRegFragment : Fragment() {
     val bundle = Bundle()
     private var _binding: FragmentAnimalRegBinding? = null
-
+    var dogOrCat :Int = 0 // 0->dog 1->cat
+    var boyOrGrl :Int = 0 // 0->boy 1->girl
+    var neu :Int = 0 // 0-> 중성화x , 1->중성화  o
+    var chip:Int = 0 // 0-> 외장칩 1->내장칩
+    var weight:Int =0 //0 ->소 1->중 2->대
+    var weight2:Int = 0 // 0-> 소/중 1-> 대
+    var name: String? =null
+    var breed: String? =null
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
     private val animalRegViewModel:AnimalRegViewModel by activityViewModels()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        var dogOrCat :Int = 0 // 0->dog 1->cat
-        var boyOrGrl :Int = 0 // 0->boy 1->girl
-        var neu :Int = 0 // 0-> 중성화x , 1->중성화  o
-        var chip:Int = 0 // 0-> 외장칩 1->내장칩
-        var weight:Int =0 //0 ->소 1->중 2->대
-        var weight2:Int = 0 // 0-> 소/중 1-> 대
+
+
         _binding = FragmentAnimalRegBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
@@ -185,8 +187,29 @@ class AnimalRegFragment : Fragment() {
             }
             else{
                 fragmentManager?.commit {
+                    /*
+                    var dogOrCat :Int = -1 // 0->dog 1->cat
+    var boyOrGrl :Int = -1 // 0->boy 1->girl
+    var neu :Int = -1 // 0-> 중성화x , 1->중성화  o
+    var chip:Int = -1 // 0-> 외장칩 1->내장칩
+    var weight:Int =-1 //0 ->소 1->중 2->대
+    var weight2:Int = -1 // 0-> 소/중 1-> 대
+    var name: String? =null
+    var breed: String? =null
+                     */
+                    animalRegViewModel.dogOrCat=dogOrCat
+                    animalRegViewModel.boyOrGrl=boyOrGrl
+                    animalRegViewModel.neu=neu
+                    animalRegViewModel.chip=chip
+                    animalRegViewModel.weight2=weight2
+                    animalRegViewModel.name=name
+                    animalRegViewModel.breed=breed
                     val frag =  AnimalRegFragment02()
-                    replace(R.id.fragment_container,frag)
+                    val bundle1=Bundle()
+                    val result = bundle1.putInt("chip",chip)
+                    Log.d("TAG11",result.toString())
+                    frag.arguments=bundle1
+                    loadFragment(frag)
                     setReorderingAllowed(true)
                 }
             }
@@ -199,7 +222,6 @@ class AnimalRegFragment : Fragment() {
     }
     private fun loadFragment(fragment: Fragment){
         Log.d("clickTest","click!->"+fragment.tag)
-        fragment.arguments=bundle
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container,fragment)
         transaction.addToBackStack(null)
