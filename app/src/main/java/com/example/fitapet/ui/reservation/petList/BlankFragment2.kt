@@ -1,5 +1,6 @@
 package com.example.fitapet.ui.reservation.petList
 
+import android.app.Activity
 import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.fitapet.PetsitterList.TogetherServiceDetail.ChooseFriendFragment
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentBlank2Binding
@@ -44,6 +46,8 @@ class BlankFragment2 : Fragment() {
         //Log.d("TAG11","현재 friend Id= "+friendId.get(c))
 
         responseGetPets= RetrofitClient.apiServer.getPets(ChooseFriendFragment.friendIdCom2)
+        binding.textView8.text=ChooseFriendFragment.friendName2+"님의 반려동물 정보"
+        Glide.with(Activity()).load(ChooseFriendFragment.friendImageUrl2).into(binding.FriendImage)
         responseGetPets.enqueue(object : Callback<getPets> {
             override fun onResponse(
                 call: Call<getPets>,

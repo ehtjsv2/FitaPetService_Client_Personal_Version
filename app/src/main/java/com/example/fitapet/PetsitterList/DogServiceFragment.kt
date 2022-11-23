@@ -38,8 +38,8 @@ class DogServiceFragment : Fragment() {
 //        binding.petListRecyclerView.layoutManager=LinearLayoutManager(requireContext())
 //        binding.petListRecyclerView.adapter= PetListAdapter(pets)
 
-        map1.put("sex", "F")
-        map1.put("isWalkable_YN", "N")
+        map1.put("sex", "M")
+        map1.put("isWalkable_YN", "Y")
         Log.d("iamhere", Cookie.userId.toString())
         RetrofitClient.apiServer.searchPsitter(4, map1).enqueue(object: Callback<searchPsitter>{
             override fun onResponse(call: Call<searchPsitter>, response: Response<searchPsitter>) {

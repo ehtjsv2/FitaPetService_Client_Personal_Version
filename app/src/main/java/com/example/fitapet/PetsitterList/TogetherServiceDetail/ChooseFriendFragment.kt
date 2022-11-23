@@ -29,7 +29,9 @@ class ChooseFriendFragment : Fragment() {
     val bundle = Bundle()
     var cnt:Int=0
     lateinit var friend:Friend
+    var friendName= mutableListOf<String>()
     var friendId= mutableListOf<Long>()
+    var friendImageUrl = mutableListOf<String>()
     val passPetListRecyclerFragment = PetListRecyclerFragment()
     val passFriendId= mutableListOf<Long>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,6 +63,10 @@ class ChooseFriendFragment : Fragment() {
                     Log.d("TAG11","DONE")
                     Log.d("TAG11",""+friendcards.size)
                     friendId.add(friend.friendId.toLong())
+                    Log.d("TAG11",""+friend.customerName)
+                    Log.d("TAG11",""+friend.profileImgUrl)
+                    friendName.add(friend.customerName)
+                    friendImageUrl.add(friend.profileImgUrl)
                 }
                 binding.friendChooseRecyclerview.adapter=chooseFriendAdapter
                 bundle.putInt("fsize",2)
@@ -83,10 +89,16 @@ class ChooseFriendFragment : Fragment() {
             override fun onClick(v: View, position: Int) {
                 if(cnt==0){
                     Companion.friendIdCom1=friendId.get(position)
+                    Companion.friendName1=friendName.get(position)
+                    Companion.friendImageUrl1=friendImageUrl.get(position)
+                    Log.d("TAG11", "저장: "+ friendName1+"실제:"+friendName.get(position))
                     cnt++
                 }
                 else {
                     Companion.friendIdCom2 = friendId.get(position)
+                    Companion.friendName2=friendName.get(position)
+                    Companion.friendImageUrl2=friendImageUrl.get(position)
+                    Log.d("TAG11", "저장: "+ friendName1+"실제:"+friendName.get(position))
                 }
                 //bundle.putLong("f${cnt++}",friendId.get(position))
                 Log.d("TAG11","f"+"${cnt-1}"+", id = "+friendId.get(position))
@@ -118,6 +130,10 @@ class ChooseFriendFragment : Fragment() {
     companion object{
         var friendIdCom1:Long?=0
         var friendIdCom2:Long?=0
+        var friendName1:String?=null
+        var friendName2:String?=null
+        var friendImageUrl1:String?=null
+        var friendImageUrl2:String?=null
         var mode:Int=0
     }
 }

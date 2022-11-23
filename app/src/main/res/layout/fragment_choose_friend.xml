@@ -8,19 +8,6 @@
     android:id="@+id/home"
     tools:context=".PetsitterList.DogServiceFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:fontFamily="@font/nanum_gothic_bold"
-        android:textColor="#676767"
-        android:background="#F7F7F7"
-        android:padding="10dp"
-        android:textSize="18dp"
-        android:text="~~~ 경기도 파주시 어쩌구 저쩌구 ~~~" />
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,7 +16,7 @@
         android:background="@color/main"
         android:textSize="18dp"
         android:fontFamily="@font/nanum_gothic_bold"
-        android:text="몇명의 친구와 함께 할 건가요?" />
+        android:text="어떤 친구와 함께 할 건가요?" />
 
     <View
         android:layout_width="match_parent"
