@@ -17,7 +17,6 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:name=".login.GlobalApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -27,7 +26,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FItaPet"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".wonjune.ServiceEvaluatePageActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".Cookie"
             android:exported="false">
@@ -49,9 +56,11 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
-            android:value="3wtjcbc1xg"/>
+            android:value="3wtjcbc1xg" />
+
         <activity
             android:name=".wonjune.VideoActivity"
             android:exported="false">
