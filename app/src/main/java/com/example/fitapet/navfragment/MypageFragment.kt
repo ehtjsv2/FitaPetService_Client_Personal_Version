@@ -18,11 +18,13 @@ import com.example.fitapet.PetsitterList.ProfileEditFragment
 import com.example.fitapet.PetsitterList.TogetherServiceDetail.TogetherServiceFragment
 
 import com.example.fitapet.Cookie
+import com.example.fitapet.PetsitterList.ReviewPageFragment
 
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentMypageBinding
 import com.example.fitapet.retrofit.RetrofitClient
 import com.example.fitapet.retrofit.dto.*
+import com.example.fitapet.ui.animalReg.AnimalRegFragment
 import de.hdodenhof.circleimageview.CircleImageView
 import retrofit2.Call
 import retrofit2.Callback
@@ -79,6 +81,10 @@ class MypageFragment : Fragment() {
                 Toast.makeText(activity, t.message, Toast.LENGTH_SHORT).show()
             }
         })
+
+        binding.animalReg.setOnClickListener {
+            loadFragment(AnimalRegFragment())
+        }
 
         /*
         RetrofitClient.apiServer.getBmark(4).enqueue(object: Callback<getBmark>{
