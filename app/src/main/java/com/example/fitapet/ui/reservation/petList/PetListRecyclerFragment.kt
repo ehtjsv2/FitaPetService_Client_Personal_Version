@@ -1,7 +1,6 @@
 package com.example.fitapet.ui.reservation.petList
 
 import android.app.Activity
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -9,23 +8,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitapet.Cookie
-import com.example.fitapet.MainActivity
-import com.example.fitapet.PetsitterList.PetsitterListAdapter
 import com.example.fitapet.PetsitterList.TogetherServiceDetail.ChooseFriendFragment
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentPetListRecyclerBinding
-import com.example.fitapet.databinding.FragmentReservation01Binding
 import com.example.fitapet.retrofit.RetrofitClient.apiServer
 import com.example.fitapet.retrofit.dto.getPets
-import com.example.fitapet.ui.reservation.Reservation01Fragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
 class PetListRecyclerFragment : Fragment() {
+   // private val reservationViewModel: ReservationViewModel by activityViewModels()
     private var _binding: FragmentPetListRecyclerBinding? = null
     private val binding get() = _binding!!
     val pets = mutableListOf<Pets>()

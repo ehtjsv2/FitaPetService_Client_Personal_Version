@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="9"
-        tools:context=".ui.reservation.Reservation01Fragment">
+        tools:context=".ui.reservation.petList.Reservation01Fragment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -344,13 +344,24 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/main">
+        android:orientation="horizontal"
+        >
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/reservation01_price"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/light_gray"
+            android:gravity="center"
+            android:text="총 금액 : 0 원"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
             android:text="예약하기"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:background="@color/main"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

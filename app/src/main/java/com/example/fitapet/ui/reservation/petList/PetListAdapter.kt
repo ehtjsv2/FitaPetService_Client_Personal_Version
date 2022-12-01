@@ -1,13 +1,14 @@
 package com.example.fitapet.ui.reservation.petList
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fitapet.PetsitterList.PetsitterListAdapter
 import com.example.fitapet.databinding.PetItemMainBinding
 
 class PetListAdapter(val pets: MutableList<Pets>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
     class MyViewHolder(val binding: PetItemMainBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -24,6 +25,25 @@ class PetListAdapter(val pets: MutableList<Pets>): RecyclerView.Adapter<Recycler
         holder.itemView.setOnClickListener {
             itemClickListener.onClick(it, position)
             binding.petListLayout.isSelected=binding.petListLayout.isSelected!=true
+            if(binding.petListLayout.isSelected==true){
+                Log.d("TAG11",binding.petListSize.text.toString())
+                if(binding.petListSize.text=="소/중형"){
+                    Reservation01Fragment.SM_dog_count++
+                }
+                else if(binding.petListSize.text=="대형"){
+                    Reservation01Fragment.L_dog_count++
+                }
+            }
+            else{
+                Log.d("TAG11",binding.petListSize.text.toString())
+                if(binding.petListSize.text=="소/중형"){
+                    Reservation01Fragment.SM_dog_count--
+                }
+                else if(binding.petListSize.text=="대형"){
+                    Reservation01Fragment.L_dog_count--
+                }
+            }
+
         }
     }
 

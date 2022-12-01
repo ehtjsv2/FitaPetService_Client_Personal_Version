@@ -78,6 +78,12 @@ interface RetrofitService {
 
     @GET("reviews/detail")
     fun getReviewDetail():Call<ReviewDetailDTO>
+
+    @PATCH("service/is-like")
+    fun service_is_like(
+        @Body isLikeDto: isLikeDTO,
+    ) : Call<isLikeDtoNoResult>
+
 //    @GET("customer/{customerId}/pets")
 //    fun getPets(@Path("customerId")customerId: Long?):Call<getPets>
 

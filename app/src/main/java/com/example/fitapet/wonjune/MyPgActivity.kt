@@ -10,23 +10,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.LinearLayout.HORIZONTAL
 import android.widget.TextView
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 import com.example.fitapet.Cookie
 import com.example.fitapet.MainActivity
-import com.example.fitapet.PetsitterList.ServiceEvaluatePageFragment
 import com.example.fitapet.R
 import com.example.fitapet.databinding.ActivityMyPgBinding
-import com.example.fitapet.login.LoginActivity
-import com.example.fitapet.navfragment.MypageFragment
 import com.example.fitapet.retrofit.RetrofitClient.apiServer
 import com.example.fitapet.retrofit.dto.getCurrentServiceDTO
 import com.example.fitapet.retrofit.dto.ingPets
@@ -68,6 +60,8 @@ class MyPgActivity : AppCompatActivity() {
 
                 val responseResult=response.body()!!.result
                 Log.d("getCurrentService", responseResult.toString())
+                Log.d("getCurrentService",responseResult.serviceId.toString())
+                ServiceEvaluatePageActivity.serviceId=responseResult.serviceId
                 binding.txtView1.text=responseResult.petSitterName+" 펫시터"
                 binding.txtView3.text=responseResult.planStartTime
                 binding.txtView5.text=responseResult.planStartTime

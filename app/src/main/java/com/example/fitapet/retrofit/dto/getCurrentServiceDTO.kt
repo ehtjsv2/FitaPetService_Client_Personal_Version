@@ -13,6 +13,7 @@ data class getCurrentServiceDtoNoResult(
 )
 
 data class currentDTO(
+    val serviceId: Long,
     val petSitterName: String,
     val category: String,
     val planStartTime: String,

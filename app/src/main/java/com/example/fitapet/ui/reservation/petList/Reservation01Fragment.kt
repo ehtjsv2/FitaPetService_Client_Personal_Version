@@ -1,4 +1,4 @@
-package com.example.fitapet.ui.reservation
+package com.example.fitapet.ui.reservation.petList
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -13,7 +13,10 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.DatePicker
 import android.widget.TimePicker
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.fitapet.databinding.FragmentReservation01Binding
+import com.example.fitapet.ui.reservation.CustomMinDialog
+import java.text.DecimalFormat
 import java.util.*
 
 
@@ -21,6 +24,8 @@ class Reservation01Fragment : Fragment(){
     //onCreate
     private var _binding: FragmentReservation01Binding? = null
     private val binding get() = _binding!!
+    var price:Int = 0
+    var pickup:Int = 0
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -73,6 +78,28 @@ class Reservation01Fragment : Fragment(){
                 override fun onClicked(str: String)
                 {
                     binding.reservation01SelectTimeBtn02.text = "시작시간으로부터 ${str}분"
+                    if(str.toInt()==30){
+                        price = 15000
+                    }
+                    else if(str.toInt()==60){
+                        price = 21000
+                    }
+                    else{
+                        price = 21000+(str.toInt()/30)*8000
+                    }
+                    val t_dec_up = DecimalFormat("#,###")
+                    var money=price+pickup+(SM_dog_count*5000)+(L_dog_count*10000)
+                    if(SM_dog_count+L_dog_count==2){
+                        money=money/100*80
+                    }
+                    else if(SM_dog_count+L_dog_count==3)
+                    {
+                        money=money/100*60
+                    }
+                    val money_text = t_dec_up.format(money)
+
+                    binding.reservation01Price.text=money_text+" 원"
+
                 }
 
             })
@@ -81,10 +108,20 @@ class Reservation01Fragment : Fragment(){
         binding.reservation01PickupBtnY.setOnClickListener {
             binding.reservation01PickupBtnY.isSelected=binding.reservation01PickupBtnY.isSelected!=true
             binding.reservation01PickupBtnN.isSelected=false
+            pickup=5000
+            val t_dec_up = DecimalFormat("#,###")
+            val money=price+pickup
+            val money_text = t_dec_up.format(money)
+            binding.reservation01Price.text="총 금액 : "+money_text+" 원"
         }
         binding.reservation01PickupBtnN.setOnClickListener {
             binding.reservation01PickupBtnN.isSelected=binding.reservation01PickupBtnN.isSelected!=true
             binding.reservation01PickupBtnY.isSelected=false
+            pickup=0
+            val t_dec_up = DecimalFormat("#,###")
+            val money=price+pickup
+            val money_text = t_dec_up.format(money)
+            binding.reservation01Price.text="총 금액 : "+money_text+" 원"
         }
         //edit text focus풀기
         binding.reservation01ParentLayout.setOnTouchListener(OnTouchListener { v, event ->
@@ -105,5 +142,9 @@ class Reservation01Fragment : Fragment(){
             )
         }
     }
-
+    companion object{
+        var L_dog_count :Int = 0
+        var SM_dog_count :Int = 0
+        var cat_count :Int = 0
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.fitapet.ui.reservation.petList
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,24 @@ class PetListAdapter3(val pets: MutableList<Pets>): RecyclerView.Adapter<Recycle
         holder.itemView.setOnClickListener {
             itemClickListener.onClick(it, position)
             binding.petListLayout3.isSelected=binding.petListLayout3.isSelected!=true
+            if(binding.petListLayout3.isSelected==true){
+                Log.d("TAG11",binding.petListSize.text.toString())
+                if(binding.petListSize.text=="소/중형"){
+                    Reservation01Fragment.SM_dog_count++
+                }
+                else if(binding.petListSize.text=="대형"){
+                    Reservation01Fragment.L_dog_count++
+                }
+            }
+            else{
+                Log.d("TAG11",binding.petListSize.text.toString())
+                if(binding.petListSize.text=="소/중형"){
+                    Reservation01Fragment.SM_dog_count--
+                }
+                else if(binding.petListSize.text=="대형"){
+                    Reservation01Fragment.L_dog_count--
+                }
+            }
         }
     }
 

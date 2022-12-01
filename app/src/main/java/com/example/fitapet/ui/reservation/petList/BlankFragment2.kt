@@ -13,10 +13,8 @@ import com.bumptech.glide.Glide
 import com.example.fitapet.PetsitterList.TogetherServiceDetail.ChooseFriendFragment
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentBlank2Binding
-import com.example.fitapet.databinding.FragmentBlankBinding
 import com.example.fitapet.retrofit.RetrofitClient
 import com.example.fitapet.retrofit.dto.getPets
-import com.example.fitapet.ui.reservation.Reservation01Fragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

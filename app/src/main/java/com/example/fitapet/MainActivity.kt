@@ -6,17 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import com.example.fitapet.PetsitterList.CatServiceFragment
-import com.example.fitapet.PetsitterList.DogServiceFragment
-import com.example.fitapet.databinding.ActivityMainBinding
 import com.example.fitapet.navfragment.FriendFragment
 import com.example.fitapet.navfragment.HomeFragment
-import com.example.fitapet.navfragment.IngFragment
-import com.example.fitapet.navfragment.MypageFragment
 import com.example.fitapet.ui.animalReg.AnimalRegFragment
-import com.example.fitapet.ui.reservation.petList.PetListRecyclerFragment
 import com.example.fitapet.wonjune.MyPgActivity
 
 class MainActivity : AppCompatActivity() {
