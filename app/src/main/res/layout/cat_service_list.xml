@@ -18,14 +18,34 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/petsitterImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="2dp"
-            android:src="@drawable/example1" />
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:columnCount="2"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/petsitterImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="145dp"
+                android:layout_marginBottom="2dp"
+                android:src="@drawable/example1" />
+
+            <ImageButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/selector_drawable"
+                android:background="@color/white"
+                android:clickable="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="100dp"/>
+
+        </GridLayout>
 
         <TextView
             android:id="@+id/petsitterName"
