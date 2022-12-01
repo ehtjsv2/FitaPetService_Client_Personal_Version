@@ -1,112 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".navfragment.MypageFragment"
     android:id="@+id/mypage">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center|top">
+            android:orientation="vertical">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/edge">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/prof_img"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:background="@drawable/circle_img"
-                    android:src="@drawable/profile_img"/>
-
-                <TextView
-                    android:id="@+id/owner_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="35dp"
-                    android:layout_marginBottom="74dp"
-                    android:layout_toEndOf="@+id/prof_img"
-                    android:paddingHorizontal="10dp"
-                    android:text="보호자 이름" />
-
-                <TextView
-                    android:id="@+id/myEmail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="35dp"
-                    android:layout_toEndOf="@+id/prof_img"
-                    android:text="abcdefg@naver.com"
-                    android:paddingHorizontal="8dp"/>
-
-                <Button
-                    android:id="@+id/edit_prof"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/circle_button"
-                    app:icon="@drawable/ic_baseline_add_24"
-                    app:iconGravity="textStart"
-                    app:iconPadding="1dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
-            </RelativeLayout>
-
-            <TextView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="내 반려동물"
-                android:textSize="25dp"
-                android:background="@drawable/color_edge"
+                android:layout_margin="7dp"
                 android:layout_marginTop="20dp"
-                android:paddingVertical="8dp"
-                android:paddingLeft="10dp" />
+                android:padding="10dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:columnCount="2"
+                        android:orientation="horizontal">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/prof_img"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/circle_img"
+                            android:src="@drawable/profile_img" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/owner_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="35dp"
+                                android:layout_toEndOf="@+id/prof_img"
+                                android:fontFamily="@font/nanum_gothic_bold"
+                                android:paddingHorizontal="10dp"
+                                android:text="보호자 이름" />
+
+                            <TextView
+                                android:id="@+id/myEmail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="35dp"
+                                android:layout_toEndOf="@+id/prof_img"
+                                android:fontFamily="@font/nanum_gothic"
+                                android:paddingHorizontal="8dp"
+                                android:text="abcdefg@naver.com" />
+
+                        </LinearLayout>
+
+                    </GridLayout>
+
+                    <Button
+                        android:id="@+id/edit_prof"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="80dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/circle_button"
+                        android:src="@drawable/ic_baseline_add_24"
+                        app:iconGravity="textStart"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                app:cardBackgroundColor="@color/main"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanum_gothic_bold"
+                        android:padding="10dp"
+                        android:text="내 반려동물"
+                        android:textSize="18dp" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="220dp"
+                        android:background="@color/main"
+                        android:src="@drawable/ic_baseline_add_24" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/pet_list"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal"/>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:orientation="horizontal" />
 
-            <TextView
+            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="내가 북마크한 펫시터"
-                android:textSize="25dp"
-                android:background="@drawable/color_edge"
-                android:layout_marginTop="20dp"
-                android:paddingVertical="8dp"
-                android:paddingLeft="10dp" />
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:padding="10dp"
+                app:cardBackgroundColor="@color/main"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanum_gothic_bold"
+                        android:padding="10dp"
+                        android:text="내가 북마크한 펫시터"
+                        android:textSize="18dp" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="150dp"
+                        android:background="@color/main"
+                        android:src="@drawable/ic_baseline_add_24" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/petSitter_list"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal"/>
+                android:layout_marginLeft="5dp"
+                android:orientation="horizontal" />
 
+            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:padding="10dp"
+                app:cardBackgroundColor="@color/main"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanum_gothic_bold"
+                        android:padding="10dp"
+                        android:text="수의사 피드백"
+                        android:textSize="18dp" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="205dp"
+                        android:background="@color/main"
+                        android:src="@drawable/ic_baseline_add_24" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/docter_review_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal" />
 
         </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

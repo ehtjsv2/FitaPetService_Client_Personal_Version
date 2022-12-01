@@ -18,14 +18,34 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/petsitterImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="2dp"
-            android:src="@drawable/example1" />
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:columnCount="2"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/petsitterImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="145dp"
+                android:layout_marginBottom="2dp"
+                android:src="@drawable/example1" />
+
+            <ImageButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/selector_drawable"
+                android:background="@color/white"
+                android:clickable="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="100dp"/>
+
+        </GridLayout>
 
         <TextView
             android:id="@+id/petsitterName"
@@ -36,6 +56,41 @@
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:textSize="18dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/heartRateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanum_gothic"
+                android:text="만족도"
+                android:layout_marginTop="10dp"
+                android:textSize="14dp" />
+            <TextView
+                android:id="@+id/heartRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/nanum_gothic_extra_bold"
+                android:text="55"
+                android:layout_marginTop="10dp"
+                android:textSize="16dp" />
+            <TextView
+                android:id="@+id/percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanum_gothic"
+                android:layout_marginLeft="2dp"
+                android:text="%"
+                android:layout_marginTop="10dp"
+                android:textSize="14dp" />
+
+        </LinearLayout>
 
         <GridLayout
             android:layout_width="wrap_content"
@@ -98,6 +153,65 @@
                     android:textSize="20dp" />
 
         </GridLayout>
+
+        <androidx.cardview.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:padding="10dp"
+            app:cardElevation="10dp"
+            app:cardBackgroundColor="@color/main"
+            app:cardCornerRadius="10dp"
+            android:id="@+id/whoService"
+            android:clickable="true">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:columnCount="3"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/doctorImg"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/example1"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="펫시터 이름"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/nanum_gothic_bold"
+                    android:textColor="#676767"
+                    android:layout_gravity="center"
+                    android:background="@drawable/option_choice_button"
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/doctername" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="에게 자문을 받고 있어요"
+                    android:textSize="14dp"
+                    android:fontFamily="@font/nanum_gothic"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="15dp"/>
+
+            </GridLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/PetsitterText"
