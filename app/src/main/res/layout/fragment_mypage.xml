@@ -172,7 +172,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginStart="110dp"
+                        android:layout_marginStart="125dp"
                         android:background="@color/main"
                         android:src="@drawable/ic_baseline_add_24" />
                 </LinearLayout>
@@ -216,7 +216,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginStart="205dp"
+                        android:layout_marginStart="180dp"
                         android:background="@color/main"
                         android:src="@drawable/ic_baseline_add_24" />
                 </LinearLayout>
