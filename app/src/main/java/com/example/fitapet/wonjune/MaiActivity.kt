@@ -34,7 +34,7 @@ class MaiActivity : AppCompatActivity() {
     var varray = mutableListOf<OrderedDict>()
     var filename: String = ""
     var retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.0.75:8000")
+        .baseUrl("http://118.45.212.21:8000")
         //"http://192.168.0.195:8000" 우리집
         //"http://118.45.212.21:8000" 자취방 공용IP
         .addConverterFactory(GsonConverterFactory.create())

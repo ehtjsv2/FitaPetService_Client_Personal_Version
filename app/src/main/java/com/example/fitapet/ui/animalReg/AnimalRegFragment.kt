@@ -1,7 +1,13 @@
 package com.example.fitapet.ui.animalReg
 
+import android.content.Intent
+import android.database.Cursor
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.TextUtils.replace
+import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +15,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.commit
@@ -18,6 +26,20 @@ import androidx.navigation.Navigation
 import com.example.fitapet.MainActivity
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentAnimalRegBinding
+import com.example.fitapet.wonjune.API_imgupload
+import com.example.fitapet.wonjune.API_upload
+import com.example.fitapet.wonjune.ImgResponse
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.io.ByteArrayOutputStream
+import java.io.File
 
 
 class AnimalRegFragment : Fragment() {
@@ -33,6 +55,14 @@ class AnimalRegFragment : Fragment() {
     var breed: String? =null
     // This property is only valid between onCreateView and
     // onDestroyView.
+    var retrofit = Retrofit.Builder()
+        .baseUrl("http://118.45.212.21:8000")
+        //"http://192.168.0.195:8000" 우리집
+        //"http://223.39.249.247:8000" 핸드폰 핫스팟
+        //"http://118.45.212.21:8000" 자취방 공용IP
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+    var imgstr: String? = null
     private val binding get() = _binding!!
     private val animalRegViewModel:AnimalRegViewModel by activityViewModels()
     override fun onCreateView(
@@ -48,10 +78,18 @@ class AnimalRegFragment : Fragment() {
         //이미지 클릭 시
         binding.animalRegImgBtn01.setOnClickListener {
             Log.d("kimdo","imgbtn01click!")
+            var intent = Intent()
+            intent.setType("image/*")
+            intent.setAction(Intent.ACTION_GET_CONTENT)
+            startActivityForResult(intent, 101)
             //binding.animalRegImgBtn01.isSelected=true
         }
         binding.animalRegImgBtn02.setOnClickListener {
             Log.d("kimdo","imgbtn02click!")
+            var intent = Intent()
+            intent.setType("image/*")
+            intent.setAction(Intent.ACTION_GET_CONTENT)
+            startActivityForResult(intent, 101)
         }
         //강아지버튼
         binding.animalRegDogBtn.setOnClickListener {
@@ -232,6 +270,59 @@ class AnimalRegFragment : Fragment() {
         }
         return root
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == 101){
+            if(resultCode == AppCompatActivity.RESULT_OK){
+                var fileUri = data!!.data
+                var uploadService = retrofit.create(API_imgupload::class.java)
+                var filePath = fileUri?.let { getabsolutelyPath(it) } //Uri주소를 파일의 실제 절대 경로로 변경
+                Log.d("wonlog3", filePath!!)
+
+
+                val file = File(filePath)
+                val title = RequestBody.create("text/plain".toMediaTypeOrNull(), file.name)
+                //val title = RequestBody.create("text/plain".toMediaTypeOrNull(), file.name)
+                val requestFile = RequestBody.create("image/*".toMediaTypeOrNull(), file)
+                //val requestFile = RequestBody.create("video/*".toMediaTypeOrNull(), file)
+                val body = MultipartBody.Part.createFormData("uploadedImg", file.name, requestFile)
+
+                uploadService.sendImg(title, body).enqueue(object: Callback<ImgResponse> {
+                    override fun onResponse(
+                        call: Call<ImgResponse>,
+                        response: Response<ImgResponse>
+                    ) {
+                        Log.d("wonlog", "여기들어옴")
+                        var upimgstr = response.body()!!.uploadedImg
+                        Log.d("wonlog2", "여기들어옴2")
+                        //imgstr = upfile!!.uploadedImg
+                        Log.d("TEST3", upimgstr)
+                        //txtlist.append(upfile!!.id.toString() + ". " + upfile!!.title + "\n" + upfile!!.date + "\n")
+                    }
+
+                    override fun onFailure(call: Call<ImgResponse>, t: Throwable) {
+                        Toast.makeText(activity, t.message, Toast.LENGTH_SHORT).show()
+                        /*var dialog = AlertDialog.Builder(this@MainActivity)
+                        dialog.setTitle("에러")
+                        dialog.setMessage("호출실패했습니다." + t.message)
+                        dialog.show()*/
+                    }
+
+                })
+            }
+        }
+    }
+
+    fun getabsolutelyPath(path: Uri): String{
+        var proj: Array<String> = arrayOf(MediaStore.Images.Media.DATA)
+        var c: Cursor? = context?.contentResolver?.query(path, proj, null, null, null)
+        var index = c!!.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+        c!!.moveToFirst()
+        var result = c.getString(index)
+        return result
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -244,3 +335,4 @@ class AnimalRegFragment : Fragment() {
         transaction.commit()
     }
 }
+

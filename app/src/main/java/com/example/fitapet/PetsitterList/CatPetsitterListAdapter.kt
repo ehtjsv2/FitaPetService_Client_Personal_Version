@@ -37,11 +37,27 @@ class CatPetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): Rec
         binding.heartRate.text=petsittercard[position].satisfaction.toString()
         binding.petsitterCareer.text=petsittercard[position].career.toString()+"년"
         binding.petsitterHavePet.text=petsittercard[position].havepet
-        binding.petsitterGender.text=petsittercard[position].gender
-        binding.petsitterAge.text=petsittercard[position].age
+        if (petsittercard[position].gender == "F"){
+            binding.petsitterGender.text = "여"
+        }else{
+            binding.petsitterGender.text = "남"
+        }
+        binding.petsitterAge.text=petsittercard[position].age+"세"
         binding.PetsitterText.text=petsittercard[position].petsitterText
         Glide.with(holder.itemView).load(petsittercard[position].doctorimg).into(binding.doctorImg)
         binding.doctername.text=petsittercard[position].doctorname
+        if (petsittercard[position].isAgreeToFilm_YN == "Y"){
+            binding.camera.text = "촬영 동의"
+        }else{
+            binding.camera.text = "촬영 불가"
+        }
+
+        if (petsittercard[position].isAgreeSharingLocation_YN == "Y"){
+            binding.location.text = "위치 공유 동의"
+        }else{
+            binding.location.text = "위치 공유 불가"
+        }
+
         holder.itemView.setOnClickListener {
             itemClickListener.onClick(it, position)
         }
