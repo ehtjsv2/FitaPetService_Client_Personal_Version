@@ -12,10 +12,12 @@ class AnimalRegViewModel: ViewModel() {
     var dogOrCat :Int = -1 // 0->dog 1->cat
     var boyOrGrl :Int = -1 // 0->boy 1->girl
     var neu :Int = -1 // 0-> 중성화x , 1->중성화  o
-    var chip:Int = -1 // 0-> 외장칩 1->내장칩
+    var chip:Int = 1 // 0-> 외장칩 1->내장칩
     var weight:Int =-1 //0 ->소 1->중 2->대
     var weight2:Int = -1 // 0-> 소/중 1-> 대
     var name: String? =null
-    var breed: String? =null
+    var breed: String? =null//sepcies
+    var birth: String? =null
+    var age: String?=null
     val text: LiveData<String> = _text
 }

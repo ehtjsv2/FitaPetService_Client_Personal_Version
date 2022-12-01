@@ -6,8 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.Window
-import androidx.databinding.DataBindingUtil.setContentView
-
+import com.example.fitapet.MainActivity
 import com.example.fitapet.databinding.MakeReviewDialogBinding
 import com.example.fitapet.retrofit.RetrofitClient
 import com.example.fitapet.retrofit.dto.isLikeDTO
@@ -39,14 +38,17 @@ class CustomReviewDialog(var activity: Activity,val serviceId:Long?, val custome
                     response: Response<isLikeDtoNoResult>
                 ) {
                     Log.d("TAG11","success")
+                    //
                 }
 
                 override fun onFailure(call: Call<isLikeDtoNoResult>, t: Throwable) {
                     Log.d("TAG11","fail:"+t)
+                    //(context as ServiceEvaluatePageActivity).finish()
                 }
 
             })
             dismiss()
+
         }
         // 무시하기 버튼클릭시
         binding.ignoreBtn.setOnClickListener {
@@ -62,6 +64,7 @@ class CustomReviewDialog(var activity: Activity,val serviceId:Long?, val custome
     override fun onClick(p0: View?) {
         TODO("Not yet implemented")
     }
+
 
 }
 //    override fun onClick(v: View) {

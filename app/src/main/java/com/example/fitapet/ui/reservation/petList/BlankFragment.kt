@@ -56,8 +56,8 @@ class BlankFragment : Fragment() {
             ) {
                 val targetPets=response.body()!!.result
                 for (pet in targetPets) {
-                    pets.add(Pets(pet.petName, pet.petSpecies, pet.petBirth, pet.petSize))
-                    Log.d("TAG11","pet="+Pets(pet.petName, pet.petSpecies, pet.petBirth, pet.petSize))
+                    pets.add(Pets(pet.petName, pet.petSpecies, pet.petBirth, pet.petSize,pet.petType))
+                    Log.d("TAG11","pet="+Pets(pet.petName, pet.petSpecies, pet.petBirth, pet.petSize,pet.petType))
                 }
 
                 binding.petListRecyclerView2.adapter=petListAdapter

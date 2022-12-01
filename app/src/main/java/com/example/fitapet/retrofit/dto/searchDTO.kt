@@ -20,5 +20,7 @@ data class Petsitter(
     val isWalkable_YN: String,
     val isPossibleCareOldPet_YN: String,
     val satisfaction: Int,
+    val veterinarianName: String,
+    val veterinarianImgUrl: String,
     val isBookMark: String
 )

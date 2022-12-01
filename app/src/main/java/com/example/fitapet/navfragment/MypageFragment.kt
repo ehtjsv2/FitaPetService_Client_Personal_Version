@@ -2,24 +2,19 @@ package com.example.fitapet.navfragment
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-
-import com.example.fitapet.PetsitterList.ProfileEditFragment
-import com.example.fitapet.PetsitterList.TogetherServiceDetail.TogetherServiceFragment
-
 import com.example.fitapet.Cookie
-import com.example.fitapet.PetsitterList.ReviewPageFragment
-
+import com.example.fitapet.PetsitterList.ProfileEditFragment
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentMypageBinding
 import com.example.fitapet.retrofit.RetrofitClient
@@ -29,6 +24,7 @@ import de.hdodenhof.circleimageview.CircleImageView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 class MypageFragment : Fragment() {
     lateinit var petList: RecyclerView
@@ -44,6 +40,10 @@ class MypageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val actionBar = (activity as AppCompatActivity?)!!.supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(true) // 액션바 왼쪽에 버튼 만들기(defalut:뒤로가기버튼)
+        actionBar?.setHomeAsUpIndicator(R.drawable.ic_home_black_24dp)
+        actionBar?.setTitle("마이페이지")
         _binding = FragmentMypageBinding.inflate(inflater,container,false)
         petList = binding.petList
         petSitter = binding.petSitterList

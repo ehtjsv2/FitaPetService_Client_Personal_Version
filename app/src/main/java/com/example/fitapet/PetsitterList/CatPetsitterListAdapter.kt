@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.fitapet.R
 import com.example.fitapet.databinding.CatServiceListBinding
 import com.example.fitapet.databinding.PetItemMainBinding
@@ -30,7 +31,8 @@ class CatPetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): Rec
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as CatPetsitterListAdapter.MyViewHolder).binding
-        binding.petsitterImage.setImageResource(R.drawable.example1)
+        //binding.petsitterImage.setImageResource(R.drawable.example1)
+        Glide.with(holder.itemView).load(petsittercard[position].img).into(binding.petsitterImage)
         binding.petsitterName.text=petsittercard[position].name
         binding.heartRate.text=petsittercard[position].satisfaction.toString()
         binding.petsitterCareer.text=petsittercard[position].career.toString()+"년"
@@ -38,6 +40,8 @@ class CatPetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): Rec
         binding.petsitterGender.text=petsittercard[position].gender
         binding.petsitterAge.text=petsittercard[position].age
         binding.PetsitterText.text=petsittercard[position].petsitterText
+        Glide.with(holder.itemView).load(petsittercard[position].doctorimg).into(binding.doctorImg)
+        binding.doctername.text=petsittercard[position].doctorname
         holder.itemView.setOnClickListener {
             itemClickListener.onClick(it, position)
         }

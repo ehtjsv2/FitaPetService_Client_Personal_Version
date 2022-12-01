@@ -370,7 +370,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/animal_reg_name"
+                    android:id="@+id/animal_reg_hos_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
@@ -399,7 +399,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/animal_reg_dog_breed"
+                    android:id="@+id/animal_reg_hos_tel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
