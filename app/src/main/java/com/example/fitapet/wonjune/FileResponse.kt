@@ -9,6 +9,13 @@ data class FileResponse(
     var date : String,
 )
 
+data class ImgResponse(
+    var id : Int,
+    var title : String,
+    var uploadedImg : String,
+    var dateTimeOfUpload : String,
+)
+
 /*
 data class ListResponse(
     var video : MutableList<OrderedDict>

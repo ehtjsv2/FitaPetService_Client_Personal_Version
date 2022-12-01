@@ -26,3 +26,12 @@ interface API_download {
     ) : Call<DownResponse>
 }
  */
+
+interface API_imgupload {
+    @Multipart
+    @POST("/pets/petimg/")
+    fun sendImg(
+        @Part("fileTitle") title:RequestBody,
+        @Part uploadedImg:MultipartBody.Part
+    ) : Call<ImgResponse>
+}

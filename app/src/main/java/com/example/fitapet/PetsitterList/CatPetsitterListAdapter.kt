@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.fitapet.R
 import com.example.fitapet.databinding.CatServiceListBinding
 import com.example.fitapet.databinding.PetItemMainBinding
@@ -30,14 +31,32 @@ class CatPetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): Rec
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as CatPetsitterListAdapter.MyViewHolder).binding
-        binding.petsitterImage.setImageResource(R.drawable.example1)
+        //binding.petsitterImage.setImageResource(R.drawable.example1)
+        var strimg = petsittercard[position].img
+        Glide.with(holder.itemView).load(strimg).into(binding.petsitterImage)
         binding.petsitterName.text=petsittercard[position].name
         binding.heartRate.text=petsittercard[position].satisfaction.toString()
         binding.petsitterCareer.text=petsittercard[position].career.toString()+"년"
         binding.petsitterHavePet.text=petsittercard[position].havepet
-        binding.petsitterGender.text=petsittercard[position].gender
-        binding.petsitterAge.text=petsittercard[position].age
+        if (petsittercard[position].gender == "F"){
+            binding.petsitterGender.text = "여"
+        }else{
+            binding.petsitterGender.text = "남"
+        }
+        binding.petsitterAge.text=petsittercard[position].age+"세"
         binding.PetsitterText.text=petsittercard[position].petsitterText
+        if (petsittercard[position].isAgreeToFilm_YN == "Y"){
+            binding.camera.text = "촬영 동의"
+        }else{
+            binding.camera.text = "촬영 불가"
+        }
+
+        if (petsittercard[position].isAgreeSharingLocation_YN == "Y"){
+            binding.location.text = "위치 공유 동의"
+        }else{
+            binding.location.text = "위치 공유 불가"
+        }
+
         holder.itemView.setOnClickListener {
             itemClickListener.onClick(it, position)
         }
