@@ -7,15 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.fitapet.Cookie
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentAnimalReg02Binding
 import com.example.fitapet.databinding.FragmentAnimalRegBinding
+import com.example.fitapet.retrofit.RetrofitClient
+import com.example.fitapet.retrofit.dto.isLikeDtoNoResult
+import com.example.fitapet.retrofit.dto.registerPetDTO
+import com.example.fitapet.retrofit.dto.registerPetDtoNoResult
+import com.example.fitapet.retrofit.service.RetrofitService
+import retrofit2.Call
 
 
 class AnimalRegFragment02 : Fragment(),View.OnClickListener {
     private var _binding: FragmentAnimalReg02Binding? = null
     private val binding get() = _binding!!
     private val animalRegViewModel:AnimalRegViewModel by activityViewModels()
+    lateinit var responseRegisterPet: Call<registerPetDtoNoResult>
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -49,7 +57,12 @@ class AnimalRegFragment02 : Fragment(),View.OnClickListener {
         binding.animalReg2VaccinBtn01.setOnClickListener(this)
         binding.animalReg2VaccinBtn02.setOnClickListener(this)
 
-        val view = binding.root
+        //등록 클릭시
+        binding.animalRegNextBtn.setOnClickListener {
+           // val pet(Pet)
+            //val registerpet=registerPetDTO()
+            //responseRegisterPet=RetrofitClient.apiServer.registerPet(Cookie.userId)
+        }
 
         return root
     }

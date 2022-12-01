@@ -84,6 +84,12 @@ interface RetrofitService {
         @Body isLikeDto: isLikeDTO,
     ) : Call<isLikeDtoNoResult>
 
+    @POST("customer/{customerId}/pets")
+    fun registerPet(
+        @Path("customerId")customerId: Long?,
+        @Body registerPet: registerPetDTO
+    ): Call<registerPetDtoNoResult>
+
 //    @GET("customer/{customerId}/pets")
 //    fun getPets(@Path("customerId")customerId: Long?):Call<getPets>
 
