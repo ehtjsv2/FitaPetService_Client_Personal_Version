@@ -57,6 +57,41 @@
             android:layout_gravity="center"
             android:textSize="18dp" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/heartRateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanum_gothic"
+                android:text="만족도"
+                android:layout_marginTop="10dp"
+                android:textSize="14dp" />
+            <TextView
+                android:id="@+id/heartRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/nanum_gothic_extra_bold"
+                android:text="55"
+                android:layout_marginTop="10dp"
+                android:textSize="16dp" />
+            <TextView
+                android:id="@+id/percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanum_gothic"
+                android:layout_marginLeft="2dp"
+                android:text="%"
+                android:layout_marginTop="10dp"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
         <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
