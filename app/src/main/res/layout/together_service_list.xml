@@ -99,6 +99,65 @@
 
         </GridLayout>
 
+        <androidx.cardview.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:padding="10dp"
+            app:cardElevation="10dp"
+            app:cardBackgroundColor="@color/main"
+            app:cardCornerRadius="10dp"
+            android:id="@+id/whoService"
+            android:clickable="true">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:columnCount="3"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/doctorImg"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/example1"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="000 수의사"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/nanum_gothic_bold"
+                    android:textColor="#676767"
+                    android:layout_gravity="center"
+                    android:background="@drawable/option_choice_button"
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/doctername" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="에게 자문을 받고 있어요"
+                    android:textSize="14dp"
+                    android:fontFamily="@font/nanum_gothic"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="15dp"/>
+
+            </GridLayout>
+
+        </androidx.cardview.widget.CardView>
+
         <TextView
             android:id="@+id/PetsitterText"
             android:layout_width="360dp"
