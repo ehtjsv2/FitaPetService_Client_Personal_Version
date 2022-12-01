@@ -190,7 +190,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:text="펫시터 이름"
+                    android:text="000 수의사"
                     android:textSize="16dp"
                     android:fontFamily="@font/nanum_gothic_bold"
                     android:textColor="#676767"
