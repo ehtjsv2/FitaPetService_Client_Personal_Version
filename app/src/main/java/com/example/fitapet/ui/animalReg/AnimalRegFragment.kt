@@ -119,7 +119,7 @@ class AnimalRegFragment : Fragment() {
         }
         //무게 s버튼
         binding.animalRegSizeS.setOnClickListener {
-            weight = 0
+            weight2 = 0
             binding.animalRegSizeS.isSelected=binding.animalRegSizeS.isSelected!=true
             //binding.animalRegSizeM.isSelected=false
             binding.animalRegSizeL.isSelected=false
@@ -133,7 +133,7 @@ class AnimalRegFragment : Fragment() {
 //        }
         //무게 L버튼
         binding.animalRegSizeL.setOnClickListener {
-            weight = 2
+            weight2 = 1
             binding.animalRegSizeL.isSelected=binding.animalRegSizeL.isSelected!=true
             //binding.animalRegSizeM.isSelected=false
             binding.animalRegSizeS.isSelected=false
@@ -192,18 +192,34 @@ class AnimalRegFragment : Fragment() {
     var boyOrGrl :Int = -1 // 0->boy 1->girl
     var neu :Int = -1 // 0-> 중성화x , 1->중성화  o
     var chip:Int = -1 // 0-> 외장칩 1->내장칩
-    var weight:Int =-1 //0 ->소 1->중 2->대
+    var weight:Int =-1 //0 ->소/중 1->대
     var weight2:Int = -1 // 0-> 소/중 1-> 대
     var name: String? =null
     var breed: String? =null
                      */
+                    if(dogOrCat==0)
+                        breed=binding.animalRegDogBreed.text.toString()
+                    else
+                        breed=binding.animalRegCatBreed.text.toString()
                     animalRegViewModel.dogOrCat=dogOrCat
                     animalRegViewModel.boyOrGrl=boyOrGrl
                     animalRegViewModel.neu=neu
                     animalRegViewModel.chip=chip
                     animalRegViewModel.weight2=weight2
-                    animalRegViewModel.name=name
+                    animalRegViewModel.name=binding.animalRegName.text.toString()
                     animalRegViewModel.breed=breed
+                    var month=binding.animalRegBirthMonth.selectedItem.toString()
+                    var month_string:String
+                    var month_split=month.split("월")
+                    Log.d("TAG11","size = "+month_split.size)
+                    if(month_split[0]=="10" ||month_split[0]=="11"||month_split[0]=="12"){
+                        month_string=month_split[0]
+                    }
+                    else
+                        month_string="0"+month_split[0]
+                    Log.d("TAG11","size = "+month_string)
+                    animalRegViewModel.birth=binding.animalRegBirthYear.selectedItem.toString()+"-"+month_string
+                    animalRegViewModel.age=(2023-binding.animalRegBirthYear.selectedItem.toString().toInt()).toString()
                     val frag =  AnimalRegFragment02()
                     val bundle1=Bundle()
                     val result = bundle1.putInt("chip",chip)

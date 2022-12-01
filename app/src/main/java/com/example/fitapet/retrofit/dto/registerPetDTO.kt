@@ -2,21 +2,21 @@ package com.example.fitapet.retrofit.dto
 
 data class registerPetDTO(
     val pet:Pet,
-    val customerId:String,
+    val customerId:Long?,
     val hospitalName:String,
     val hospitalTel: String,
-    val survey:MutableList<Int>
+    val survey:Array<Int>
 
 )
 
 data class Pet(
-    val petName:String,
+    val petName:String?,
     val petType:String,
-    val petSpecies:String,
-    val petBirth:String,
+    val petSpecies:String?,
+    val petBirth:String?,
     val petSize:String,
     val petSex:String,
-    val petAge:Int,
+    val petAge:String?,
     val profileImg:String,
     val registrationType:String,
     val isNeutralize:String

@@ -63,7 +63,7 @@ class PetListRecyclerFragment : Fragment() {
                 Log.d("TAG11","성공")
                 val targetPets=response.body()!!.result
                 for (pet in targetPets) {
-                    pets.add(Pets(pet.petName, pet.petSpecies, pet.petBirth, pet.petSize))
+                    pets.add(Pets(pet.petName, pet.petSpecies, pet.petBirth, pet.petSize,pet.petType))
                     Log.d("TAG11","번째")
                 }
                 binding.petListRecyclerView.layoutManager=LinearLayoutManager(requireContext())

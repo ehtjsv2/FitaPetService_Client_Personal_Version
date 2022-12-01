@@ -14,7 +14,9 @@ import android.widget.DatePicker
 import android.widget.TimePicker
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentReservation01Binding
+import com.example.fitapet.navfragment.HomeFragment
 import com.example.fitapet.ui.reservation.CustomMinDialog
 import java.text.DecimalFormat
 import java.util.*
@@ -88,11 +90,11 @@ class Reservation01Fragment : Fragment(){
                         price = 21000+(str.toInt()/30)*8000
                     }
                     val t_dec_up = DecimalFormat("#,###")
-                    var money=price+pickup+(SM_dog_count*5000)+(L_dog_count*10000)
-                    if(SM_dog_count+L_dog_count==2){
+                    var money=price+pickup+(SM_dog_count*5000)+(L_dog_count*10000)+(cat_count*5000)
+                    if(SM_dog_count+L_dog_count+ cat_count==2){
                         money=money/100*80
                     }
-                    else if(SM_dog_count+L_dog_count==3)
+                    else if(SM_dog_count+L_dog_count+ cat_count==3)
                     {
                         money=money/100*60
                     }
@@ -141,6 +143,16 @@ class Reservation01Fragment : Fragment(){
                 InputMethodManager.HIDE_NOT_ALWAYS
             )
         }
+        binding.reservation01NextBtn.setOnClickListener {
+            loadFragment(HomeFragment())
+        }
+    }
+    private fun loadFragment(fragment: Fragment){
+        Log.d("clickTest","click!->"+fragment.tag)
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container,fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
     companion object{
         var L_dog_count :Int = 0

@@ -355,6 +355,7 @@
             android:gravity="center"
             android:text="총 금액 : 0 원"/>
         <Button
+            android:id="@+id/reservation01_next_btn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"

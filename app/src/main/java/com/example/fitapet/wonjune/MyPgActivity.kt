@@ -107,6 +107,11 @@ class MyPgActivity : AppCompatActivity() {
 //        }
         petList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         petList.adapter = RecyclerviewAdapter()
+        binding.goEvalutate.setOnClickListener {
+            val intent=Intent(this,ServiceEvaluatePageActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
     inner class RecyclerviewAdapter : RecyclerView.Adapter<RecyclerviewAdapter.ViewHolder>(){
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerviewAdapter.ViewHolder {
@@ -162,5 +167,8 @@ class MyPgActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
         return super.onSupportNavigateUp()
+    }
+    companion object{
+        var isDismiss=0
     }
 }

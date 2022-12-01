@@ -44,6 +44,8 @@ class DogServiceFragment : Fragment() {
 
         var mp = 0
         var wp = 0
+        //dog서비스 map1에 DOG추가
+        map1.put("careType","DOG")
         binding.wPetsitter.setOnClickListener {
             if (wp==0){
                 binding.wPetsitter.setBackgroundResource(R.drawable.blue_side_btn)
@@ -189,7 +191,8 @@ class DogServiceFragment : Fragment() {
                     Log.d("iamhere2", "여기있다2")
                     petsittercards.add(PetsitterCard(petsitter.petSitterProfileImg, petsitter.petSitterName, petsitter.career,
                         petsitter.hasPet_YN, petsitter.sex, petsitter.age, petsitter.selfIntroduction, petsitter.isAgreeToFilm_YN,
-                        petsitter.isAgreeSharingLocation_YN, petsitter.isWalkable_YN, petsitter.isPossibleCareOldPet_YN, petsitter.satisfaction, petsitter.isBookMark))
+                        petsitter.isAgreeSharingLocation_YN, petsitter.isWalkable_YN, petsitter.isPossibleCareOldPet_YN, petsitter.satisfaction, petsitter.isBookMark,
+                        petsitter.veterinarianImgUrl,petsitter.veterinarianName))
                 }
 
                 Log.d("iamhere3", petsittercards.size.toString())

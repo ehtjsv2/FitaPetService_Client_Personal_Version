@@ -27,21 +27,33 @@ class PetListAdapter(val pets: MutableList<Pets>): RecyclerView.Adapter<Recycler
             binding.petListLayout.isSelected=binding.petListLayout.isSelected!=true
             if(binding.petListLayout.isSelected==true){
                 Log.d("TAG11",binding.petListSize.text.toString())
-                if(binding.petListSize.text=="소/중형"){
-                    Reservation01Fragment.SM_dog_count++
+                if(pets[position].petType=="DOG"){
+                    if(binding.petListSize.text=="소/중형"){
+                        Reservation01Fragment.SM_dog_count++
+                    }
+                    else if(binding.petListSize.text=="대형"){
+                        Reservation01Fragment.L_dog_count++
+                    }
                 }
-                else if(binding.petListSize.text=="대형"){
-                    Reservation01Fragment.L_dog_count++
+                else{
+                    Reservation01Fragment.cat_count++
                 }
+
             }
             else{
                 Log.d("TAG11",binding.petListSize.text.toString())
-                if(binding.petListSize.text=="소/중형"){
-                    Reservation01Fragment.SM_dog_count--
+                if(pets[position].petType=="DOG"){
+                    if(binding.petListSize.text=="소/중형"){
+                        Reservation01Fragment.SM_dog_count--
+                    }
+                    else if(binding.petListSize.text=="대형"){
+                        Reservation01Fragment.L_dog_count--
+                    }
                 }
-                else if(binding.petListSize.text=="대형"){
-                    Reservation01Fragment.L_dog_count--
+                else{
+                    Reservation01Fragment.cat_count--
                 }
+
             }
 
         }

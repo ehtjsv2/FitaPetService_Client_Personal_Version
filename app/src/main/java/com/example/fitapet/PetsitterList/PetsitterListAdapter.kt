@@ -39,6 +39,8 @@ class PetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): Recycl
         binding.heartRate.text=petsittercard[position].satisfaction.toString()
         binding.petsitterCareer.text=petsittercard[position].career.toString()+"년"
         binding.petsitterHavePet.text=petsittercard[position].havepet
+        Glide.with(holder.itemView).load(petsittercard[position].doctorimg).into(binding.doctorImg)
+        binding.doctername.text=petsittercard[position].doctorname
         if (petsittercard[position].gender == "F"){
             binding.petsitterGender.text = "여"
         }else{
