@@ -36,7 +36,8 @@ class PetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): Recycl
         Glide.with(holder.itemView).load(strimg).into(binding.petsitterImage)
         binding.petsitterImage.setImageResource(R.drawable.example1)
         binding.petsitterName.text=petsittercard[position].name
-        binding.petsitterCareer.text=petsittercard[position].career+"년"
+        binding.heartRate.text=petsittercard[position].satisfaction.toString()
+        binding.petsitterCareer.text=petsittercard[position].career.toString()+"년"
         binding.petsitterHavePet.text=petsittercard[position].havepet
         if (petsittercard[position].gender == "F"){
             binding.petsitterGender.text = "여"

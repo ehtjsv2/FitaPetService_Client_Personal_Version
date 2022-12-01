@@ -2,7 +2,7 @@ package com.example.fitapet.PetsitterList
 
 data class PetsitterCard(var img: String?,
                          var name: String?,
-                         var career: String?,
+                         var career: Int?,
                          var havepet: String?,
                          var gender: String?,
                          var age: String?,
@@ -11,4 +11,5 @@ data class PetsitterCard(var img: String?,
                         var isAgreeSharingLocation_YN: String?,
                         var isWalkable_YN: String?,
                         var isPossibleCareOldPet_YN: String?,
+                         var satisfaction: Int?,
                         var isBookMark: String?)

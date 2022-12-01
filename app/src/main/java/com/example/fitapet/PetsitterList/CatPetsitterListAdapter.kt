@@ -32,7 +32,8 @@ class CatPetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): Rec
         val binding = (holder as CatPetsitterListAdapter.MyViewHolder).binding
         binding.petsitterImage.setImageResource(R.drawable.example1)
         binding.petsitterName.text=petsittercard[position].name
-        binding.petsitterCareer.text=petsittercard[position].career
+        binding.heartRate.text=petsittercard[position].satisfaction.toString()
+        binding.petsitterCareer.text=petsittercard[position].career.toString()+"년"
         binding.petsitterHavePet.text=petsittercard[position].havepet
         binding.petsitterGender.text=petsittercard[position].gender
         binding.petsitterAge.text=petsittercard[position].age

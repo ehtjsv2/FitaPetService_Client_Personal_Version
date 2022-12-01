@@ -18,6 +18,7 @@ import com.example.fitapet.retrofit.RetrofitClient
 import com.example.fitapet.retrofit.dto.ReviewDTO
 import com.example.fitapet.retrofit.dto.getAddr
 import com.example.fitapet.retrofit.dto.getStatus
+import com.example.fitapet.wonjune.WarnDialog
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -94,10 +95,13 @@ class HomeFragment : Fragment() {
                     if (now.status == "COMPLETED"){
                         loadFragment(DogServiceFragment())
                     }else{
-                        var dialog = AlertDialog.Builder(requireContext())
+                        val dialog = WarnDialog()
+                        dialog.isCancelable=false
+                        dialog.show(activity?.supportFragmentManager!!, "WarnDialog")
+                        /*var dialog = AlertDialog.Builder(requireContext())
                         dialog.setTitle("알림")
                         dialog.setMessage("돌봄 서비스 진행을 위해서는 펫 등록을 먼저 진행해주세요")
-                        dialog.show()
+                        dialog.show()*/
                     }
                 }
 
@@ -115,10 +119,13 @@ class HomeFragment : Fragment() {
                     if (now.status == "COMPLETED"){
                         loadFragment(CatServiceFragment())
                     }else{
-                        var dialog = AlertDialog.Builder(requireContext())
+                        val dialog = WarnDialog()
+                        dialog.isCancelable=false
+                        dialog.show(activity?.supportFragmentManager!!, "WarnDialog")
+                        /*var dialog = AlertDialog.Builder(requireContext())
                         dialog.setTitle("알림")
                         dialog.setMessage("돌봄 서비스 진행을 위해서는 펫 등록을 먼저 진행해주세요")
-                        dialog.show()
+                        dialog.show()*/
                     }
                 }
 
@@ -140,10 +147,13 @@ class HomeFragment : Fragment() {
                     if (now.status == "COMPLETED"){
                         loadFragment(TogetherServiceFragment())
                     }else{
-                        var dialog = AlertDialog.Builder(requireContext())
+                        val dialog = WarnDialog()
+                        dialog.isCancelable=false
+                        dialog.show(activity?.supportFragmentManager!!, "WarnDialog")
+                        /*var dialog = AlertDialog.Builder(requireContext())
                         dialog.setTitle("알림")
                         dialog.setMessage("돌봄 서비스 진행을 위해서는 펫 등록을 먼저 진행해주세요")
-                        dialog.show()
+                        dialog.show()*/
                     }
                 }
 

@@ -82,7 +82,7 @@
 
                     </GridLayout>
 
-                    <Button
+                    <ImageButton
                         android:id="@+id/edit_prof"
                         android:layout_width="40dp"
                         android:layout_height="40dp"

@@ -48,7 +48,6 @@ class MypageFragment : Fragment() {
         petList = binding.petList
         petSitter = binding.petSitterList
         Log.d("idHERE1", Cookie.userId.toString())
-
         RetrofitClient.apiServer.getSimple(Cookie.userId).enqueue(object: Callback<getUser>{
             override fun onResponse(call: Call<getUser>, response: Response<getUser>) {
                 val responseResult=response.body()!!.result
@@ -86,6 +85,7 @@ class MypageFragment : Fragment() {
             loadFragment(AnimalRegFragment())
         }
 
+        //북마크 리스트 받아오는 것
         /*
         RetrofitClient.apiServer.getBmark(4).enqueue(object: Callback<getBmark>{
             override fun onResponse(call: Call<getBmark>, response: Response<getBmark>) {
@@ -110,6 +110,10 @@ class MypageFragment : Fragment() {
         petList.adapter = RecyclerviewAdapter()
         binding.editProf.setOnClickListener {
             loadFragment(ProfileEditFragment())
+        }
+
+        binding.animalReg.setOnClickListener {
+            loadFragment(AnimalRegFragment())
         }
 
         return binding.root

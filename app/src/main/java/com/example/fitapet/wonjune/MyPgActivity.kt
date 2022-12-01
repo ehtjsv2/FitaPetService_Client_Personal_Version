@@ -64,7 +64,7 @@ class MyPgActivity : AppCompatActivity() {
                 ServiceEvaluatePageActivity.serviceId=responseResult.serviceId
                 binding.txtView1.text=responseResult.petSitterName+" 펫시터"
                 binding.txtView3.text=responseResult.planStartTime
-                binding.txtView5.text=responseResult.planStartTime
+                binding.txtView5.text=responseResult.planEndTime
                 binding.editRequest.text=responseResult.customerRequestContent
                 guardianName = responseResult.customerName
                 parray = responseResult.pets as MutableList<ingPets>

@@ -10,7 +10,7 @@ data class searchPsitter(
 data class Petsitter(
     val petSitterProfileImg: String,
     val petSitterName: String,
-    val career: String,
+    val career: Int,
     val hasPet_YN: String,
     val sex: String,
     val age: String,
@@ -19,5 +19,6 @@ data class Petsitter(
     val isAgreeSharingLocation_YN: String,
     val isWalkable_YN: String,
     val isPossibleCareOldPet_YN: String,
+    val satisfaction: Int,
     val isBookMark: String
 )
