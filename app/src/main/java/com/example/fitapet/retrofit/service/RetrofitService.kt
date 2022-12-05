@@ -90,11 +90,13 @@ interface RetrofitService {
         @Body registerPet: registerPetDTO
     ): Call<registerPetDtoNoResult>
 
+
+    @FormUrlEncoded
     @POST("customer/{customerId}/friend")
     fun addFriend(
         @Path("customerId")customerId: Long?,
-        @Body friendEmail: addFriendDTO
-    )
+        @Field("friendEmail")friendEmail: String
+    ) : Call<addFriendDtoNoResult>
 
     @GET("customers/{customerId}/diagnose")
     fun getDiagnosis(
