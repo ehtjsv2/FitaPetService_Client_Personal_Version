@@ -2,10 +2,12 @@ package com.example.fitapet.wonjune
 
 import android.app.Activity
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.Window
+import androidx.core.content.ContextCompat.startActivity
 import com.example.fitapet.MainActivity
 import com.example.fitapet.databinding.MakeReviewDialogBinding
 import com.example.fitapet.retrofit.RetrofitClient
@@ -48,11 +50,19 @@ class CustomReviewDialog(var activity: Activity,val serviceId:Long?, val custome
 
             })
             dismiss()
+            val intent = Intent(activity, MainActivity::class.java)
+            //val intent = Intent(this, LoginActivity::class.java)
+            activity.startActivity(intent)
+            activity.finish()
 
         }
         // 무시하기 버튼클릭시
         binding.ignoreBtn.setOnClickListener {
             dismiss()
+            val intent = Intent(activity, MainActivity::class.java)
+            //val intent = Intent(this, LoginActivity::class.java)
+            activity.startActivity(intent)
+            activity.finish()
         }
         setContentView(binding.root)
 

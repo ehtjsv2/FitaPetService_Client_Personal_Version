@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitapet.Cookie
 import com.example.fitapet.PetsitterList.TogetherServiceDetail.ChooseFriendAdapter
@@ -25,7 +26,7 @@ class ChooseFriendFragment : Fragment() {
     private var _binding: FragmentChooseFriendBinding? = null
     private val binding get() = _binding!!
     val friendcards= mutableListOf<FriendCard>()
-    val chooseFriendAdapter= ChooseFriendAdapter(friendcards)
+    var chooseFriendAdapter= ChooseFriendAdapter(friendcards)
     val bundle = Bundle()
     var cnt:Int=0
     lateinit var friend:Friend
@@ -36,6 +37,14 @@ class ChooseFriendFragment : Fragment() {
     val passFriendId= mutableListOf<Long>()
     override fun onCreate(savedInstanceState: Bundle?) {
 
+        friendIdCom1=0
+        friendIdCom2=0
+        friendName1=null
+        friendName2=null
+        friendImageUrl1=null
+        friendImageUrl2=null
+        mode=0
+        ChooseFriendFragment.cnt= 0
         super.onCreate(savedInstanceState)
     }
     override fun onCreateView(
@@ -43,6 +52,8 @@ class ChooseFriendFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        chooseFriendAdapter= ChooseFriendAdapter(friendcards)
+
         Companion.mode=1
         _binding = FragmentChooseFriendBinding.inflate(inflater,container,false)
 //        var actionBar = (activity as MainActivity?)!!.supportActionBar
@@ -87,7 +98,7 @@ class ChooseFriendFragment : Fragment() {
 
         chooseFriendAdapter.setItemClickListener(object : ChooseFriendAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
-                if(cnt==0){
+                if(ChooseFriendFragment.cnt==0){
                     Companion.friendIdCom1=friendId.get(position)
                     Companion.friendName1=friendName.get(position)
                     Companion.friendImageUrl1=friendImageUrl.get(position)
@@ -95,11 +106,16 @@ class ChooseFriendFragment : Fragment() {
                     cnt++
                 }
                 else {
-                    Companion.friendIdCom2 = friendId.get(position)
-                    Companion.friendName2=friendName.get(position)
-                    Companion.friendImageUrl2=friendImageUrl.get(position)
-                    Log.d("TAG11", "저장: "+ friendName1+"실제:"+friendName.get(position))
+                    if(ChooseFriendFragment.cnt>=2){
+                        Toast.makeText(requireActivity(),"친구는 2명까지 가능합니다.", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Companion.friendIdCom2 = friendId.get(position)
+                        Companion.friendName2=friendName.get(position)
+                        Companion.friendImageUrl2=friendImageUrl.get(position)
+                        Log.d("TAG11", "저장: "+ friendName1+"실제:"+friendName.get(position))
+                    }
                 }
+
                 //bundle.putLong("f${cnt++}",friendId.get(position))
                 Log.d("TAG11","f"+"${cnt-1}"+", id = "+friendId.get(position))
                 Log.d("TAG11","bundle get = "+bundle.getLong("f0"))
@@ -108,9 +124,13 @@ class ChooseFriendFragment : Fragment() {
         })
 
         binding.goNextPage.setOnClickListener {
-
-            Log.d("TAG11",""+bundle.getInt("mode",0))
-            loadFragment(passPetListRecyclerFragment)
+            if(ChooseFriendFragment.cnt==0){
+                Toast.makeText(requireActivity(),"친구는 한명이상 선택해야합니다.", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                Log.d("TAG11", "" + bundle.getInt("mode", 0))
+                loadFragment(passPetListRecyclerFragment)
+            }
         }
 
         return binding.root
@@ -135,6 +155,7 @@ class ChooseFriendFragment : Fragment() {
         var friendImageUrl1:String?=null
         var friendImageUrl2:String?=null
         var mode:Int=0
+        var cnt:Int = 0
     }
 }
 

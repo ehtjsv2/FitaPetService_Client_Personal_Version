@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.fitapet.R
@@ -15,6 +16,9 @@ class ChooseFriendAdapter(val friendcard:MutableList<FriendCard>): RecyclerView.
 
     }
 
+    override fun onViewRecycled(holder: RecyclerView.ViewHolder) {
+        super.onViewRecycled(holder)
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return MyViewHolder(
             ChooseFriendListBinding.inflate(
@@ -34,7 +38,23 @@ class ChooseFriendAdapter(val friendcard:MutableList<FriendCard>): RecyclerView.
             Log.d("Check","clickb!")
             itemClickListener.onClick(it, position)
             Log.d("Check","clickc!")
-            binding.chooseFriendGrid.isSelected=binding.chooseFriendGrid.isSelected!=true
+            if(ChooseFriendFragment.cnt<2){
+                if(binding.chooseFriendGrid.isSelected==true){
+                    binding.chooseFriendGrid.isSelected=false
+                    ChooseFriendFragment.cnt--
+                }
+                else{
+                    binding.chooseFriendGrid.isSelected=true
+                    ChooseFriendFragment.cnt++
+                }
+            }
+            else{
+                if(binding.chooseFriendGrid.isSelected==true){
+                    binding.chooseFriendGrid.isSelected=false
+                    ChooseFriendFragment.cnt--
+                }
+            }
+           // binding.chooseFriendGrid.isSelected=binding.chooseFriendGrid.isSelected!=true
 
             Log.d("Check","clickd!")
         }

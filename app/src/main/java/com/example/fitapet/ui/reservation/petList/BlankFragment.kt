@@ -70,7 +70,12 @@ class BlankFragment : Fragment() {
         })
         binding.petListRecyclerView2.layoutManager= LinearLayoutManager(requireContext())
         binding.reservation00NextBtn.setOnClickListener {
-            loadFragment(BlankFragment2())
+            if(ChooseFriendFragment.cnt==2){
+                loadFragment(BlankFragment2())
+            }
+            else{
+                loadFragment(Reservation01Fragment())
+            }
         }
         //loadFragment(PetListRecyclerFragment())
         petListAdapter.setItemClickListener(object :PetListAdapter2.OnItemClickListener{

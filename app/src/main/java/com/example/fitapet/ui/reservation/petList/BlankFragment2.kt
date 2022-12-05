@@ -45,7 +45,7 @@ class BlankFragment2 : Fragment() {
 
         responseGetPets= RetrofitClient.apiServer.getPets(ChooseFriendFragment.friendIdCom2)
         binding.textView8.text=ChooseFriendFragment.friendName2+"님의 반려동물 정보"
-        Glide.with(Activity()).load(ChooseFriendFragment.friendImageUrl2).into(binding.FriendImage)
+//        Glide.with(Activity()).load(ChooseFriendFragment.friendImageUrl2).into(binding.FriendImage)
         responseGetPets.enqueue(object : Callback<getPets> {
             override fun onResponse(
                 call: Call<getPets>,

@@ -1,5 +1,6 @@
 package com.example.fitapet.wonjune
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Point
 import android.graphics.drawable.ColorDrawable
@@ -9,6 +10,7 @@ import android.util.Log
 import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import com.example.fitapet.Cookie
+import com.example.fitapet.MainActivity
 import com.example.fitapet.R
 import com.example.fitapet.databinding.ActivityServiceEvaluatePageBinding
 
@@ -29,16 +31,17 @@ class ServiceEvaluatePageActivity : AppCompatActivity() {
             dlg.setCancelable(false)
             dlg.show()
             dlg.window?.setLayout(1000, WindowManager.LayoutParams.WRAP_CONTENT)
-
         }
         binding.bad.setOnClickListener {
             val dlg= CustomReviewDialog(this,1, Cookie.userId,"N")
             dlg.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
             dlg.setCancelable(false)
             dlg.show()
+            dlg.window?.setLayout(1000, WindowManager.LayoutParams.WRAP_CONTENT)
         }
         setContentView(binding.root)
     }
+
     companion object{
         var serviceId:Long=0
     }
