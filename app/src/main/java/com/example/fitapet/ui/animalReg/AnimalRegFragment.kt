@@ -23,6 +23,7 @@ import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.bumptech.glide.Glide
 import com.example.fitapet.MainActivity
 import com.example.fitapet.R
 import com.example.fitapet.databinding.FragmentAnimalRegBinding
@@ -301,6 +302,9 @@ class AnimalRegFragment : Fragment() {
                         var upimgstr = response.body()!!.uploadedImg
                         upimgstr = "http://118.45.212.21:8000/pets" + upimgstr
                         animalRegViewModel.ImgUrl=upimgstr
+                        Glide.with(this@AnimalRegFragment).load(upimgstr).into(binding.animalRegImgBtn01)
+                        binding.animalRegImgBtn02.visibility = View.INVISIBLE
+                        binding.animaltxt.visibility = View.INVISIBLE
                         Log.d("wonlog2", "여기들어옴2")
                         //imgstr = upfile!!.uploadedImg
                         Log.d("TEST3", upimgstr)
