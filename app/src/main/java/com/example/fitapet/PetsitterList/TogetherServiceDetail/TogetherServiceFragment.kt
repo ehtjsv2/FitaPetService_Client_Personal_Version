@@ -35,6 +35,7 @@ class TogetherServiceFragment : Fragment() {
 
         //petsittercards.add(PetsitterCard("R.drawable.example1","김도선","10년이상","반려동물 있음","남","25","안녕하세요"))
         //petsittercards.add(PetsitterCard("R.drawable.example1","정민욱","10년이상","반려동물 있음","남","25","안녕하세요"))
+        map1.put("careType", "BOTH")
 
         var mp = 0
         var wp = 0
@@ -171,7 +172,8 @@ class TogetherServiceFragment : Fragment() {
                     Log.d("iamhere2", "여기있다2")
                     petsittercards.add(PetsitterCard(petsitter.petSitterProfileImg, petsitter.petSitterName, petsitter.career,
                         petsitter.hasPet_YN, petsitter.sex, petsitter.age.toString(), petsitter.selfIntroduction, petsitter.isAgreeToFilm_YN,
-                        petsitter.isAgreeSharingLocation_YN, petsitter.isWalkable_YN, petsitter.isPossibleCareOldPet_YN, petsitter.satisfaction, petsitter.isBookMark))
+                        petsitter.isAgreeSharingLocation_YN, petsitter.isWalkable_YN, petsitter.isPossibleCareOldPet_YN, petsitter.satisfaction,
+                        petsitter.veterinarianName, petsitter.veterinarianImgUrl, petsitter.isBookMark))
                 }
 
                 Log.d("iamhere3", petsittercards.size.toString())

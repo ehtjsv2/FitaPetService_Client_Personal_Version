@@ -9,9 +9,10 @@ data class getBmark(
 
 data class Bookmark(
     val petSitterId: Int,
+    val petSitterProfileImg: String,
     val petSitterName: String,
     val sex: String,
-    val age: Int,
+    val age: String,
     val careType: String,
     val isAgreeSharingLocation_YN: String,
     val isAgreeToFilm_YN: String,

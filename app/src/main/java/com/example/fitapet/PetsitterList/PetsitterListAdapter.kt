@@ -34,17 +34,21 @@ class PetsitterListAdapter(val petsittercard:MutableList<PetsitterCard>): Recycl
         val binding = (holder as PetsitterListAdapter.MyViewHolder).binding
         var strimg = petsittercard[position].img
         Glide.with(holder.itemView).load(strimg).into(binding.petsitterImage)
-        binding.petsitterImage.setImageResource(R.drawable.example1)
+        //binding.petsitterImage.setImageResource(R.drawable.example1)
         binding.petsitterName.text=petsittercard[position].name
         binding.heartRate.text=petsittercard[position].satisfaction.toString()
         binding.petsitterCareer.text=petsittercard[position].career.toString()+"년"
         binding.petsitterHavePet.text=petsittercard[position].havepet
-        if (petsittercard[position].gender == "F"){
+        binding.petsitterGender.text=petsittercard[position].gender
+        /*if (petsittercard[position].gender == "F"){
             binding.petsitterGender.text = "여"
         }else{
             binding.petsitterGender.text = "남"
-        }
+        }*/
         binding.petsitterAge.text=petsittercard[position].age+"세"
+        var strimg2 = petsittercard[position].doctorImg
+        Glide.with(holder.itemView).load(strimg2).into(binding.doctorImg)
+        binding.doctername.text=petsittercard[position].doctorName+" 수의사"
         binding.PetsitterText.text=petsittercard[position].petsitterText
         if (petsittercard[position].isAgreeToFilm_YN == "Y"){
             binding.camera.text = "촬영 동의"

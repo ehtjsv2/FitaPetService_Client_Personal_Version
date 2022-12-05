@@ -279,6 +279,7 @@ class AnimalRegFragment : Fragment() {
                     ) {
                         Log.d("wonlog", "여기들어옴")
                         var upimgstr = response.body()!!.uploadedImg
+                        upimgstr = "http://118.45.212.21:8000/pets" + upimgstr
                         Log.d("wonlog2", "여기들어옴2")
                         //imgstr = upfile!!.uploadedImg
                         Log.d("TEST3", upimgstr)
