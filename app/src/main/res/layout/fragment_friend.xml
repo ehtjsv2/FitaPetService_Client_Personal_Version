@@ -5,16 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_gravity="center"
-    android:gravity="center"
     tools:context=".navfragment.FriendFragment"
     android:id="@+id/friend">
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/friendRecyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="9"/>
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/solid_button"
+        android:layout_marginBottom="10dp"
+        android:text="친구추가+"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:fontFamily="@font/nanum_gothic"
+        android:textSize="14dp"
+        android:id="@+id/addFriend" />
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/animal_reg_next_btn"
         android:layout_width="wrap_content"
