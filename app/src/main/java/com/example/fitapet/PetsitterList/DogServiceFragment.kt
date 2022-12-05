@@ -41,6 +41,7 @@ class DogServiceFragment : Fragment() {
         //map1.put("sex", "M")
         //map1.put("isWalkable_YN", "Y")
         Log.d("iamhere", Cookie.userId.toString())
+        map1.put("careType", "DOG")
 
         var mp = 0
         var wp = 0
@@ -191,8 +192,8 @@ class DogServiceFragment : Fragment() {
                     Log.d("iamhere2", "여기있다2")
                     petsittercards.add(PetsitterCard(petsitter.petSitterProfileImg, petsitter.petSitterName, petsitter.career,
                         petsitter.hasPet_YN, petsitter.sex, petsitter.age, petsitter.selfIntroduction, petsitter.isAgreeToFilm_YN,
-                        petsitter.isAgreeSharingLocation_YN, petsitter.isWalkable_YN, petsitter.isPossibleCareOldPet_YN, petsitter.satisfaction, petsitter.isBookMark,
-                        petsitter.veterinarianImgUrl,petsitter.veterinarianName))
+                        petsitter.isAgreeSharingLocation_YN, petsitter.isWalkable_YN, petsitter.isPossibleCareOldPet_YN, petsitter.satisfaction,
+                        petsitter.veterinarianName, petsitter.veterinarianImgUrl, petsitter.isBookMark))
                 }
 
                 Log.d("iamhere3", petsittercards.size.toString())

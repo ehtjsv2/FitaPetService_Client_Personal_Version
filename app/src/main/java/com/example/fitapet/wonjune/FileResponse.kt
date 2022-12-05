@@ -10,10 +10,10 @@ data class FileResponse(
 )
 
 data class ImgResponse(
-    var id : Int,
+    //var id : Int,
     var title : String,
     var uploadedImg : String,
-    var dateTimeOfUpload : String,
+    //var dateTimeOfUpload : String,
 )
 
 /*

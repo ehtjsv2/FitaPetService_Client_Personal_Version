@@ -22,14 +22,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_close"
             android:layout_width="85dp"
             android:layout_height="80dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/circle_button"
             app:backgroundTint="#F44336"
-            app:icon="@drawable/ic_baseline_call_end"
+            android:src="@drawable/ic_baseline_call_end"
             app:iconGravity="textStart"
             app:iconPadding="1dp"
             app:iconSize="45dp"

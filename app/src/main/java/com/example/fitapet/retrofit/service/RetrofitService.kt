@@ -95,6 +95,12 @@ interface RetrofitService {
         @Path("customerId")customerId: Long?,
         @Body friendEmail: addFriendDTO
     )
+
+    @GET("customers/{customerId}/diagnose")
+    fun getDiagnosis(
+        @Path("customerId") customerId: Long?
+    ) : Call<getDiagnosis>
+
 //    @GET("customer/{customerId}/pets")
 //    fun getPets(@Path("customerId")customerId: Long?):Call<getPets>
 

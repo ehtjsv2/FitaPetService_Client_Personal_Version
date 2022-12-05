@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fitapet.Cookie
 import com.example.fitapet.PetsitterList.*
 import com.example.fitapet.PetsitterList.TogetherServiceDetail.TogetherServiceFragment
 import com.example.fitapet.R
@@ -55,7 +56,7 @@ class HomeFragment : Fragment() {
             }
         })
 
-        RetrofitClient.apiServer.getAddr(4).enqueue(object: Callback<getAddr>{
+        RetrofitClient.apiServer.getAddr(Cookie.userId).enqueue(object: Callback<getAddr>{
             override fun onResponse(call: Call<getAddr>, response: Response<getAddr>) {
                 val txtAddress = response.body()!!.result
                 if (txtAddress.address == null){
@@ -89,7 +90,7 @@ class HomeFragment : Fragment() {
         })
 
         binding.dogServices.setOnClickListener {
-            RetrofitClient.apiServer.getStatus(4).enqueue(object: Callback<getStatus>{
+            RetrofitClient.apiServer.getStatus(Cookie.userId).enqueue(object: Callback<getStatus>{
                 override fun onResponse(call: Call<getStatus>, response: Response<getStatus>) {
                     val now = response.body()!!.result
                     if (now.status == "COMPLETED"){
@@ -113,7 +114,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.catServices.setOnClickListener {
-            RetrofitClient.apiServer.getStatus(4).enqueue(object: Callback<getStatus>{
+            RetrofitClient.apiServer.getStatus(Cookie.userId).enqueue(object: Callback<getStatus>{
                 override fun onResponse(call: Call<getStatus>, response: Response<getStatus>) {
                     val now = response.body()!!.result
                     if (now.status == "COMPLETED"){
@@ -141,7 +142,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.togetherServices.setOnClickListener {
-            RetrofitClient.apiServer.getStatus(4).enqueue(object: Callback<getStatus>{
+            RetrofitClient.apiServer.getStatus(Cookie.userId).enqueue(object: Callback<getStatus>{
                 override fun onResponse(call: Call<getStatus>, response: Response<getStatus>) {
                     val now = response.body()!!.result
                     if (now.status == "COMPLETED"){

@@ -37,15 +37,19 @@ class TogetherServiceAdapter(val petsittercard:MutableList<PetsitterCard>): Recy
         binding.heartRate.text=petsittercard[position].satisfaction.toString()
         binding.petsitterCareer.text=petsittercard[position].career.toString()+"년"
         binding.petsitterHavePet.text=petsittercard[position].havepet
-        if (petsittercard[position].gender == "F"){
+        binding.petsitterGender.text=petsittercard[position].gender
+        /*if (petsittercard[position].gender == "F"){
             binding.petsitterGender.text = "여"
         }else{
             binding.petsitterGender.text = "남"
-        }
+        }*/
         binding.petsitterAge.text=petsittercard[position].age+"세"
+        var strimg2 = petsittercard[position].doctorImg
+        Glide.with(holder.itemView).load(strimg2).into(binding.doctorImg)
+        binding.doctername.text=petsittercard[position].doctorName+" 수의사"
         binding.PetsitterText.text=petsittercard[position].petsitterText
-        Glide.with(holder.itemView).load(petsittercard[position].doctorimg).into(binding.doctorImg)
-        binding.doctername.text=petsittercard[position].doctorname
+        Glide.with(holder.itemView).load(petsittercard[position].doctorImg).into(binding.doctorImg)
+        binding.doctername.text=petsittercard[position].doctorName
         if (petsittercard[position].isAgreeToFilm_YN == "Y"){
             binding.camera.text = "촬영 동의"
         }else{

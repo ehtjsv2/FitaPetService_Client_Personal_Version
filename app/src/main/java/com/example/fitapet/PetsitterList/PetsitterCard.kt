@@ -12,6 +12,6 @@ data class PetsitterCard(var img: String?,
                         var isWalkable_YN: String?,
                         var isPossibleCareOldPet_YN: String?,
                          var satisfaction: Int?,
-                        var isBookMark: String?,
-                        var doctorimg:String?,
-                        var doctorname:String?)
+                         var doctorName: String?,
+                         var doctorImg: String?,
+                        var isBookMark: String?)
