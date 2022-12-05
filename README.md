@@ -13,7 +13,7 @@
 
 ## 1. 결과물
 * [결과물 영상](http://www.youtube.com)
-* [논문](http://www.naver.com)
+* [논문-반려동물 돌봄을 위한 모바일 앱 설계 및 구현](https://drive.google.com/file/d/1-82abDwJyis3jtroUbrBEg2vxQerXupk/view?usp=sharing)
 
 ## 2. 백 엔드
 * 코드->([서버-1](https://github.com/KNUCapstoneDesignProject/petSitterService_mainServer) [서버-2](https://github.com/KNUCapstoneDesignProject/FitaPetService_subServer) )
