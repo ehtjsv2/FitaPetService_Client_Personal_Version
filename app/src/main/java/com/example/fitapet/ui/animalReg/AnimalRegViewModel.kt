@@ -19,5 +19,6 @@ class AnimalRegViewModel: ViewModel() {
     var breed: String? =null//sepcies
     var birth: String? =null
     var age: String?=null
+    var ImgUrl:String?=null
     val text: LiveData<String> = _text
 }

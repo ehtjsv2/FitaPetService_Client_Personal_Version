@@ -296,6 +296,7 @@ class AnimalRegFragment : Fragment() {
                         Log.d("wonlog", "여기들어옴")
                         var upimgstr = response.body()!!.uploadedImg
                         upimgstr = "http://118.45.212.21:8000/pets" + upimgstr
+                        animalRegViewModel.ImgUrl=upimgstr
                         Log.d("wonlog2", "여기들어옴2")
                         //imgstr = upfile!!.uploadedImg
                         Log.d("TEST3", upimgstr)
@@ -317,6 +318,7 @@ class AnimalRegFragment : Fragment() {
 
     fun getabsolutelyPath(path: Uri): String{
         var proj: Array<String> = arrayOf(MediaStore.Images.Media.DATA)
+        Log.d("TAG11","uri = "+path)
         var c: Cursor? = context?.contentResolver?.query(path, proj, null, null, null)
         var index = c!!.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
         c!!.moveToFirst()

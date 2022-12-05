@@ -113,7 +113,8 @@ class AnimalRegFragment02 : Fragment(),View.OnClickListener {
         }
         //등록 클릭시
         binding.animalRegNextBtn.setOnClickListener {
-            val pet=Pet(name,type,species,birth,size,sex,age,"http://www.ikunkang.com/news/photo/202009/32320_21987_1540.jpg",chip,neu)
+            val imgUrl=animalRegViewModel.ImgUrl
+            val pet=Pet(name,type,species,birth,size,sex,age,imgUrl,chip,neu)
             Log.d("TAG11","${pet},${Cookie.userId},${binding.animalRegHosName.text.toString()},${binding.animalRegHosTel.text.toString()},${survey}")
             val registerpet=registerPetDTO(pet,Cookie.userId,binding.animalRegHosName.text.toString(),binding.animalRegHosTel.text.toString(),survey)
             responseRegisterPet=RetrofitClient.apiServer.registerPet(Cookie.userId,registerpet)

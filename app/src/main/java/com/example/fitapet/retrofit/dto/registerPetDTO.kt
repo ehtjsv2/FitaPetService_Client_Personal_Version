@@ -17,7 +17,7 @@ data class Pet(
     val petSize:String,
     val petSex:String,
     val petAge:String?,
-    val profileImg:String,
+    val profileImg:String?,
     val registrationType:String,
     val isNeutralize:String
 )
