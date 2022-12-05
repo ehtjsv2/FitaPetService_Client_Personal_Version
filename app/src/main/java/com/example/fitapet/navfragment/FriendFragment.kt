@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.fitapet.MainActivity
@@ -33,6 +34,9 @@ class FriendFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val actionBar = (activity as AppCompatActivity?)!!.supportActionBar
+        actionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_add_white)
+        actionBar?.setTitle("친구목록")
         _binding = FragmentFriendBinding.inflate(inflater,container,false)
 //        var actionBar = (activity as MainActivity?)!!.supportActionBar
 //        actionBar?.setTitle("친구 목록")

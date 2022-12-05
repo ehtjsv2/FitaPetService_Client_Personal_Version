@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitapet.PetsitterList.*
@@ -34,6 +35,10 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val actionBar = (activity as AppCompatActivity?)!!.supportActionBar
+        actionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_home_24)
+
+        actionBar?.setTitle("FitaPet")
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater,container,false)
         val responseGetReviews= RetrofitClient.apiServer.getRevies()
