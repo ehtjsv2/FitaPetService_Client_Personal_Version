@@ -31,7 +31,7 @@
 
 ## 5. 자료 조사
 * [시장 조사](/Meeting_content/221013%20회의(시장조사).md)
-* [벤치 마킹]()
+* [벤치 마킹](/Meeting_content/221015%20회의(벤치마킹).md)
 
 ## 6. REFERENCE
 * 안드로이드 디벨로퍼 https://developer.android.com/?hl=ko
