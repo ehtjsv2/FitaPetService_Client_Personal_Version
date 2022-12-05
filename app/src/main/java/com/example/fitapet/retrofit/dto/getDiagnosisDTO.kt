@@ -10,5 +10,7 @@ data class getDiagnosis (
 data class DocReview (
     val veterinarianName: String,
     val veterinarianImgUrl: String,
-    val diagnose: String
+    val diagnose: String,
+    val hospitalName: String,
+    val hospitalTel: String
 )

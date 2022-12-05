@@ -258,6 +258,8 @@ class MypageFragment : Fragment() {
             Glide.with(this@MypageFragment).load(strimg).into(holder.doctorImg)
             holder.doctorName.text = docReview[position].veterinarianName
             holder.reviewtxt.text = docReview[position].diagnose
+            holder.hospital.text = docReview[position].hospitalName
+            holder.phNum.text = docReview[position].hospitalTel
         }
 
         override fun getItemCount(): Int {
