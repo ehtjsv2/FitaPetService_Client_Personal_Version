@@ -70,6 +70,10 @@ class AnimalRegFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val actionBar = (activity as AppCompatActivity?)!!.supportActionBar
+        //actionBar?.setDisplayHomeAsUpEnabled(true) // 액션바 왼쪽에 버튼 만들기(defalut:뒤로가기버튼)
+        //actionBar?.setHomeAsUpIndicator(R.drawable.ic_home_black_24dp)
+        actionBar?.setTitle("예약하기")
 
 
         _binding = FragmentAnimalRegBinding.inflate(inflater, container, false)

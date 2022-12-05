@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.fitapet.MainActivity
@@ -33,11 +34,15 @@ class FriendFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val actionBar = (activity as AppCompatActivity?)!!.supportActionBar
+        //actionBar?.setDisplayHomeAsUpEnabled(true) // 액션바 왼쪽에 버튼 만들기(defalut:뒤로가기버튼)
+        //actionBar?.setHomeAsUpIndicator(R.drawable.ic_home_black_24dp)
+        actionBar?.setTitle("친구목록")
         _binding = FragmentFriendBinding.inflate(inflater,container,false)
 //        var actionBar = (activity as MainActivity?)!!.supportActionBar
 //        actionBar?.setTitle("친구 목록")
         //actionBar?.setCustomView(R.id.menu_friend)
-
+            
 //        binding.petListRecyclerView.layoutManager=LinearLayoutManager(requireContext())
 //        binding.petListRecyclerView.adapter= PetListAdapter(pets)
         val responseGetFriends= RetrofitClient.apiServer.getFriends(Cookie.userId)
