@@ -43,10 +43,12 @@ class MypageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val actionBar = (activity as AppCompatActivity?)!!.supportActionBar
-        actionBar?.setDisplayHomeAsUpEnabled(true) // 액션바 왼쪽에 버튼 만들기(defalut:뒤로가기버튼)
+        //actionBar?.setDisplayHomeAsUpEnabled(true) // 액션바 왼쪽에 버튼 만들기(defalut:뒤로가기버튼)
         //actionBar?.setHomeAsUpIndicator(R.drawable.ic_home_black_24dp)
         actionBar?.setTitle("마이페이지")
+
         _binding = FragmentMypageBinding.inflate(inflater,container,false)
         petList = binding.petList
         petSitter = binding.petSitterList
